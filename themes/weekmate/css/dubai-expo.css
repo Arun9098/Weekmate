@@ -1,0 +1,2283 @@
+/* ===== Base typeface =====
+   Figma specs every text node in Manrope; nothing in this file was
+   setting font-family before, so everything was silently rendering in
+   the theme's default typeface regardless of correct sizes/colors. */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+.dubai-expo-page {
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+}
+
+.dubai-expo-page h1,
+.dubai-expo-page h2,
+.dubai-expo-page h3,
+.dubai-expo-page p {
+    margin: 0;
+    font-family: inherit;
+}
+
+.page-template-page-dubai-expo {
+    padding: 0;
+}
+
+/* ===== Shared ===== */
+.dubai-expo-page .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.dubai-expo-page .dubai-hero-section .container {
+    position: relative;
+    height: 100%;
+}
+
+.dubai-expo-page .de-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+    padding: 0 20px;
+    border-radius: 49px;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dubai-expo-page .de-btn--light {
+    background: #fff;
+    color: #005383;
+    transition: all .3s ease-in-out;
+}
+
+.dubai-expo-page .de-btn--light:hover {
+    background: #00bdf2;
+    border-color: #00bdf2;
+    color: #fff;
+    transition: all .3s ease-in-out;
+
+}
+
+.dubai-expo-page .de-btn--block {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #1487cf;
+    color: #fff;
+    margin-top: 18px;
+}
+
+.dubai-expo-page .de-section-heading {
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #000;
+}
+
+.dubai-expo-page .de-section-heading--light {
+    color: #ffffff;
+}
+
+.dubai-expo-page .de-section-sub {
+    text-align: center;
+    color: #1B1B1B;
+    font-weight: 500;
+    max-width: 815px;
+    margin: 0 auto 36px;
+    font-size: 16px;
+    line-height: 1.3125;
+}
+
+.dubai-expo-page .de-section-sub--light {
+    color: #fff;
+}
+
+/* ===== Hero =====
+   Overflow is visible (not hidden) so the pass card can float above
+   the top edge of the hero like the mockup. The background is applied
+   via CSS background-image on the section itself (not an <img>), so
+   nothing gets clipped by removing overflow. */
+.dubai-hero-section {
+    position: relative;
+    min-height: 865px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px 0 0;
+    overflow: hidden;
+}
+
+.dubai-hero-section-wrapper {
+    padding-bottom: 20px;
+    padding-top: 200px;
+}
+
+.dubai-hero-section .de-hero__heading {
+    font-size: 58px;
+    line-height: 1.12;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #fff;
+}
+
+.dubai-hero-section .de-hero__desc {
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 45px;
+    font-size: 16px;
+    line-height: 1.3125;
+    max-width: 727px;
+}
+
+/* Pass card sits above the hero banner, overlapping it like the mockup.
+   It's a normal grid column now (not absolutely positioned), pulled up
+   with a negative margin so it still floats above the row. */
+.dubai-hero-section .de-hero__pass {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -48px;
+    z-index: 5;
+}
+
+.dubai-hero-section .de-hero__pass-strap {
+    width: 5px;
+    height: 46px;
+    background: #1487cf;
+    margin: 0 auto;
+}
+
+
+.dubai-hero-section .de-hero__pass-card {
+    position: absolute;
+    top: -44px;
+    right: -15%;
+    pointer-events: none;
+}
+
+.dubai-hero-section .de-hero__pass-graphic {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 590px;
+}
+
+.page-template-page-dubai-expo .sticky-btn,
+.page-template-page-dubai-expo .sticky-whatsapp {
+    display: none;
+}
+
+@keyframes dubaiPassFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-8px) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(8px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.dubai-hero-section .de-hero__pass-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    text-align: left;
+}
+
+.dubai-hero-section .de-hero__pass-highlight {
+    color: #4fc3f7;
+    font-weight: 700;
+    margin: 2px 0 26px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.dubai-hero-section .de-hero__pass-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dubai-hero-section .de-hero__pass-footer img {
+    height: 26px;
+}
+
+.dubai-hero-section .de-hero__pass-footer span {
+    color: #fff;
+    font-size: 12px;
+}
+
+
+
+.dubai-hero-section .de-hero__logos-row .slick-slide {
+    margin: 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.de-hero__logos-row {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.dubai-hero-section .de-hero__logo {
+    height: 80px;
+    width: 100%;
+    max-width: 200px;
+    object-fit: contain;
+    opacity: .6;
+}
+
+.de-industries__track .slick-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+}
+
+.de-industries__track .slick-slide {
+    flex-shrink: 0 !important;
+}
+
+/* ===== Stats =====
+   Compact centered row with straight vertical dividers, matching the
+   reference design (not full-width, not slanted slashes). */
+.dubai-stats-section {
+    background: #fff;
+    padding: 36px 0;
+    border-top: 1px solid #e5e9f0;
+}
+
+.dubai-stats-section-wrapper {
+    margin-top: -20px;
+}
+
+.dubai-stats-section .de-stats__item {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dubai-stats-section .de-stats__item:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(180deg, rgba(8, 84, 132, 0) 0%, #085484 50%, rgba(8, 84, 132, 0) 100%);
+
+    transform: translateY(-50%);
+}
+
+.dubai-stats-section .de-stats__number {
+    display: block;
+    font-size: 66px;
+    line-height: 1.28;
+    font-weight: 700;
+    color: #085484;
+    font-variant-numeric: tabular-nums;
+}
+
+.dubai-stats-section .de-stats__label {
+    color: #1B1B1B;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.155;
+    margin-top: 6px;
+    display: block;
+}
+
+/* ===== Media + Schedule =====
+   Calendar cells support an ".is-empty" state for leading blank cells
+   so numbers align under the correct weekday column (requires a small
+   PHP change — see note below the CSS). */
+.dubai-media-schedule-section {
+    padding-top: 70px;
+    padding-bottom: 100px;
+    background: #fff;
+}
+
+.dubai-media-schedule-section-wrapper {
+    margin-top: -24px;
+}
+
+.dubai-media-schedule-section-wrapper>[class*="col-"] {
+    margin-top: 24px;
+}
+
+.dubai-media-schedule-section .de-media-schedule__media {
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.dubai-media-schedule-section .de-media-schedule__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 27px;
+}
+
+.dubai-media-schedule-section .de-schedule-card {
+    background: linear-gradient(0deg, #085484 -43.57%, #1B1B1B 43.95%);
+    box-shadow: 0px 18.82px 37.65px 0px #00000080;
+
+    border: 1px solid #3a3a3c;
+    color: #fff;
+    border-radius: 27px;
+    padding: 38px;
+}
+
+.dubai-media-schedule-section .de-schedule-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dubai-media-schedule-section .de-schedule-card__header span:first-child {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.dubai-media-schedule-section .de-schedule-card__month {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dubai-media-schedule-section .de-schedule-card__month-name {
+    color: #22beee;
+}
+
+.dubai-media-schedule-section .de-schedule-card__month-year {
+    color: #fff;
+    margin-left: 4px;
+}
+
+.dubai-media-schedule-section .de-schedule-card__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, .15);
+    margin: 16px 0;
+}
+
+.dubai-media-schedule-section .de-schedule-card__divider+.de-schedule-card__calendar {
+    margin-top: 24px;
+}
+
+.dubai-media-schedule-section .de-schedule-card__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.dubai-media-schedule-section .de-schedule-card__weekdays span {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .03em;
+}
+
+.dubai-media-schedule-section .de-schedule-card__calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid #3a3a3c;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.dubai-media-schedule-section .de-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1B1B1B;
+    background: rgba(61, 61, 61, .5);
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.dubai-media-schedule-section .de-day.is-active {
+    background: #22beee;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+.dubai-media-schedule-section .de-day.is-empty {
+    background: transparent;
+}
+
+.dubai-media-schedule-section .de-schedule-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.dubai-media-schedule-section .de-schedule-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.dubai-media-schedule-section .de-schedule-card__icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.dubai-team-section {
+    background-image: linear-gradient(170.89deg, #05283F 34.27%, #03141F 89.58%), var(--team-bg-image, none);
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+}
+
+.dubai-team-section .de-section-sub {
+    margin-bottom: 44px;
+}
+
+.dubai-team-section .de-team__grid {
+    margin-top: 16px;
+    margin-bottom: 56px;
+}
+
+.dubai-team-section .de-team__card {
+    margin-top: 24px;
+    border-radius: 27px;
+    position: relative;
+}
+
+.dubai-team-section .de-team__card img {
+    width: 100%;
+    border-radius: 27px;
+    object-fit: cover;
+    display: block;
+}
+
+.dubai-team-section .de-team__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px;
+}
+
+.dubai-team-section .de-team__name {
+    font-size: 40px;
+    line-height: 1.874;
+    font-weight: 700;
+    color: #fff;
+}
+
+.dubai-team-section .de-team__designation {
+    margin-top: 4px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.dubai-team-section .de-team__booking-copy h3 {
+    color: #fff;
+    font-size: 49px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.dubai-team-section .de-team__booking-copy p {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.dubai-team-section .de-team__booking-copy p>span {
+    font-weight: 800;
+    font-size: 18px;
+    color: #22BEEE;
+}
+
+.dubai-team-section .de-team__bullets {
+    list-style: none;
+    padding: 0;
+    margin-top: 80px;
+}
+
+.dubai-team-section .de-team__bullets li {
+    padding-left: 38px;
+    position: relative;
+    margin-bottom: 24px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.dubai-team-section .de-team__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 24px;
+    height: 18px;
+    background: url("https://weekmate.in/wp-content/uploads/2026/09/Vector-1.png") center / contain no-repeat;
+    transform: translateY(-50%);
+}
+
+.dubai-team-section .de-team__booking-form {
+    position: relative;
+    border-radius: 27px;
+    padding: 57px 60px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(8, 84, 132, 0.2) 100%);
+    isolation: isolate;
+}
+
+.de-team__booking-copy {
+    padding-top: 53px;
+}
+
+.dubai-team-section .de-team__booking-form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 27px;
+
+    background: linear-gradient(222.51deg, #FFFFFF 23.91%, rgba(255, 255, 255, 0) 66.64%);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===== Features ===== */
+.dubai-features-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.dubai-features-section .de-section-heading {
+    text-align: left;
+}
+
+.dubai-features-section .de-section-sub {
+    text-align: left;
+    margin: 8px 0 60px;
+    max-width: 750px;
+}
+
+.dubai-features-section .de-section-sub span {
+    color: #085484;
+    font-size: 18px;
+}
+
+.dubai-features-section .card-warpper {
+    padding: 10px;
+}
+
+.dubai-features-section .de-features__card {
+    border: 1px solid #F2F2F2;
+    border-radius: 20px;
+    padding: 30px;
+    background: #f3fcff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform .3s ease-in-out, box-shadow .3s ease-in-out, border-color .3s ease-in-out;
+}
+
+.dubai-features-section .de-features__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(8, 84, 132, .12);
+    border-color: #085484;
+}
+
+.dubai-features-section .de-features__icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 4.5px;
+    background: #dff3ff;
+    margin-bottom: 24px;
+}
+
+.dubai-features-section .de-features__icon {
+    width: 34px;
+    height: 34px;
+}
+
+.dubai-features-section .de-features__title {
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #062a41;
+    font-size: 22px;
+    line-height: 0.99;
+    letter-spacing: -0.4px;
+
+}
+
+.dubai-features-section .de-features__desc {
+    font-size: 15.4px;
+    font-weight: 400;
+    color: #5b5568;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Card is rounded, inset within the section (not full-bleed), and the
+   graphic bleeds above the top edge — clipped clean by overflow:hidden. */
+.dubai-features-section .de-ai-banner {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f2f2f2;
+    border-radius: 27px;
+    background: linear-gradient(170.89deg, #05283F 34.27%, #03141F 89.58%);
+    color: #fff;
+    margin-top: 40px;
+    padding: 60px;
+}
+
+.dubai-features-section .de-ai-banner h3 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 0.914;
+    margin-bottom: 32px;
+}
+
+.dubai-features-section .de-ai-banner p {
+    color: #efefef;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5625;
+    max-width: 769px;
+}
+
+.dubai-features-section .de-ai-banner__graphic {
+    position: absolute;
+    right: 60px;
+    top: 0px;
+    height: 240px;
+    width: auto;
+    pointer-events: none;
+}
+
+
+
+.dubai-industries-section .de-section-sub {
+    max-width: 400px;
+    margin: 0 auto 60px;
+}
+
+.dubai-industries-section {
+    padding: 70px 0;
+    background: #F5F5F5;
+    overflow: hidden;
+}
+
+.dubai-industries-section .de-industries__track-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dubai-industries-section .de-industries__track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    flex: 1;
+    scrollbar-width: none;
+    margin: 0 -40px;
+    /* bleed past container edges to create peek */
+    padding: 0 40px;
+}
+
+.dubai-industries-section .de-industries__track::-webkit-scrollbar {
+    display: none;
+}
+
+.dubai-industries-section .de-industries__slide {
+    position: relative;
+    min-width: 385px;
+    height: 420px;
+    border-radius: 27px;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+.dubai-industries-section .de-industries__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dubai-industries-section .de-industries__slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), transparent 50%);
+}
+
+.dubai-industries-section .de-industries__slide span {
+    position: absolute;
+    z-index: 1;
+    bottom: 39px;
+    left: 26px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 0.99;
+}
+
+.dubai-industries-section .slick-next {
+    right: 10%;
+}
+
+.dubai-industries-section .slick-next::before,
+.dubai-industries-section .slick-prev:before {
+    display: none;
+}
+
+.dubai-industries-section .slick-prev {
+    left: 10%;
+}
+
+.dubai-industries-section .slick-next,
+.dubai-industries-section .slick-prev {
+    position: absolute;
+    border: 1.5px solid transparent;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
+    z-index: 2;
+    background-image:
+        linear-gradient(#fff, #fff),
+        linear-gradient(135deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, .05) 100%);
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+}
+
+.dubai-industries-section .de-industries__arrow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M37.6667%2052.25L26%2040L37.6667%2027.75M26%2040L54%2040%22%20stroke%3D%22%23085484%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") center / 42px 42px no-repeat;
+}
+
+.dubai-industries-section .de-industries__arrow--next::after {
+    transform: scaleX(-1);
+}
+
+/* ===== CTA banner =====
+   Card is inset within a light section background and rounded, matching
+   the reference (not a full-bleed edge-to-edge band). */
+.dubai-cta-section {
+    background: #ffff;
+    padding: 64px 0;
+}
+
+.dubai-cta-section .de-cta__card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 27px;
+    background: linear-gradient(177deg, #05283f 34%, #03141f 90%);
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dubai-cta-section .dubai-cta-section-wrapper {
+    padding: 80px 100px;
+}
+
+.dubai-cta-section .de-cta__eyebrow {
+    color: #fff;
+    font-weight: 500;
+    line-height: 0.875;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.dubai-cta-section .de-cta__copy h2 {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    white-space: nowrap;
+    line-height: 1.371;
+}
+
+.dubai-cta-section .de-cta__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 40px;
+    row-gap: 20px;
+}
+
+.dubai-cta-section .de-cta__bullets li {
+    padding-left: 38px;
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.dubai-cta-section .de-cta__bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 24px;
+    height: 18px;
+    transform: translateY(-50%);
+    background: url("https://weekmate.in/wp-content/uploads/2026/09/Vector-1.png") center / contain no-repeat;
+}
+
+.dubai-cta-section .de-cta__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    color: #fff;
+    margin: 40px 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.dubai-cta-section .de-cta__meta-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.dubai-cta-section .de-cta__meta-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.dubai-cta-section .de-cta__logo img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.de-hero__logos {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 210px;
+}
+
+.de-hero__logos-row {
+    width: 100%;
+}
+
+.dubai-expo-header .container {
+    max-width: 1600px;
+}
+
+/* =========================================
+   Booking / Meeting form (CF7 inside dark card)
+   ========================================= */
+.dubai-team-section .meeting-form {
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.dubai-team-section .meeting-form .meeting-form__header {
+    margin: 0 0 26px;
+}
+
+.dubai-team-section .meeting-form .meeting-form__header h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.dubai-team-section .meeting-form .meeting-form__header p {
+    color: #f9f9f9;
+    font-size: 14px;
+}
+
+.dubai-team-section .meeting-form .meeting-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 20px;
+    margin-bottom: 20px;
+}
+
+.dubai-team-section .meeting-form label {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+.dubai-team-section .meeting-form input[type="text"],
+.dubai-team-section .meeting-form input[type="email"],
+.dubai-team-section .meeting-form input[type="tel"],
+.dubai-team-section .meeting-form select {
+    width: 100%;
+    height: 34px;
+    padding: 0 0 8px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.dubai-team-section .meeting-form input::placeholder,
+.dubai-team-section .meeting-form select {
+    color: #bcbcbc;
+}
+
+.dubai-team-section .meeting-form input:focus,
+.dubai-team-section .meeting-form select:focus {
+    border-bottom-color: #16a9e5;
+}
+
+.dubai-team-section .meeting-form select option {
+    color: #111;
+    background: #fff;
+}
+
+.dubai-team-section .meeting-form .meeting-form__date {
+    margin: 26px 0;
+}
+
+.dubai-team-section .meeting-form .meeting-form__date .wpcf7-radio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.dubai-team-section .meeting-form .meeting-form__date input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.dubai-team-section .meeting-form .wpcf7-list-item-label {
+    display: block;
+    padding-bottom: 10px;
+    color: #bcbcbc;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(255, 255, 255, .11);
+    cursor: pointer;
+}
+
+.dubai-team-section .meeting-form input[type="radio"]:checked+.wpcf7-list-item-label {
+    color: #fff;
+    border-bottom-color: #12a8e5;
+}
+
+.dubai-cta-section .de-schedule-card__btn {
+    max-width: fit-content;
+}
+
+.dubai-cta-section .de-schedule-card__btn,
+.dubai-media-schedule-section .de-schedule-card__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 62px;
+
+    background: #085484;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 49px;
+
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+
+    isolation: isolate;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.dubai-team-section .meeting-form .meeting-form__submit {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 62px;
+
+    background: #085484;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 49px;
+
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+
+    isolation: isolate;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.dubai-team-section .meeting-form .meeting-form__submit p,
+.dubai-team-section .meeting-form .meeting-form__submit input[type="submit"] {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    border: none;
+    outline: none;
+    display: block;
+}
+
+.dubai-cta-section .de-schedule-card__btn::before,
+.dubai-media-schedule-section .de-schedule-card__btn::before,
+.dubai-team-section .meeting-form .meeting-form__submit::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: 49px;
+
+    background: linear-gradient(133.44deg,
+            rgba(255, 255, 255, 0) 5.96%,
+            #FFFFFF 90.36%);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: -1;
+
+    transition: opacity 0.3s ease;
+}
+
+/* Hover */
+.dubai-team-section .meeting-form .meeting-form__submit:hover,
+.dubai-cta-section .de-schedule-card__btn:hover,
+.dubai-media-schedule-section .de-schedule-card__btn:hover,
+.dubai-team-section .meeting-form .meeting-form__submit button:hover {
+    transform: translateY(-2px);
+}
+.dubai-team-section .meeting-form .meeting-form__submit:active,
+.dubai-cta-section .de-schedule-card__btn:active,
+.dubai-media-schedule-section .de-schedule-card__btn:active,
+.dubai-team-section .meeting-form .meeting-form__submit button:active {
+    transform: translateY(0);
+}
+.dubai-team-section .meeting-form .meeting-form__submit:hover,
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-submit:hover,
+.dubai-cta-section .de-schedule-card__btn:hover,
+.dubai-media-schedule-section .de-schedule-card__btn:hover,
+.dubai-team-section .meeting-form .meeting-form__submit button:hover {
+    background: #0985bd;
+}
+
+.dubai-team-section .meeting-form .wpcf7-spinner {
+    display: none;
+    background: #fff;
+    position: absolute;
+}
+
+.dubai-team-section .meeting-form .wpcf7-spinner::before {
+    background-color: #000;
+}
+
+.dubai-footer {
+    position: relative;
+    overflow: hidden;
+    background: #1B1B1B;
+    font-family: "Manrope", sans-serif;
+    padding-bottom: 230px;
+}
+
+.ftrCvr {
+    position: relative;
+    z-index: 1;
+}
+
+.dubai-footer .footer-newsletter-box {
+    padding: 0 15px;
+    background: transparent;
+}
+
+/* The theme's own wrapper divs carry their own light background —
+   without this override they paint right over the dark footer bg
+   above, which is why the footer was rendering pale instead of dark. */
+.dubai-footer .ftrCvr,
+.dubai-footer .ftrtopCvr,
+.dubai-footer .ftrbottomCvr {
+    background: transparent;
+}
+
+.dubai-footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dubai-footer .footertittle {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 16px;
+}
+
+.dubai-footer .footer-menu-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dubai-footer .footer-menu-links ul li a {
+    color: #cdcdcd;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Newsletter pill — reflows the CF7-generated markup into a single
+   rounded bar (label | email input | subscribe button) via flex,
+   without needing to touch the plugin-rendered HTML. */
+.dubai-footer .footer-newsletter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: #2f2e2e;
+    border-radius: 82px;
+    height: 62px;
+    padding: 0 10px 0 20px;
+}
+
+.dubai-footer .footer-newsletter-wrapper .footertittle {
+    margin: 0;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.dubai-footer .footer-newsletter-wrapper .wpcf7 {
+    position: relative;
+    flex: 1;
+    max-width: 380px;
+}
+
+/* The submit button is a SIBLING of the <label> (not nested inside
+   .wpcf7-form-control-wrap), so the positioned ancestor it needs has to
+   be this <p> — not the wrap span — or it floats relative to whatever
+   ancestor happens to be positioned further up the page. */
+.dubai-footer .footer-newsletter-wrapper .wpcf7-form p {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.dubai-footer .footer-newsletter-wrapper .wpcf7-form p>label {
+    display: block;
+    flex: 1;
+}
+
+.dubai-footer .footer-newsletter-wrapper .wpcf7-form br {
+    display: none;
+}
+
+.dubai-footer .wpcf7-form-control-wrap {
+    display: block;
+    width: 100%;
+}
+
+/* Scoped deeper than the theme's own CF7 input styling so this wins
+   the cascade instead of the default white input showing through. */
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-email:focus {
+    border-radius: 46px;
+}
+
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-email {
+    width: 100%;
+    height: 46px;
+    background: #5e5e5e;
+    border: none;
+    border-radius: 46px;
+    padding: 0 120px 0 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: none;
+    outline: none;
+}
+
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-email::placeholder {
+    color: #fff;
+}
+
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-submit {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 41px;
+    background: #095484;
+    border: none;
+    border-radius: 26px;
+    padding: 0 22px;
+    border: 1px solid transparent;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.dubai-footer .footer-newsletter-wrapper input.wpcf7-submit::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: 49px;
+    background: linear-gradient(133.44deg, rgba(255, 255, 255, 0) 5.96%, #FFFFFF 90.36%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.dubai-footer .footer-menu-links ul li a:hover{
+    color: #0985bd;
+    
+}
+.dubai-footer .ftr-logo-wrap {
+    display: none;
+}
+
+.dubai-footer .ftr-logo img {
+    height: 32px;
+    width: auto;
+}
+
+.dubai-footer .ftr-title {
+    margin: 20px 0 16px;
+}
+
+.dubai-footer .ftr-sectitle {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.24px;
+}
+
+.dubai-footer .ftr-contact-details ul {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dubai-footer .ftr-contact-details ul li:first-child a,
+.dubai-footer .ftr-contact-details ul li a {
+    color: #cdcdcd;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dubai-footer .ftrsocial-wrapper {
+    margin-top: 24px;
+}
+
+/* Mobile-only duplicate: social icons must appear above Quick Links on
+   mobile, but the two live in unrelated footer containers (link columns
+   vs the bottom copyright bar), so they can't be reordered with a plain
+   flex `order`. Shown only ≤767px; the original bottom-bar copy is
+   hidden at that width instead (copyright stays put). */
+.dubai-footer .ftrsocial-wrapper--mobile {
+    display: none;
+}
+
+.dubai-footer .ftrsocialLinks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.dubai-footer .ftrsocialLinks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #F5F5F5;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0);
+    color: #fff;
+}
+
+.dubai-footer .ftrsocialLinks i {
+    font-size: 16px;
+}
+
+/* The markup's actual class is footer-partners-logo — footer-store-logos
+   never matches anything, so these badges were unstyled. */
+.dubai-footer .footer-partners-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.dubai-footer .footer-partners-logo img {
+    max-width: 100%;
+}
+
+/* Mobile-only duplicate: the app-store/play-store badges need to sit at
+   the very bottom of the footer on mobile instead of up near the
+   newsletter box, but that's a different container entirely — shown
+   only <=767px, with the original hidden there instead. */
+.dubai-footer .footer-partners-logo--mobile {
+    display: none;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.dubai-footer .copyright p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.dubai-footer .ftrbottom-wrap .row {
+    align-items: center;
+}
+
+.dubai-footer .ftrbottomCvr .ftrbottom-wrap::after {
+    display: none;
+}
+
+.dubai-footer .copyright p {
+    text-align: right;
+}
+
+.dubai-footer .container {
+    max-width: 1600px;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) {
+    background: transparent;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    border: transparent;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .main-navigation .sub-menu a:hover,
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .main-navigation a {
+    color: #fff;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .main-navigation .sub-menu a {
+    color: #000;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .header-ctaCvr .header-cta:last-child {
+    background: #ffff;
+    border: 1px solid #ffff;
+    color: #383838;
+    cursor: pointer;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .header-ctaCvr .header-cta:last-child:hover {
+    background: #00bdf2;
+    border-color: #00bdf2;
+    color: #fff;
+
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .header-ctaCvr .header-cta:last-child:hover a {
+    color: #fff;
+}
+
+.dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .header-ctaCvr .header-cta:last-child a {
+    color: #383838;
+}
+
+header.dubai-expo-header {
+    position: relative;
+}
+
+.dubai-expo-header .navbar-brand .white-logo {
+    display: block;
+}
+
+.dubai-expo-header .navbar-brand .blue-logo {
+    display: none;
+}
+
+.dubai-expo-header .header-nav.stickey .white-logo {
+    display: none;
+}
+
+.dubai-expo-header .header-nav.stickey .blue-logo {
+    display: block;
+}
+
+.dubai-industries-section .de-industries__track {
+    position: relative;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #333;
+    font-size: 22px;
+    line-height: 28px;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slick-prev {
+    left: 8px;
+}
+
+.slick-next {
+    right: 8px;
+}
+
+.de-industries__track {
+    width: 100%;
+}
+
+.de-industries__track .slick-slide {
+    margin: 0px 10px;
+}
+
+.de-industries__track .slide {
+    height: 135px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #ddd;
+}
+
+.de-industries__track .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.dubai-footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -40px;
+    height: 264px;
+    background-image: url('https://weekmate.in/wp-content/uploads/2026/09/image_744_1788775591078-scaled-1.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dubai-footer .wpcf7-not-valid-tip {
+    position: absolute;
+    margin-top: 10px;
+}
+
+.dubai-footer .wpcf7 form.sent .wpcf7-response-output,
+.dubai-footer .footer-menu-links .wpcf7 form.invalid .wpcf7-response-output {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 8px 0 0;
+    padding: 8px 14px;
+    background: #2f2e2e;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #fff;
+    z-index: 2;
+}
+
+/* ===== Media queries ===== */
+
+@media (min-width:992px) and (max-width:1560px) {
+    .dubai-expo-page .de-section-heading {
+        font-size: 40px;
+    }
+
+
+
+    .dubai-features-section .de-features__title {
+        line-height: normal;
+    }
+
+    .dubai-stats-section .de-stats__number {
+        font-size: 52px;
+    }
+
+    .dubai-stats-section .de-stats__label {
+        font-size: 20px;
+    }
+
+    .dubai-media-schedule-section .de-schedule-card__header span:first-child {
+        font-size: 20px;
+    }
+
+    .dubai-team-section .de-team__name {
+        font-size: 28px;
+    }
+
+    .dubai-team-section .de-team__designation {
+        font-size: 24px;
+    }
+
+    .dubai-team-section .de-team__booking-copy h3 {
+        font-size: 38px;
+    }
+
+    .dubai-team-section .de-team__bullets li {
+        font-size: 18px;
+    }
+
+    .dubai-features-section .de-features__title {
+        font-size: 20px;
+    }
+
+    .dubai-features-section .de-ai-banner h3 {
+        font-size: 34px;
+    }
+
+    .dubai-industries-section .de-industries__slide span {
+        font-size: 20px;
+    }
+
+    .dubai-cta-section .de-cta__eyebrow {
+        font-size: 20px;
+    }
+
+    .dubai-cta-section .de-cta__copy h2 {
+        font-size: 34px;
+    }
+
+    .dubai-cta-section .de-cta__bullets li {
+        font-size: 18px;
+    }
+
+    .dubai-cta-section .de-cta__meta {
+        font-size: 20px;
+    }
+
+    .dubai-hero-section .de-hero__pass-card {
+
+        right: -22%;
+    }
+
+
+
+
+}
+
+@media (max-width: 1560px) {
+    .dubai-hero-section {
+        min-height: 775px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .dubai-hero-section .de-hero__pass-card {
+
+        right: -22%;
+    }
+ .dubai-hero-section-wrapper {
+        padding-top: 160px;
+    }
+    .dubai-hero-section {
+        min-height: 700px;
+    }
+
+    .de-hero__logos {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .dubai-hero-section .de-hero__heading {
+        font-size: 48px;
+    }
+
+    .dubai-hero-section .de-hero__heading {
+        font-size: 46px;
+    }
+
+    .dubai-hero-section .de-hero__pass-card {
+        right: -27%;
+    }
+
+    .dubai-team-section .de-team__name {
+        font-size: 28px;
+    }
+
+    .dubai-cta-section .de-cta__logo img {
+        max-height: 300px;
+    }
+
+    .dubai-expo-page .de-section-heading {
+        font-size: 38px;
+
+    }
+
+    .dubai-cta-section .de-cta__copy h2,
+    .dubai-features-section .de-ai-banner h3 {
+        font-size: 32px;
+    }
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 60px 80px;
+    }
+
+    .dubai-cta-section .de-cta__bullets li {
+        font-size: 18px;
+    }
+
+    .dubai-media-schedule-section .de-schedule-card__header {
+        flex-direction: column;
+    }
+
+    .dubai-media-schedule-section .de-schedule-card__meta {
+        font-size: 18px;
+    }
+
+    .dubai-team-section .de-team__booking-copy h3 {
+        font-size: 38px;
+    }
+
+    .dubai-cta-section .de-cta__bullets {
+        gap: 20px;
+    }
+
+    .dubai-stats-section .de-stats__label {
+        font-size: 20px;
+    }
+
+    .dubai-team-section .de-team__designation {
+        font-size: 20px;
+    }
+
+    .dubai-stats-section .de-stats__number {
+        font-size: 56px;
+    }
+
+    .dubai-industries-section .slick-next,
+    .dubai-industries-section .slick-prev {
+        width: 50px;
+        height: 50px;
+    }
+
+    .dubai-industries-section .slick-next img,
+    .dubai-industries-section .slick-prev img {
+        max-width: 20px;
+    }
+
+    .dubai-footer {
+        padding-bottom: 200px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .dubai-hero-section .de-hero__pass-card {
+        right: -32%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dubai-stats-section .de-stats__number {
+        font-size: 46px;
+    }
+
+    .dubai-hero-section .de-hero__pass-card {
+        right: -36%;
+    }
+
+    .dubai-team-section .de-team__name {
+        font-size: 26px;
+    }
+
+    .dubai-team-section .de-team__designation {
+        font-size: 20px;
+    }
+
+    .dubai-footer {
+        padding-bottom: 180px;
+    }
+}
+
+@media (max-width: 991px) {
+    .dubai-expo-page .de-section-heading {
+        font-size: 36px;
+    }
+
+    .dubai-expo-page .de-section-sub {
+        font-size: 15px;
+    }
+
+    .dubai-hero-section .de-hero__heading {
+        font-size: 42px;
+    }
+
+    .dubai-hero-section .de-hero__pass {
+        align-items: center;
+        margin-top: 24px;
+    }
+
+    .dubai-hero-section {
+        min-height: 650px;
+    }
+
+    .de-hero__logos {
+        margin-top: 100px;
+    }
+
+    .dubai-footer {
+        padding-bottom: 140px;
+    }
+
+    /* position:absolute takes the card out of flow entirely, so the
+       flex alignment above (meant to center it under the heading on
+       narrow screens) has no effect on it — it still needs its own
+       override here or it keeps floating at a fixed offset and
+       overlapping content regardless of the parent's layout. */
+    .dubai-hero-section .de-hero__pass-card {
+        display: none;
+    }
+
+    .dubai-hero-section .de-hero__logos-row .slick-slide {
+        margin: 0 18px;
+    }
+
+    .dubai-hero-section .de-hero__logo {
+        height: 60px;
+    }
+
+
+    .dubai-team-section .de-team__designation {
+        font-size: 18px;
+    }
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 48px;
+    }
+
+    .dubai-features-section .de-ai-banner {
+        padding: 40px;
+    }
+
+    .dubai-features-section .de-ai-banner h3 {
+        font-size: 32px;
+    }
+
+    .dubai-features-section .de-ai-banner__graphic {
+        height: 160px;
+        top: -20px;
+        right: 24px;
+        opacity: .5;
+    }
+
+    .dubai-cta-section .de-cta__copy h2 {
+        font-size: 32px;
+    }
+
+    .dubai-stats-section .de-stats__item::before {
+        display: none;
+    }
+
+    .dubai-stats-section .de-stats__number {
+        font-size: 44px;
+    }
+
+    .dubai-stats-section .de-stats__label {
+        font-size: 18px;
+    }
+
+    .dubai-industries-section .de-industries__track {
+        margin: 0 -24px;
+        padding: 0 24px;
+    }
+
+    .dubai-industries-section .de-industries__slide {
+        min-width: 260px;
+        height: 300px;
+    }
+
+    .dubai-industries-section .de-industries__slide span {
+        font-size: 18px;
+        left: 18px;
+        bottom: 20px;
+    }
+
+    .dubai-industries-section .de-industries__arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .dubai-industries-section .de-industries__arrow::after {
+        background-size: 20px 20px;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 16px;
+        border-radius: 24px;
+    }
+
+    .dubai-cta-section .de-cta__logo img {
+        position: static;
+        display: none;
+
+    }
+
+    .dubai-team-section .de-team__booking-copy h3 {
+        font-size: 28px;
+        line-height: normal;
+
+    }
+
+    .dubai-stats-section .de-stats__number {
+        font-size: 36px;
+    }
+
+    .dubai-hero-section-wrapper {
+        padding-top: 70px;
+    }
+
+    .dubai-expo-header nav.header-nav.navbar.navbar-expand-lg:not(.stickey) .navbar-toggler span {
+        background: #fff;
+    }
+
+    .dubai-expo-header .main-navigation {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper .wpcf7 {
+        max-width: 100%;
+        width: 100%;
+    }
+
+
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 40px 40px;
+    }
+
+    /* The app-store/play-store badges sit below the newsletter pill once
+       the columns stack at 992px, so they need their own spacing and
+       re-centering instead of hugging the right edge. */
+    .dubai-footer .footer-partners-logo {
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    /* col-lg-4/col-lg-8 stack here too, but Bootstrap doesn't add a
+       vertical gap between stacked columns on its own. */
+    .dubai-footer .col-xxl-9.col-xl-9.col-lg-8.col-md-12.col-sm-12 {
+        margin-top: 40px;
+    }
+
+    /* The four link columns are pinned at a fixed 25% width (col-sm-3
+       through col-xl-3) all the way down to 576px — far too cramped for
+       a tablet, where "Payroll Software in Hyderabad" etc. needs room.
+       Scoped to footer-listsCvr so this doesn't touch the newsletter row,
+       which also carries .footer-menu-links. */
+    .dubai-footer .footer-listsCvr .footer-menu-links {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 24px;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper input.wpcf7-submit {
+        margin-top: 0;
+    }
+
+    .dubai-footer .wpcf7-not-valid-tip {
+        margin-top: 24px;
+
+    }
+}
+
+@media (max-width: 767px) {
+    .dubai-footer .footer-partners-logo--mobile {
+        display: flex;
+    }
+
+    .dubai-footer .wpcf7-not-valid-tip {
+        position: static;
+        margin-top: 5px;
+    }
+
+    .dubai-footer .ftrtopCvr .footer-partners-logo {
+        display: none;
+    }
+
+    .dubai-footer .ftrsocial-wrapper--mobile {
+        display: block;
+    }
+
+    .dubai-hero-section {
+        min-height: 550px;
+    }
+
+    .dubai-footer .ftrbottomCvr .ftrsocial-wrapper {
+        display: none;
+    }
+
+    .dubai-cta-section .de-cta__copy h2 {
+        white-space: normal;
+    }
+
+    .dubai-expo-page .de-section-heading {
+        font-size: 28px;
+    }
+
+    .dubai-hero-section .de-hero__heading {
+        font-size: 32px;
+    }
+
+    .dubai-expo-page .de-btn {
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .dubai-team-section .de-team__name {
+        font-size: 24px;
+    }
+
+    .dubai-team-section .de-team__designation {
+        font-size: 16px;
+    }
+
+    .dubai-hero-section .de-hero__logos {
+        padding: 14px 0;
+        margin-top: 20px;
+    }
+
+    .dubai-hero-section .de-hero__logos-row .slick-slide {
+        margin: 0 12px;
+    }
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 32px 24px;
+    }
+
+    .dubai-media-schedule-section .de-schedule-card {
+        padding: 24px;
+    }
+
+    .dubai-media-schedule-section .de-day {
+        font-size: 12px;
+    }
+
+    .dubai-features-section .de-ai-banner {
+        padding: 32px 24px;
+    }
+
+    .dubai-features-section .de-ai-banner__graphic {
+        display: none;
+    }
+
+    .dubai-cta-section .de-cta__bullets {
+        grid-template-columns: 1fr;
+    }
+
+    .dubai-cta-section .de-cta__meta {
+        font-size: 18px;
+    }
+
+    .dubai-team-section .de-team__booking-form {
+        padding: 32px 24px;
+        margin-top: 30px;
+    }
+
+    .dubai-team-section .meeting-form .meeting-form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .dubai-team-section .meeting-form .meeting-form__date .wpcf7-radio {
+        gap: 15px;
+    }
+
+    .dubai-footer {
+        padding: 40px 0 0;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper input.wpcf7-submit {
+        margin-top: 10px;
+    }
+
+    .dubai-team-section .de-team__booking-copy h3,
+    .dubai-cta-section .de-cta__copy h2,
+    .dubai-features-section .de-ai-banner h3 {
+        font-size: 26px;
+        line-height: normal;
+    }
+
+    .dubai-team-section .de-team__booking-copy h3 {
+        text-align: center;
+    }
+
+    .dubai-footer .col-xxl-9.col-xl-9.col-lg-8.col-md-12.col-sm-12 {
+        margin-top: 20px;
+    }
+
+    .dubai-footer::before {
+        display: none;
+    }
+
+    .dubai-features-section,
+    .dubai-team-section {
+        padding: 60px 0;
+    }
+
+    .dubai-expo-page .de-section-heading {
+        font-size: 26px;
+        line-height: normal;
+    }
+
+    .dubai-team-section .de-team__bullets li {
+        font-size: 18px;
+    }
+
+    .de-team__booking-copy {
+        padding-top: 30px;
+    }
+
+    .dubai-team-section .de-team__card img,
+    .dubai-media-schedule-section .de-schedule-card,
+    .dubai-media-schedule-section .de-media-schedule__media img {
+        border-radius: 14px;
+    }
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 30px 40px;
+    }
+
+    .dubai-features-section .de-features__title {
+        font-size: 18px;
+    }
+
+    .dubai-hero-section .de-hero__heading {
+        font-size: 38px;
+    }
+
+    .dubai-stats-section .de-stats__item {
+        margin-top: 30px;
+    }
+
+    .dubai-expo-page .container {
+        padding: 0 20px;
+    }
+
+    .dubai-cta-section .de-cta__eyebrow {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .dubai-cta-section .de-cta__copy h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+
+    .dubai-footer .copyright p {
+        text-align: center;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper input.wpcf7-submit {
+        position: static;
+        transform: translateY(0);
+    }
+
+}
+
+@media (max-width: 575px) {
+
+    /* Below Bootstrap's 576px "sm" floor these columns have no matching
+       col-* class at all (col-sm-12/col-sm-3 both require >=576px), so
+       on real phones they fall back to unsized flex items instead of
+       stacking full-width. Force it explicitly. */
+    .dubai-footer .col-xxl-3.col-xl-3.col-lg-4.col-md-12.col-sm-12,
+    .dubai-footer .col-xxl-9.col-xl-9.col-lg-8.col-md-12.col-sm-12,
+    .dubai-footer .footer-listsCvr .footer-menu-links {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+
+    .dubai-footer .footer-partners-logo img {
+        height: 50px;
+    }
+
+    .dubai-footer .footer-newsletter-wrapper .footertittle {
+        font-size: 20px;
+    }
+
+    .dubai-hero-section .de-hero__heading {
+        font-size: 28px;
+    }
+
+    .dubai-cta-section .de-cta__copy h2,
+    .dubai-features-section .de-ai-banner h3,
+    .dubai-cta-section .de-cta__copy h2 {
+        font-size: 24px;
+    }
+
+    .dubai-cta-section .de-schedule-card__btn {
+        max-width: 100%;
+    }
+
+    .dubai-cta-section .de-cta__meta-item,
+    .dubai-cta-section .de-cta__bullets li {
+        font-size: 16px;
+    }
+
+    .dubai-team-section .meeting-form .meeting-form__submit,
+    .dubai-cta-section .de-schedule-card__btn,
+    .dubai-media-schedule-section .de-schedule-card__btn,
+    .dubai-team-section .meeting-form .meeting-form__submit {
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .dubai-hero-section .de-hero__logo {
+        height: 40px;
+    }
+
+    .dubai-cta-section .dubai-cta-section-wrapper {
+        padding: 30px;
+    }
+
+    .dubai-media-schedule-section .de-schedule-card__btn {
+        font-size: 16px;
+    }
+
+    .dubai-team-section .de-team__bullets {
+        margin-top: 50px;
+    }
+
+}

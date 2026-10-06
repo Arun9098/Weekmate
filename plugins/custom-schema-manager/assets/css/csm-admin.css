@@ -1,0 +1,54 @@
+.csm-schema-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.csm-schema-card .csm-schema-preview pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+    color: #333;
+    max-height: none;
+    overflow: visible;
+}
+
+.csm-schema-actions {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    gap: 12px;
+}
+
+.csm-schema-card:hover .csm-schema-actions {
+    display: flex;
+}
+
+.csm-schema-actions .button-link {
+    font-size: 13px;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.csm-schema-edit .csm-schema-textarea,
+.csm-new-card .csm-schema-textarea {
+    width: 100%;
+    min-height: 400px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+}
+
+.csm-new-card {
+    border-color: #2271b1;
+    background: #f6f9fc;
+}
+
+.csm-row-status {
+    margin-left: 8px;
+}
