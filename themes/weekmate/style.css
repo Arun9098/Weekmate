@@ -3998,29 +3998,17 @@ p > video {
 width: 163px;
 height: 42px;
 border-radius: 52px;
-border-width: 1px;
-padding-top: 10px;
-padding-right: 20px;
-padding-bottom: 10px;
-padding-left: 20px;
+padding:10px 20px;
 gap: 10px;
-angle: 0 deg;
 opacity: 1;
-/* border: 1px solid; */
-/* border-image-source: linear-gradient(0deg, #FFBB8C 0%, rgba(255, 187, 140, 0) 100%); */
-background-color: #E9670C;
 color: #FFFFFF;
-/* font-family: Satoshi; */
 font-weight: 700;
 font-style: Bold;
 font-size: 18px;
-leading-trim: NONE;
 line-height: 19.2px;
 letter-spacing: 0px;
 text-align: center;
 text-transform: capitalize;
-/* transition: 0.5s all ease; */
-/* Gradient border */
 border: 1px solid transparent;
 background:
 linear-gradient(#E9670C, #E9670C) padding-box,

@@ -2254,7 +2254,6 @@ body:not(.page-template-home-page) nav.header-nav {
 }
 
 .industries-slider .industry-item .industry-block .industry-img .link {
-    margin-bottom: 0px;
     position: absolute;
     left: 0;
     right: 0;
@@ -4464,7 +4463,6 @@ body:not(.page-template-home-page) nav.header-nav {
     .main-navigation {
         background: #005282;
         padding: 10px 13px;
-        margin-top: 12px;
         position: absolute;
         width: 80%;
         left: 0;
