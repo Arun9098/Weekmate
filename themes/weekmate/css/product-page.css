@@ -582,7 +582,7 @@ section.product-banner-section.sectionCvr {
     font-weight: 800;
     color: #383838;
     margin-bottom: 15px;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 
 .ecrm-grid-features__subtitle {
@@ -591,7 +591,7 @@ section.product-banner-section.sectionCvr {
     max-width: 877px;
     margin: 0 auto;
     width: 100%;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 
 .ecrm-grid-features__item {
@@ -634,7 +634,7 @@ section.product-banner-section.sectionCvr {
     font-weight: 800;
     color: #383838;
     margin-bottom: 10px;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 
 .ecrm-grid-features__desc {
@@ -642,7 +642,7 @@ section.product-banner-section.sectionCvr {
     color: #4A4A4A;
     line-height: 1.6;
     margin: 0;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 
 /* Css for Cta */
@@ -905,7 +905,7 @@ section.product-banner-section.sectionCvr {
     font-size: 48px;
     font-weight: 800;
     color: #383838;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 .industry-use-cases-sec .use-case-tabs-wrapper {
     display: flex;
@@ -930,7 +930,7 @@ section.product-banner-section.sectionCvr {
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 .industry-use-cases-sec .use-case-tab-btn.active {
     background: #005282;
@@ -948,7 +948,7 @@ section.product-banner-section.sectionCvr {
     margin-bottom: 25px;
     line-height: 1.7;
     font-weight: 400;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 .industry-use-cases-sec .bullet-list {
     list-style: none;
@@ -1011,7 +1011,7 @@ section.product-banner-section.sectionCvr {
     border-radius: 50px;
     border: 1px solid #D4D4D4;
     font-size: 16px;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
     color: #1A1A1A;
     background: #F9F9F9;
     margin-bottom: 30px;
@@ -1035,7 +1035,7 @@ section.product-banner-section.sectionCvr {
     border-radius: 50px;
     border: 1px solid #D4D4D4;
     font-size: 16px;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
     color: #1A1A1A;
     background: #F9F9F9;
     cursor: pointer;
@@ -1068,7 +1068,7 @@ section.product-banner-section.sectionCvr {
 .use-case-dropdown-item {
     padding: 12px 20px;
     font-size: 15px;
-    font-family: 'Manrope';
+   font-family: "Manrope", sans-serif;
     color: #1A1A1A;
     cursor: pointer;
     border-radius: 10px;
@@ -1242,7 +1242,7 @@ section.product-banner-section.sectionCvr {
 
 /* Text Content */
 .smarter-workflow-sec .workflow-title {
-    font-family: Manrope;
+   font-family: "Manrope", sans-serif;
     font-weight: 700;
     font-size: 26px;
     line-height: 1;
@@ -1252,7 +1252,7 @@ section.product-banner-section.sectionCvr {
 }
 
 .smarter-workflow-sec .rich-text {
-    font-family: Manrope;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.1;
