@@ -88,7 +88,7 @@ h6 {
 
 h1,
 .h1 {
-    font-family: inter;
+    font-family: "Manrope", sans-serif;
     font-size: 38px;
     color: #383838;
     letter-spacing: .1px;
@@ -204,7 +204,7 @@ p:last-child {
 
 .big-size {
     font-weight: 700;
-    font-family: 'Inter';
+    font-family: "Manrope", sans-serif;
     line-height: 1.217;
     margin-bottom: 3px;
 }
@@ -687,7 +687,6 @@ body:not(.page-template-home-page) nav.header-nav {
     padding-top: 0px;
     display: flex;
     align-items: end;
-    position: relative;
     flex-wrap: wrap;
     min-height: 13em;
     position: relative;
@@ -1004,7 +1003,6 @@ body:not(.page-template-home-page) nav.header-nav {
     margin: 0 6px 8px;
     padding: 16px 6px;
     border-radius: 10px;
-    text-align: center;
     width: 93px;
     border: 1px solid #E0E0E0;
 }
@@ -2040,13 +2038,10 @@ body:not(.page-template-home-page) nav.header-nav {
     left: 0px;
     right: 0;
     margin: 0 auto;
-    text-align: center;
     font-size: 3.5em;
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome',sans-serif;
     color: red;
     background: #fff;
-    width: auto;
-    display: inline-block;
     width: 50px;
     height: 20px;
     display: flex;
@@ -2100,7 +2095,7 @@ body:not(.page-template-home-page) nav.header-nav {
 
 .product-info-wrapper .product-video-slider .slick-prev:before,
 .product-info-wrapper .product-video-slider .slick-next:before {
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome',sans-serif;
     font-size: 12px;
     opacity: .75;
     color: white;
@@ -2816,7 +2811,6 @@ body:not(.page-template-home-page) nav.header-nav {
     top: -6px;
     background: red;
     opacity: 9;
-    line-height: 0;
     z-index: 2;
     border-radius: 50%;
     color: #fff;
@@ -4403,7 +4397,6 @@ body:not(.page-template-home-page) nav.header-nav {
 
     .navbar-toggler {
 
-        padding: 9px 14px;
         position: relative;
         width: 24px;
         height: 20px;
@@ -4954,7 +4947,6 @@ body:not(.page-template-home-page) nav.header-nav {
 
     .certificate-wrapper .certificate-title {
         justify-content: center;
-        margin-bottom: 20px;
         flex-wrap: wrap;
         margin-bottom: 3em;
     }
@@ -5913,7 +5905,6 @@ h6,
 }
 
 .compare-accordion .accordion-content {
-    padding-bottom: 0;
     max-height: 0;
     overflow: hidden;
     padding-bottom: 0;
@@ -5923,7 +5914,6 @@ h6,
 }
 
 .compare-accordion .accordion-item.active .accordion-content {
-    padding-bottom: 30px;
     max-height: unset;
     overflow: hidden;
     padding-bottom: 30px;
@@ -6161,12 +6151,12 @@ h6,
 .product-display-section .product-heading {
     margin-bottom: 11px;
     font-weight: 800;
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
 }
 
 .client-sec .title {
     font-weight: 800;
-    font-family: 'Manrope';
+   font-family: "Manrope", sans-serif;
 }
 
 .client-sec .title-block-wrapper {
@@ -6234,7 +6224,7 @@ h6,
 }
 
 .title-block-wrapper .title {
-    font-family: 'Manrope';
+    font-family: "Manrope", sans-serif;
     font-weight: 800;
     letter-spacing: 0.1px;
 }
@@ -6460,7 +6450,6 @@ h6,
     border: 1px solid #B3B3B3;
     margin-top: -15px;
     display: flex;
-    align-items: center;
     position: relative;
     z-index: 1;
     gap: 5px;
@@ -8502,7 +8491,6 @@ h6,
 }
 
 .blog-grid .blog-content .blog-content-title {
-    align-items: flex-start;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -9479,7 +9467,7 @@ h6,
     display: block;
     padding: 5px 20px 20px 20px;
 
-    font-family: Manrope;
+    font-family: "Manrope", sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 2;
@@ -9500,11 +9488,10 @@ h6,
     border: none;
     padding: 10px 18px;
     cursor: pointer;
-    font-size: 14px;
     color: #6b7280;
     border-bottom: 2px solid transparent;
     margin-bottom: -1px;
-    font-family: Manrope;
+    font-family: "Manrope", sans-serif;
     font-weight: 500;
     font-style: Medium;
     font-size: 18px;
@@ -9550,7 +9537,7 @@ h6,
 .hrms-services-title {
     width: max-content;
     margin: 20px auto 0 auto;
-    font-family: Manrope;
+    font-family: "Manrope", sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 1.1;
@@ -9571,7 +9558,7 @@ h6,
 
 .pps-additional-price .pps-additional-price-title,
 .pps-additional-price .pps-additional-price-value {
-    font-family: Manrope;
+    font-family: "Manrope", sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #6B7280;
@@ -9767,7 +9754,6 @@ h6,
     padding: 10px 14px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 14px;
     box-sizing: border-box;
     background: #fff;
     color: #333;
