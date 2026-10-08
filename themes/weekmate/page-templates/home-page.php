@@ -120,19 +120,21 @@ $colorClasses = [
                                     <?php $bannerBlock1 = $bannerRightBlock['banner_block_1']; ?>
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
-                                            <div class="tab-icon">
-                                                <img class="icon"
-                                                    src="<?php echo $bannerBlock1['bb_title_block']['title_icon']['url']; ?>"
-                                                    alt="<?php echo $bannerBlock1['bb_title_block']['title_icon']['alt']; ?>">
-                                            </div>
                                             <button class="accordion-button accordion-button-homepage" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#banner-tab1-1" aria-expanded="true"
                                                 aria-controls="#banner-tab1-1">
+                                            <span class="tab-icon">
+                                                <img class="icon"
+                                                    src="<?php echo $bannerBlock1['bb_title_block']['title_icon']['url']; ?>"
+                                                    alt="<?php echo $bannerBlock1['bb_title_block']['title_icon']['alt']; ?>">
+                                            </span>
+                                            <span>
                                                 <?php echo $bannerBlock1['bb_title_block']['block_title']; ?>
-                                            </button>
-                                            <img class="tab-img"
+                                            </span>    
+                                                <img class="tab-img"
                                                 src="<?php echo $bannerBlock1['bb_title_block']['title_image']['url']; ?>"
                                                 alt="<?php echo $bannerBlock1['bb_title_block']['title_image']['alt']; ?>">
+                                            </button>
                                         </h2>
                                         <div id="banner-tab1-1" class="accordion-collapse collapse show"
                                             data-bs-parent="#banner-tab1">
@@ -522,6 +524,7 @@ $stats_repeater = get_field('stats_section', 'option');
                     <div class="row">
                         <?php $advtlsLists = $advToolSec['adv_tools_lists']; ?>
                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-12">
+                            <label for="advtoolDropdown" class="visually-hidden">Select Advanced Tool</label>
                             <select class="form-select advtool-dropdown" id="advtoolDropdown">
                                 <?php $advtlsdd = 0; foreach( $advtlsLists as $advtlsddList ) { $advtlsdd++; ?>
                                 <option value="v-pills-advtool-<?php echo $advtlsdd; ?>"
@@ -1541,7 +1544,6 @@ vsOpts.slides.forEach(function(slide, i) {
     /* HOLD */
     vSlide.to({}, { duration: vsOpts.holdDuration });
 });
-
 vSlide.play();
 
 /* Rebuild only if breakpoint height changes */
