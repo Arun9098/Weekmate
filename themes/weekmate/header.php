@@ -14,18 +14,18 @@
 <html <?php language_attributes(); ?> class="no-js">
 
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
-    <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>">
+    <?php if (is_singular() && pings_open(get_queried_object())) : ?>
+    <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
     <?php endif; ?>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap.min.css?ver=<?php echo filemtime( get_template_directory() . '/css/bootstrap.min.css' ); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/all.min.css?ver=<?php echo filemtime( get_template_directory() . '/css/all.min.css' ); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/owl-min.css?ver=<?php echo filemtime( get_template_directory() . '/css/owl-min.css' ); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/slick.min.css?ver=<?php echo filemtime( get_template_directory() . '/css/slick.min.css' ); ?>" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/style.css?ver=<?php echo filemtime( get_template_directory() . '/css/style.css' ); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/fancybox.css?ver=<?php echo filemtime( get_template_directory() . '/css/fancybox.css' ); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap.min.css?ver=<?php echo filemtime(get_template_directory() . '/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/all.min.css?ver=<?php echo filemtime(get_template_directory() . '/css/all.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/owl-min.css?ver=<?php echo filemtime(get_template_directory() . '/css/owl-min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/slick.min.css?ver=<?php echo filemtime(get_template_directory() . '/css/slick.min.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/style.css?ver=<?php echo filemtime(get_template_directory() . '/css/style.css'); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/fancybox.css?ver=<?php echo filemtime(get_template_directory() . '/css/fancybox.css'); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -59,10 +59,10 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <?php wp_body_open(); ?>
-    <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'weekmate' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'weekmate'); ?></a>
     <div class="mainCvr">
         <!-- ===== WeekMate EPF Ticker ===== -->
-        <div class="wm-ticker" role="region" aria-label="HR news announcement">
+        <section class="wm-ticker" role="region" aria-label="HR news announcement">
 
             <div class="wm-ticker__inner">
 
@@ -287,13 +287,13 @@
 
             </div>
 
-        </div>
+    </section>
         <header>
-            <nav class="header-nav navbar navbar-expand-lg">
+            <nav class="header-nav navbar navbar-expand-lg" aria-label="Main navigation">
                 <div class="container">
                     <div class="header-wrap">
                         <?php $logo = get_field('site_logo', 'option'); ?>
-                        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img
+                        <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><img
                                 src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>"></a>
                         <?php /* <ul class="navbar-nav ms-auto header-ctaCvr mobile-cta">
 								<li class="header-cta phone-btn"><a href="tel:+919726810206" ><i class="fa fa-phone"></i></a></li>
@@ -307,9 +307,9 @@
                             <span></span>
                         </button>
                         <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                            <?php if ( has_nav_menu( 'primary' ) ) : ?>
+                            <?php if (has_nav_menu('primary')) : ?>
                             <nav id="site-navigation" class="main-navigation ms-auto" role="navigation"
-                                aria-label="<?php esc_attr_e( 'Primary Menu', 'weekmate' ); ?>">
+                                aria-label="<?php esc_attr_e('Primary Menu', 'weekmate'); ?>">
                                 <?php
 								wp_nav_menu(
 									array(

@@ -81,7 +81,7 @@ if ($wm_latest_articles->have_posts()) :
         <article class="wm-latest-articles__featured">
             <?php
             $featured_id = $wm_featured_post->ID;
-            $featured_image = get_the_post_thumbnail_url($featured_id,'large');
+            $featured_image = get_the_post_thumbnail_url($featured_id, 'large');
             $featured_categories = get_the_category($featured_id);
             $featured_author_id = get_post_field('post_author', $featured_id);
             $featured_permalink = get_permalink($featured_id);
@@ -115,24 +115,18 @@ if ($wm_latest_articles->have_posts()) :
                 <!-- Excerpt -->
                 <div class="wm-latest-articles__excerpt">
                     <?php
-                    echo esc_html(wp_trim_words(get_the_excerpt($featured_id),24,'...'));
+                    echo esc_html(wp_trim_words(get_the_excerpt($featured_id), 24, '...'));
                     ?>
                 </div>
                 <!-- Footer -->
                 <div class="wm-latest-articles__featured-footer">
                     <div class="wm-latest-articles__meta">
                         <?php
-                        echo get_avatar($featured_author_id,28,'','',['class' => 'wm-latest-articles__avatar']);
+                        echo get_avatar($featured_author_id,28, '', '', ['class' => 'wm-latest-articles__avatar']);
                         ?>
                         <span>
                             <?php
-                            echo esc_html(
-                                get_the_author_meta(
-                                    'display_name',
-                                    $featured_author_id
-                                )
-                            );
-                            ?>
+                            echo esc_html(get_the_author_meta('display_name', $featured_author_id));?>
                         </span>
                         <span class="wm-latest-articles__separator">
                             •
@@ -153,7 +147,7 @@ if ($wm_latest_articles->have_posts()) :
                             $reading_time = do_shortcode(
                                 '[rt_reading_time label="" postfix="Min Read Time" postfix_singular="Min Read Time" post_id="' . absint($featured_id) . '"]'
                             );
-                            echo esc_html(str_replace('< 1','1',wp_strip_all_tags($reading_time)));?>
+                            echo esc_html(str_replace('< 1', '1', wp_strip_all_tags($reading_time)));?>
                         </span>
                     </div>
                     <a
@@ -176,9 +170,9 @@ if ($wm_latest_articles->have_posts()) :
                 <?php foreach ($wm_side_posts as $wm_post) : ?>
                     <?php
                         $post_id = $wm_post->ID;
-                        $post_image = get_the_post_thumbnail_url($post_id,'medium');
+                        $post_image = get_the_post_thumbnail_url($post_id, 'medium');
                         $categories = get_the_category($post_id);
-                        $author_id = get_post_field('post_author',$post_id);
+                        $author_id = get_post_field('post_author', $post_id);
                         $post_permalink = get_permalink($post_id);
                     ?>
                     <article class="wm-latest-articles__item">
@@ -200,7 +194,7 @@ if ($wm_latest_articles->have_posts()) :
                             <!-- Category -->
                             <?php if (!empty($categories)) : ?>
                                 <div class="wm-latest-articles__category">
-                                    <?php echo esc_html( $categories[0]->name );?>
+                                    <?php echo esc_html($categories[0]->name);?>
                                 </div>
                             <?php endif; ?>
                             <!-- Title -->
@@ -212,7 +206,7 @@ if ($wm_latest_articles->have_posts()) :
                             <!-- Meta -->
                             <div class="wm-latest-articles__meta">
                                 <span>
-                                    <?php echo esc_html(get_the_author_meta('display_name',$author_id));?>                                    
+                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id));?>                                    
                                 </span>
                                 <span>•</span>
                                 <span>
@@ -595,12 +589,12 @@ $wm_blog_page_id = get_option('page_for_posts');
  */
 $wm_blog_cta_background_image = get_field('wm_blog_cta_background_image', $wm_blog_page_id);
 $wm_blog_cta_card_1_image = get_field('wm_blog_cta_card_1_image', $wm_blog_page_id);
-$wm_blog_cta_card_2_image = get_field( 'wm_blog_cta_card_2_image', $wm_blog_page_id);
-$wm_blog_cta_card_3_image = get_field( 'wm_blog_cta_card_3_image', $wm_blog_page_id);
+$wm_blog_cta_card_2_image = get_field('wm_blog_cta_card_2_image', $wm_blog_page_id);
+$wm_blog_cta_card_3_image = get_field('wm_blog_cta_card_3_image', $wm_blog_page_id);
 $wm_blog_cta_heading = get_field('wm_blog_cta_heading', $wm_blog_page_id);
 $wm_blog_cta_description = get_field('wm_blog_cta_description', $wm_blog_page_id);
-$wm_blog_cta_button = get_field( 'wm_blog_cta_button', $wm_blog_page_id);
-$wm_blog_cta_watch_demo = get_field( 'watch_demo', $wm_blog_page_id);
+$wm_blog_cta_button = get_field('wm_blog_cta_button', $wm_blog_page_id);
+$wm_blog_cta_watch_demo = get_field('watch_demo', $wm_blog_page_id);
 /**
  * Button 1
  */
@@ -731,7 +725,7 @@ if (!function_exists('wm_get_youtube_video_id')) {
         if (empty($url)) {
             return '';
         }
-        $patterns = array( '/youtube\.com\/watch\?v=([^&]+)/i','/youtube\.com\/embed\/([^?&]+)/i','/youtube\.com\/shorts\/([^?&]+)/i','/youtu\.be\/([^?&]+)/i');
+        $patterns = array('/youtube\.com\/watch\?v=([^&]+)/i','/youtube\.com\/embed\/([^?&]+)/i','/youtube\.com\/shorts\/([^?&]+)/i','/youtu\.be\/([^?&]+)/i');
         foreach ($patterns as $pattern) {
             if (preg_match($pattern, $url, $matches)) {
                 return $matches[1];
@@ -741,7 +735,7 @@ if (!function_exists('wm_get_youtube_video_id')) {
     }
 }
 $wm_featured_video_id = wm_get_youtube_video_id($wm_top_videos_featured_url); ?>
-<?php if ( $wm_top_videos_heading || $wm_featured_video_id || !empty($wm_top_videos_right_videos)) : ?>
+<?php if ($wm_top_videos_heading || $wm_featured_video_id || !empty($wm_top_videos_right_videos)) : ?>
 <section class="Wm-top-videos-section container sectionCvr">
     <div class="Wm-top-videos-section__container">
         <div class="Wm-top-videos-section__header">
