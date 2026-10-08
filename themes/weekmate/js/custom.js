@@ -241,8 +241,8 @@ jQuery(function ($) {
   $('.tool-item').on('click', function () {
     $('.tool-item').removeClass('active');
     $(this).addClass('active');
-    var targetId = $(this).data('target');
-    var targetContent = $('#' + targetId);
+    let targetId = $(this).data('target');
+    let targetContent = $('#' + targetId);
     if (!targetContent.is(':visible')) {
       $('.tool-item-content').slideUp();
       targetContent.slideDown();
@@ -256,13 +256,13 @@ jQuery(function ($) {
     }
   });
   
-    var rev = $('#product-video-slider');
+    let rev = $('#product-video-slider');
 
   if (rev.length) {
 
     // Find slide whose data-title matches the current page slug
-    var startIndex = 0;
-    var slug = (window.wmCurrentSlug || '').toLowerCase();
+    let startIndex = 0;
+    let slug = (window.wmCurrentSlug || '').toLowerCase();
     if (slug) {
       rev.find('.rev_slide').each(function (i) {
         if (String($(this).data('title')) === slug) {
@@ -273,7 +273,7 @@ jQuery(function ($) {
     }
 
     rev.on('init', function (event, slick) {
-      var cur   = $(slick.$slides[slick.currentSlide]),
+      let cur   = $(slick.$slides[slick.currentSlide]),
           next  = cur.next(),
           next2 = next.next(),
           prev  = cur.prev(),
@@ -286,14 +286,14 @@ jQuery(function ($) {
       slick.$prev = prev;
       slick.$next = next;
     }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-      var cur = $(slick.$slides[nextSlide]);
+      let cur = $(slick.$slides[nextSlide]);
       if (slick.$prev && slick.$next) {
         slick.$prev.removeClass('slick-sprev');
         slick.$next.removeClass('slick-snext');
         slick.$prev.prev().removeClass('slick-sprev2');
         slick.$next.next().removeClass('slick-snext2');
       }
-      var n = cur.next(), p = cur.prev();
+      let n = cur.next(), p = cur.prev();
       p.addClass('slick-sprev');
       n.addClass('slick-snext');
       p.prev().addClass('slick-sprev2');
@@ -363,7 +363,7 @@ jQuery(document).ready(function($) {
 
 // Slider for news events
 function initAnnouncementSlider() {
-    var $track = jQuery('.announcement-slider__track');
+    let $track = jQuery('.announcement-slider__track');
     console.log("Hello World")
     if (!$track.length) return;
 
@@ -396,7 +396,7 @@ jQuery(function ($) {
         $('.accordion-subtitle[data-parent="' + targetId + '"]').addClass('is-visible');
     }
 
-    var $activeItem = $('.accordion-item.active').first();
+    let $activeItem = $('.accordion-item.active').first();
     if ($activeItem.length) {
         showSubtitles($activeItem.data('target'));
     }
@@ -404,19 +404,19 @@ jQuery(function ($) {
     $('.accordion-item')
         .off('click.accordionMain')
         .on('click.accordionMain', function () {
-            var $item = $(this);
+            let $item = $(this);
 
             $('.accordion-item').removeClass('active');
             $item.addClass('active');
 
-            var targetId = $item.data('target');
+            let targetId = $item.data('target');
             showSubtitles(targetId);
 
             if ($item.hasClass('has-subs')) {
                 return;
             }
 
-            var targetContent = $('#' + targetId);
+            let targetContent = $('#' + targetId);
             if (!targetContent.is(':visible')) {
                 $('.accordion-item-content').stop(true, true).slideUp();
                 targetContent.stop(true, true).slideDown();
@@ -426,11 +426,11 @@ jQuery(function ($) {
     $('.accordion-subtitle')
         .off('click.accordionSub')
         .on('click.accordionSub', function () {
-            var $sub    = $(this);
-            var parent  = $sub.data('parent');
-            var subId   = $sub.data('sub-target');
-            var $panel  = $('#' + parent);
-            var $target = $('#' + subId);
+            let $sub    = $(this);
+            let parent  = $sub.data('parent');
+            let subId   = $sub.data('sub-target');
+            let $panel  = $('#' + parent);
+            let $target = $('#' + subId);
 
             $('.accordion-subtitle[data-parent="' + parent + '"]').removeClass('active');
             $sub.addClass('active');
