@@ -18,6 +18,7 @@ get_header();
                             <li>
                                 <p class="rating-icon"><a href="#"><img
                                             src="https://weekmate.in/wp-content/themes/weekmate/images/rating-icon-1.png"
+                                            alt="rating-icon"
                                             align="rating-icon"></a></p>
                                 <p>
                                     <span class="rating">4.4</span>
