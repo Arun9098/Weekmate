@@ -16,10 +16,11 @@ get_header();
                     <div class="banner-rating">
                         <ul class="rating-block">
                             <li>
-                                <p class="rating-icon"><a href="#"><img
-                                            src="https://weekmate.in/wp-content/themes/weekmate/images/rating-icon-1.png"
-                                            alt="rating-icon"
-                                            align="rating-icon"></a></p>
+                                <p class="rating-icon">
+                                    <a href="#">
+                                    <img src="https://weekmate.in/wp-content/themes/weekmate/images/rating-icon-1.png" alt="rating-icon" align="rating-icon">
+                                        </a>
+                                    </p>
                                 <p>
                                     <span class="rating">4.4</span>
                                     <span class="star-rating">
@@ -62,9 +63,11 @@ get_header();
                                 </p>
                             </li>
                             <li>
-                                <p class="rating-icon"><a href="#"><img
-                                            src="https://weekmate.in/wp-content/themes/weekmate/images/rating-icon-2.png"
-                                            align="rating-icon"></a></p>
+                                <p class="rating-icon">
+                                    <a href="#">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/rating-icon-2.png" alt="rating-icon" align="rating-icon">
+                                    </a>
+                                </p>
                                 <p>
                                     <span class="rating">4.4</span>
                                     <span class="star-rating">
@@ -129,8 +132,7 @@ get_header();
             </div>
             <div class="col-xxl-7 col-xl-7 col-lg-12 col-md-12 col-sm-12">
                 <div class="image-wrapper">
-                    <img src="https://weekmate.in/wp-content/uploads/2025/08/find-a-weekmate-partner.png" width="100%"
-                        alt="find-a-weekmate-partner">
+                    <img src="https://weekmate.in/wp-content/uploads/2025/08/find-a-weekmate-partner.png" width="100%" alt="find-a-weekmate-partner">
                 </div>
             </div>
         </div>
@@ -215,7 +217,7 @@ get_header();
                         <div class="col-xxl-4 col-lg-6 card-item">
                             <div class="partners-card-item">
                                 <div class="company-logo">
-                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="">
+                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="Mark-group-icon">
                                 </div>
                                 <div class="partners-card-content">
                                     <div class="partners-card-title">
@@ -262,8 +264,7 @@ get_header();
                                     </ul>
                                     <div class="partners-logo-wrapper">
                                         <div class="image-wrapper">
-                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png"
-                                                alt="premium-partner">
+                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png" alt="premium-partner">
                                         </div>
                                     </div>
                                     <div class="partners-card-link">
@@ -288,7 +289,7 @@ get_header();
                         <div class="col-xxl-4 col-lg-6 card-item">
                             <div class="partners-card-item">
                                 <div class="company-logo">
-                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="">
+                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="Mask-Group-icon">
                                 </div>
                                 <div class="partners-card-content">
                                     <div class="partners-card-title">
@@ -335,8 +336,7 @@ get_header();
                                     </ul>
                                     <div class="partners-logo-wrapper">
                                         <div class="image-wrapper">
-                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png"
-                                                alt="premium-partner">
+                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png" alt="premium-partner">
                                         </div>
                                     </div>
                                     <div class="partners-card-link">
@@ -361,7 +361,7 @@ get_header();
                         <div class="col-xxl-4 col-lg-6 card-item">
                             <div class="partners-card-item">
                                 <div class="company-logo">
-                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="">
+                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="Mask-Group-icon">
                                 </div>
                                 <div class="partners-card-content">
                                     <div class="partners-card-title">
@@ -408,8 +408,7 @@ get_header();
                                     </ul>
                                     <div class="partners-logo-wrapper">
                                         <div class="image-wrapper">
-                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png"
-                                                alt="premium-partner">
+                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png" alt="premium-partner">
                                         </div>
                                     </div>
                                     <div class="partners-card-link">
@@ -434,7 +433,7 @@ get_header();
                         <div class="col-xxl-4 col-lg-6 card-item">
                             <div class="partners-card-item">
                                 <div class="company-logo">
-                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="">
+                                    <img src="https://weekmate.in/wp-content/uploads/2025/08/Mask-group-5.svg" alt="Mask-Group-icon">
                                 </div>
                                 <div class="partners-card-content">
                                     <div class="partners-card-title">
@@ -481,8 +480,7 @@ get_header();
                                     </ul>
                                     <div class="partners-logo-wrapper">
                                         <div class="image-wrapper">
-                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png"
-                                                alt="premium-partner">
+                                            <img src="https://weekmate.in/wp-content/uploads/2025/08/premium-partner.png" alt="premium-partner">
                                         </div>
                                     </div>
                                     <div class="partners-card-link">
@@ -529,8 +527,7 @@ get_header();
                             <div class="testimonials-block light-mint-bg-clr">
                                 <div class="testi-img-play">
                                     <p class="testi-img">
-                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png"
-                                            alt="testimonial">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png" alt="testimonial">
                                     </p>
                                 </div>
                                 <div class="testi-content">
@@ -547,8 +544,7 @@ get_header();
                             <div class="testimonials-block soft-peach-bg-clr">
                                 <div class="testi-img-play">
                                     <p class="testi-img">
-                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png"
-                                            alt="testimonial">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png" alt="testimonial">
                                     </p>
                                 </div>
                                 <div class="testi-content">
@@ -565,8 +561,7 @@ get_header();
                             <div class="testimonials-block light-ivory-bg-clr">
                                 <div class="testi-img-play">
                                     <p class="testi-img">
-                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png"
-                                            alt="testimonial">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png" alt="testimonial">
                                     </p>
                                 </div>
                                 <div class="testi-content">
@@ -583,8 +578,7 @@ get_header();
                             <div class="testimonials-block sky-blue-bg-clr">
                                 <div class="testi-img-play">
                                     <p class="testi-img">
-                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png"
-                                            alt="testimonial">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png" alt="testimonial">
                                     </p>
                                 </div>
                                 <div class="testi-content">
@@ -601,8 +595,7 @@ get_header();
                             <div class="testimonials-block light-mint-bg-clr">
                                 <div class="testi-img-play">
                                     <p class="testi-img">
-                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png"
-                                            alt="testimonial">
+                                        <img src="https://weekmate.in/wp-content/themes/weekmate/images/test-img-avatar.png" alt="testimonial">
                                     </p>
                                 </div>
                                 <div class="testi-content">
