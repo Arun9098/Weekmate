@@ -6,16 +6,15 @@
  * @subpackage WeekMate
  * @since WeekMate 1.0
  */
-//echo get_page_link(351);
-//echo get_template_directory_uri();
 
-$trusted_by_our_clients_3_section = get_field('trusted_by_our_clients_3_section','option');
+get_header(); 
+
+$trusted_by_our_clients_3_section = get_field('trusted_by_our_clients_3_section', 'option' );
 $videoSec = $trusted_by_our_clients_3_section['section_1'];
 $prdctCountSec = $trusted_by_our_clients_3_section['section_2'];
 $comPriceSec = $trusted_by_our_clients_3_section['section_3'];
-$trusted_by_our_clients_section = get_field('trusted_by_our_clients_section','option');
-$trusted_by_our_clients_3_section = get_field('trusted_by_our_clients_3_section','option');
-get_header(); 
+$trusted_by_our_clients_section = get_field('trusted_by_our_clients_section', 'option' );
+$trusted_by_our_clients_3_section = get_field('trusted_by_our_clients_3_section', 'option' );
 $colorClasses = [
 "light-mint-bg-clr",
 "soft-peach-bg-clr",
@@ -31,9 +30,11 @@ $colorClasses = [
                     <div class="banner-rating">
                         <ul class="rating-block">
                             <li>
-                                <p class="rating-icon"><a href="#"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/images/rating-icon-1.png"
-                                            align="rating-icon"></a></p>
+                                <p class="rating-icon">
+                                    <a href="#">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/rating-icon-1.png" align="rating-icon">
+                                    </a>
+                                </p>
                                 <p>
                                     <span class="rating">4.4</span>
                                     <span class="star-rating">
@@ -46,9 +47,11 @@ $colorClasses = [
                                 </p>
                             </li>
                             <li>
-                                <p class="rating-icon"><a href="#"><img
-                                            src="<?php echo get_template_directory_uri(); ?>/images/rating-icon-2.png"
-                                            align="rating-icon"></a></p>
+                                <p class="rating-icon">
+                                    <a href="#">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/rating-icon-2.png" align="rating-icon">
+                                    </a>
+                                </p>
                                 <p>
                                     <span class="rating">4.6</span>
                                     <span class="star-rating">
@@ -71,7 +74,9 @@ $colorClasses = [
 						  	foreach ( $bannerLines as $key => $bannerLine) { ?>
                                 <li class="v-slide">
                                     <?php if ($key === 2) : ?>                                       
-                                            <div class="line light"><?php echo $bannerLine['banner_light_text']; ?></div>
+                                            <div class="line light">
+                                                <?php echo $bannerLine['banner_light_text']; ?>
+                                            </div>
                                             <?php
                                             $bold = $bannerLine['banner_bold_text'] ?? '';
                                             $parts = preg_split('/\s{2,}/', $bold);
