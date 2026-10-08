@@ -535,8 +535,6 @@ jQuery(function ($) {
     const timelineCircles = document.querySelectorAll('#timeline .circle');
     const timelineFills = document.querySelectorAll('#timeline .connector .fill');
 
-    let activeStage = null;
-
     // Every stage maps to exactly one active card (or none, during a transition) —
     // reused both to drive the CSS `.active` class and to gate the JS counters below.
     // CARD_3 and CARD_4 both map to card3 — it's the same physical card active in
@@ -549,7 +547,6 @@ jQuery(function ($) {
     };
 
     function setStage(stage){
-      activeStage = stage;
       const activeCard = STAGE_TO_CARD[stage] || null;
       [card1, card2, card3].forEach(c => c.classList.toggle('active', c === activeCard));
     }
@@ -571,7 +568,7 @@ jQuery(function ($) {
         light.style.transition = 'none';
         light.style.transform = `translate(calc(-50% + ${from}px), -50%)`;
         light.style.opacity = '1';
-        void light.offsetWidth; // force reflow so the transition below actually runs
+        light.getBoundingClientRect(); // force reflow so the transition below actually runs
         light.style.transition =
           `transform ${ANIMATION_CONFIG.transitionDuration}ms cubic-bezier(.4,0,.2,1), opacity 150ms ease`;
         light.style.transform = `translate(calc(-50% + ${to}px), -50%)`;
@@ -595,7 +592,7 @@ jQuery(function ($) {
       if (!fill){ return; }
       fill.style.transition = 'none';
       fill.style.width = '0%';
-      void fill.offsetWidth;
+      fill.getBoundingClientRect(); // force reflow
       fill.style.transition = `width ${ANIMATION_CONFIG.transitionDuration}ms linear`;
       fill.style.width = '100%';
     }
@@ -628,46 +625,55 @@ jQuery(function ($) {
     // with the 4-step timeline advancing in lockstep at every same call site.
     // Critical trigger: card3's content never swaps until the 03->04 light has
     // actually finished traveling (awaited below), never the instant stage03 ends.
-    async function run(){
-      while (true){
-        setStage(STAGES.CARD_1);
-        setTimelineStep(0);
-        countUpFrom(applicantsCount, 247, 900);
-        await sleep(ANIMATION_CONFIG.cardDuration);
+    async function playCycle(){
+      setStage(STAGES.CARD_1);
+      setTimelineStep(0);
+      countUpFrom(applicantsCount, 247, 900);
+      await sleep(ANIMATION_CONFIG.cardDuration);
 
-        setStage(STAGES.TRANSITION_1_2); // all cards idle; only the light moves
-        fillTimelineConnector(0);
-        await travelLight(lightA, trackAB, true);
+      setStage(STAGES.TRANSITION_1_2); // all cards idle; only the light moves
+      fillTimelineConnector(0);
+      await travelLight(lightA, trackAB, true);
 
-        setStage(STAGES.CARD_2);
-        setTimelineStep(1);
-        countUpFrom(shortlistedCount, 3, 700);
-        await sleep(ANIMATION_CONFIG.cardDuration);
+      setStage(STAGES.CARD_2);
+      setTimelineStep(1);
+      countUpFrom(shortlistedCount, 3, 700);
+      await sleep(ANIMATION_CONFIG.cardDuration);
 
-        setStage(STAGES.TRANSITION_2_3);
-        fillTimelineConnector(1);
-        await travelLight(lightB, trackBC, true);
+      setStage(STAGES.TRANSITION_2_3);
+      fillTimelineConnector(1);
+      await travelLight(lightB, trackBC, true);
 
-        setStage(STAGES.CARD_3); // card3 active, showing "Best Fit"
-        setTimelineStep(2);
-        countUpFrom(hiredCount, 1, 500);
-        await sleep(ANIMATION_CONFIG.cardDuration);
+      setStage(STAGES.CARD_3); // card3 active, showing "Best Fit"
+      setTimelineStep(2);
+      countUpFrom(hiredCount, 1, 500);
+      await sleep(ANIMATION_CONFIG.cardDuration);
 
-        setStage(STAGES.TRANSITION_3_4); // card3 idle, still "Best Fit" — only the timeline light moves
-        await fillTimelineConnectorAndWait(2);
+      setStage(STAGES.TRANSITION_3_4); // card3 idle, still "Best Fit" — only the timeline light moves
+      await fillTimelineConnectorAndWait(2);
 
-        setTimelineStep(3);   // light has arrived: 04 activates...
-        showHiredCard();      // ...and only now does the physical card's content swap
-        setStage(STAGES.CARD_4); // card3 active again, now animating its Hired-state visuals
-        await sleep(ANIMATION_CONFIG.cardDuration);
+      setTimelineStep(3);   // light has arrived: 04 activates...
+      showHiredCard();      // ...and only now does the physical card's content swap
+      setStage(STAGES.CARD_4); // card3 active again, now animating its Hired-state visuals
+      await sleep(ANIMATION_CONFIG.cardDuration);
 
-        setStage(STAGES.TRANSITION_4_1); // card3 idle, stays in Hired look; light returns across the cards
-        await travelLight(lightB, trackBC, false);
-        await travelLight(lightA, trackAB, false);
+      setStage(STAGES.TRANSITION_4_1); // card3 idle, stays in Hired look; light returns across the cards
+      await travelLight(lightB, trackBC, false);
+      await travelLight(lightA, trackAB, false);
 
-        resetTimeline();
-        showBestFitCard(); // only once back at the start does card3 reset for the new cycle
-      }
+      resetTimeline();
+      showBestFitCard(); // only once back at the start does card3 reset for the new cycle
     }
+
+    function run(){
+      playCycle()
+        .then(() => {
+          run();
+        })
+        .catch(() => {
+          // Gracefully handle rejection to prevent unhandled promise rejections
+        });
+    }
+
     run();
   })();
