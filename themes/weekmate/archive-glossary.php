@@ -7,12 +7,12 @@
  * @since WeekMate 1.0
  */
 
-get_header(); 
+get_header();
 
 // ✅ Get Blog Page ACF fields (from Options Page)
 $calculator_page = get_field('calculator_page', 'option');
 ?>
-<?php if ( $calculator_page ) : ?>
+<?php if ($calculator_page) : ?>
 <section class="glossary-hero-sec">
      <div class="container">
 
@@ -58,13 +58,13 @@ $calculator_page = get_field('calculator_page', 'option');
 
         $available_letters = [];
 
-        if ( $query->have_posts() ) {
-            foreach ( $query->posts as $post_id ) {
-                $title = get_the_title( $post_id );
-                $letter = strtoupper( mb_substr( $title, 0, 1 ) );
+        if ($query->have_posts()) {
+            foreach ($query->posts as $post_id) {
+                $title = get_the_title($post_id);
+                $letter = strtoupper(mb_substr($title, 0, 1));
 
-                if ( preg_match('/^[A-Z]$/', $letter ) ) {
-                    $available_letters[ $letter ] = true;
+                if (preg_match('/^[A-Z]$/', $letter)) {
+                    $available_letters[$letter] = true;
                 }
             }
         }
@@ -73,13 +73,13 @@ $calculator_page = get_field('calculator_page', 'option');
 
         <div class="glossary-az-filter">
             <ul>
-                <?php foreach ( range('A', 'Z') as $letter ) : ?>
-                    <?php if ( empty( $available_letters[ $letter ] ) ) continue; ?>
+                <?php foreach (range('A', 'Z') as $letter) : ?>
+                    <?php if (empty( $available_letters[ $letter ])) continue; ?>
                     <li>
                         <a href="#"
                         class="glossary-letter"
-                        data-letter="<?php echo esc_attr( $letter ); ?>">
-                            <?php echo esc_html( $letter ); ?>
+                        data-letter="<?php echo esc_attr($letter); ?>">
+                            <?php echo esc_html($letter); ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -194,7 +194,7 @@ $secondary_link = $glossary_cta['glossary_secondary_button_link'] ?? '';
 
             <?php if ( $heading ) : ?>
                 <h2 class="glossary-bottom-cta__title">
-                    <?php echo esc_html( $heading ); ?>
+                    <?php echo esc_html($heading); ?>
                 </h2>
             <?php endif; ?>
 
