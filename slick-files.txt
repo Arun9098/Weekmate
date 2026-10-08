@@ -1,0 +1,4 @@
+themes/weekmate/css/slick-theme.css
+themes/weekmate/css/slick.css
+themes/weekmate/css/slick.min.css
+themes/weekmate/js/slick.min.js
