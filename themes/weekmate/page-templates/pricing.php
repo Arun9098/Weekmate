@@ -161,7 +161,7 @@ $stats_repeater = get_field('stats_section', 'option');
                     continue; // skip any other rows
                 }
             ?>
-            <div class="pricing-tab-content <?php echo $tab_class; ?>" 
+            <div class="pricing-tab-content <?php echo $tab_class; ?>"
                 data-tab="<?php echo esc_attr($tab_label); ?>"
                 style="<?php echo $tab_style; ?>">
 
@@ -364,7 +364,11 @@ $stats_repeater = get_field('stats_section', 'option');
                                             }
                                         ?>
                                         </span>
-                                        <?php if ($price_period): ?><span class="pps-price-period"><?php echo esc_html($price_period); ?></span><?php endif; ?>
+                                        <?php if ($price_period): ?>
+                                            <span class="pps-price-period">
+                                                <?php echo esc_html($price_period); ?>
+                                        </span>
+                                        <?php endif; ?>
                                     </div>
                                     <?php endif; ?>
                                     <?php if (!empty($plan['plan_price_note'])): ?>
@@ -390,7 +394,9 @@ $stats_repeater = get_field('stats_section', 'option');
                                         $features = $group['features'] ?? [];
                                     ?>
                                         <?php if (!empty($group['group_title'])): ?>
-                                            <h4 class="pps-group-title"><?php echo esc_html($group['group_title']); ?></h4>
+                                            <h4 class="pps-group-title">
+                                                <?php echo esc_html($group['group_title']); ?>
+                                            </h4>
                                         <?php endif; ?>
                                         <?php if (!empty($features)): ?>
                                         <ul class="pps-feature-list">
@@ -398,7 +404,8 @@ $stats_repeater = get_field('stats_section', 'option');
                                                 <?php if (!empty($feat['feature_name'])): ?>
                                                 <li>
                                                     <span class="pps-feat-icon">
-                                                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
                                                     </span>
                                                     <?php echo esc_html($feat['feature_name']); ?>
                                                 </li>
@@ -412,7 +419,11 @@ $stats_repeater = get_field('stats_section', 'option');
                                                 <p class="pps-additional-price-title"><?php echo esc_html($group['additional_price']['price_title']); ?></p>
                                             <?php endif; ?>
                                             <?php if (!empty($group['additional_price']['real_price'])): ?>
-                                                <p class="pps-additional-price-value"><?php echo esc_html($group['additional_price']['real_price']); ?></p>
+                                                <p class="pps-additional-price-value">
+                                                    <?php 
+                                                    echo esc_html($group['additional_price']['real_price']); 
+                                                    ?>
+                                                </p>
                                             <?php endif; ?>
                                         </div>
                                         <?php endif; ?>
@@ -425,7 +436,11 @@ $stats_repeater = get_field('stats_section', 'option');
                         <?php if (!empty($sub_addons)): ?>
                         <div class="pps-addons-wrap">
                             <div class="pps-addons-badge">
-                                <span class="pps-addons-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                                <span class="pps-addons-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                    </svg>
+                                </span>
                                 Add-Ons
                             </div>
                             <div class="pps-addons-list">
@@ -467,7 +482,11 @@ $stats_repeater = get_field('stats_section', 'option');
             if (!empty($tab_addons)): ?>
                 <div class="pps-addons-wrap">
                     <div class="pps-addons-badge">
-                        <span class="pps-addons-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                        <span class="pps-addons-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </span>
                         Add-Ons
                     </div>
                     <div class="pps-addons-list">
