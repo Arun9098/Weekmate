@@ -20,7 +20,7 @@
   ];
 ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <!-- 📌 Blog Hero Section -->
 <section class="sectionCvr blog-hero-sec border-btm">
@@ -98,33 +98,12 @@
                             <!-- 🏷 Title -->
                         <h1 class="fw-bold blog-hero-title"><?php the_title(); ?></h1>
                     </div>
-
-                    <!-- 🔗 Social Share -->
-                    <!-- <ul class="blog-share ftrsocialLinks">
-                        <li>
-                            <a href="https://facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"
-                                target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>" target="_blank"><i
-                                    class="fab fa-x-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php the_permalink(); ?>"
-                                target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://api.whatsapp.com/send?text=<?php the_permalink(); ?>" target="_blank"><i
-                                    class="fab fa-whatsapp"></i></a>
-                        </li>
-                    </ul> -->
-
                 </div>
             </div>
 
             <!-- Right Column: Featured Image -->
             <div class="col-lg-6 col-md-12">
-                <?php if ( has_post_thumbnail() ) : ?>
+                <?php if (has_post_thumbnail()) : ?>
                 <div class="blog-hero-image text-center">
                     <?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?>
                 </div>
@@ -137,7 +116,7 @@
 <!-- 📑 Single Blog Content -->
 <section class="single-blog sectionCvr">
     <?php
-        $post_content = apply_filters( 'the_content', get_the_content() );
+        $post_content = apply_filters('the_content', get_the_content());
     ?>
     <div class="mobile-tablet-toc-wrap">
         <?php render_blog_toc(); ?>
@@ -148,34 +127,34 @@
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <?php
-                    // Run content through filter first (invisibly) to populate TOC — 
+                    // Run content through filter first (invisibly) to populate TOC —
                     // WordPress caches this so calling the_content() later still works fine
-                    $post_content = apply_filters( 'the_content', get_the_content() );
+                    $post_content = apply_filters('the_content', get_the_content());
                 ?>
                 <?php render_blog_toc(); ?>
                  <?php
                     $blog_side_section = get_field('blog_side_section', 'option');
-                    if( $blog_side_section ) : 
+                    if($blog_side_section) :
                     $heading      = $blog_side_section['heading'];
                     $detail_block = $blog_side_section['detail_block'];
                     $button       = $blog_side_section['button'];
                  ?>
                 <aside class="blog-side-section">
-                    <?php if( $heading ): ?>
+                    <?php if($heading): ?>
                     <h3 class="side-heading"><?php echo esc_html($heading); ?></h3>
                     <?php endif; ?>
 
-                    <?php if( $detail_block ): ?>
+                    <?php if($detail_block): ?>
                     <ul class="side-detail-block">
-                        <?php foreach( $detail_block as $item ): ?>
-                        <?php if( !empty($item['text']) ): ?>
+                        <?php foreach($detail_block as $item): ?>
+                        <?php if(!empty($item['text'])): ?>
                         <li><?php echo esc_html($item['text']); ?></li>
                         <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                     <?php endif; ?>
 
-                    <?php if( $button ): ?>
+                    <?php if($button): ?>
                     <a href="<?php echo esc_url($button['url']); ?>" class="side-btn btn btn-primary mt-3"
                         target="<?php echo esc_attr($button['target']); ?>">
                         <?php echo esc_html($button['title']); ?>
@@ -213,18 +192,18 @@
                     <?php the_content(); ?>
                     <!-- Faq from ACF  -->
                     <?php
-                    $faq_heading = get_field( 'faq_heading' );
-                    $faq_items   = get_field( 'faq_items' );
-                    if ( $faq_items ) : ?>
+                    $faq_heading = get_field('faq_heading');
+                    $faq_items   = get_field('faq_items');
+                    if ($faq_items) : ?>
                         <div class="faq-section">
-                            <?php if ( $faq_heading ) : ?>
-                                <h2 class="faq-heading"><?php echo esc_html( $faq_heading ); ?></h2>
+                            <?php if ($faq_heading) : ?>
+                                <h2 class="faq-heading"><?php echo esc_html($faq_heading); ?></h2>
                             <?php endif; ?>
                             <div class="faq-list">
-                                <?php foreach ( $faq_items as $index => $item ) : ?>
+                                <?php foreach ($faq_items as $index => $item) : ?>
                                     <div class="faq-item">
                                         <button class="faq-question" aria-expanded="false">
-                                            <h3 class="post-question-faq"><?php echo esc_html( $item['question'] ); ?></h3>
+                                            <h3 class="post-question-faq"><?php echo esc_html($item['question']); ?></h3>
                                             <span class="faq-icon">
                                                 <span class="icon-plus">+</span>
                                                 <span class="icon-minus">−</span>
@@ -232,7 +211,7 @@
                                         </button>
                                         <div class="faq-answer">
                                             <p class="faq-answer-inner">
-                                                <?php echo wp_kses_post( $item['answer'] ); ?>
+                                                <?php echo wp_kses_post($item['answer']); ?>
                                             </p>
                                         </div>
                                     </div>
@@ -274,16 +253,16 @@
                 <div class="author-desc">
                 <h4 class="heading-bold about-author">About Author</h4>
                 
-                <?php 
+                <?php
                 // Get the current user's ID
-                $user_id = get_current_user_id(); 
+                $user_id = get_current_user_id();
 
                 // Fetch the first and last name using ACF custom fields
-                $first_name = get_user_meta($author_id, 'first_name', true); 
-                $last_name = get_user_meta($author_id, 'last_name', true); 
+                $first_name = get_user_meta($author_id, 'first_name', true);
+                $last_name = get_user_meta($author_id, 'last_name', true);
                 
                 // Combine first and last name
-                $full_name = $first_name . ' ' . $last_name; 
+                $full_name = $first_name . ' ' . $last_name;
                 ?>
                 
                 <h5 class="heading-bold"><?php echo esc_html($full_name); ?> - <?php echo esc_html(get_user_meta($author_id, 'designation', true)); ?></h5>
@@ -312,7 +291,7 @@
     </div>
 </section>
 <!-- 📑 Related Posts -->
-<?php if ( strpos($_SERVER['REQUEST_URI'], '/news-events/') === false ) { ?>
+<?php if (strpos($_SERVER['REQUEST_URI'], '/news-events/') === false) { ?>
 <section class="related-posts blog-listing sectionCvr pt-0">
     <div class="container">
         <div class="section-header text-center">
@@ -330,9 +309,9 @@
                 'order'          => 'DESC'
             ]);
 
-      if ( $related->have_posts() ) :
+      if ($related->have_posts()) :
           $i = 0; // counter
-          while ( $related->have_posts() ) : $related->the_post(); 
+          while ($related->have_posts()) : $related->the_post();
               $classIndex   = $i % count($colorClasses);
               $currentClass = $colorClasses[$classIndex];
       ?>
@@ -356,12 +335,12 @@
                                     $hero_title = get_field('post_featured_image_title');
                                     if ($hero_title) {
                                         echo esc_html($hero_title);
-                                    }?>  
+                                    }?>
                                 </p>
                                 </div>
                                 <!-- Right featured image -->
                                 <div class="blog-featured-hero__image">
-                                    <?php the_post_thumbnail('large',array('class' => 'blog-featured-hero__img',));?>
+                                    <?php the_post_thumbnail('large', array('class' => 'blog-featured-hero__img',));?>
                                 </div>
                             </div>
 
@@ -382,7 +361,7 @@
                                 <span class="blog-readtime-clock-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                         <path d="M10.3725 10.1325C10.7218 10.2489 11.0993 10.0601 11.2158 9.71082C11.3322 9.36152 11.1434 8.98398 10.7941 8.86754L10.5833 9.5L10.3725 10.1325ZM8.33331 8.75H7.66665C7.66665 9.03695 7.85027 9.29171 8.12249 9.38246L8.33331 8.75ZM8.99998 5.61391C8.99998 5.24572 8.7015 4.94725 8.33331 4.94725C7.96512 4.94725 7.66665 5.24572 7.66665 5.61391H8.33331H8.99998ZM10.5833 9.5L10.7941 8.86754L8.54413 8.11754L8.33331 8.75L8.12249 9.38246L10.3725 10.1325L10.5833 9.5ZM8.33331 8.75H8.99998V5.61391H8.33331H7.66665V8.75H8.33331ZM14.3333 8H13.6666C13.6666 10.9455 11.2788 13.3333 8.33331 13.3333V14V14.6667C12.0152 14.6667 15 11.6819 15 8H14.3333ZM8.33331 14V13.3333C5.38779 13.3333 2.99998 10.9455 2.99998 8H2.33331H1.66665C1.66665 11.6819 4.65141 14.6667 8.33331 14.6667V14ZM2.33331 8H2.99998C2.99998 5.05448 5.38779 2.66667 8.33331 2.66667V2V1.33333C4.65141 1.33333 1.66665 4.3181 1.66665 8H2.33331ZM8.33331 2V2.66667C11.2788 2.66667 13.6666 5.05448 13.6666 8H14.3333H15C15 4.3181 12.0152 1.33333 8.33331 1.33333V2Z" fill="#5A6781"></path>
-                                    </svg>   
+                                    </svg>
                                 </span>
                                 <?php
                                     $post_id = get_the_ID();
@@ -395,14 +374,6 @@
                             </div>
                             <div class="blog-content-title">
                                 <h2 class="blog-title text-18"><?php the_title(); ?></h2>
-                                <!-- <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18"
-                                        fill="none">
-                                        <path
-                                            d="M1.54941 17.33C1.92702 17.33 2.30464 17.1909 2.60276 16.8927L9.61851 9.877C10.1949 9.30063 10.1949 8.34665 9.61851 7.77029L2.60276 0.754539C2.0264 0.178175 1.07241 0.178175 0.49605 0.754539C-0.0803146 1.3309 -0.0803146 2.28489 0.49605 2.86125L6.45844 8.82364L0.49605 14.786C-0.0803146 15.3624 -0.0803146 16.3164 0.49605 16.8927C0.774295 17.1909 1.15191 17.33 1.54941 17.33Z"
-                                            fill="black"></path>
-                                    </svg>
-                                </div> -->
                             </div>
                             <p class="blog-excerpt">
                                 <?php
@@ -410,7 +381,7 @@
                                     $words = wp_trim_words($excerpt, 15);
                                     echo $words;
                                 ?>
-                            </p>     
+                            </p>
                         <p class="blog-meta">
                             <!-- Author -->
                             <span class="blog-meta__item">
@@ -475,9 +446,9 @@
                     </a>
                 </article>
             </div>
-            <?php 
+            <?php
               $i++; // increment inside loop
-          endwhile; 
+          endwhile;
           wp_reset_postdata();
       else :
         echo '<p>No related posts.</p>';
