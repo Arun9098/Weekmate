@@ -31,7 +31,9 @@ $listing = get_field('integration_listing');
                             <?php echo esc_html($hero['heading']); ?>
                         <?php endif; ?>
                         <?php if (!empty($hero['heading_highlight'])) : ?>
-                            <span class="intg-hero__heading-highlight"><?php echo esc_html($hero['heading_highlight']); ?></span>
+                            <span class="intg-hero__heading-highlight">
+                                <?php echo esc_html($hero['heading_highlight']); ?>
+                            </span>
                         <?php endif; ?>
                         <?php if (!empty($hero['heading_suffix'])) : ?>
                             <?php echo esc_html($hero['heading_suffix']); ?>
@@ -82,7 +84,9 @@ $listing = get_field('integration_listing');
                                 <?php echo esc_html($feature['heading']); ?>
                             <?php endif; ?>
                             <?php if (!empty($feature['heading_highlight'])) : ?>
-                                <span class="intg-feature__heading-highlight"><?php echo esc_html($feature['heading_highlight']); ?></span>
+                                <span class="intg-feature__heading-highlight">
+                                    <?php echo esc_html($feature['heading_highlight']); ?>
+                                </span>
                             <?php endif; ?>
                         </h2>
                         <?php if (!empty($feature['description'])) : ?>
@@ -141,14 +145,18 @@ $listing = get_field('integration_listing');
         <div class="intg-listing__body" id="intg-listing-body">
             <?php if (!empty($listing['integration_categories'])) : ?>
                 <?php foreach ($listing['integration_categories'] as $category) : ?>
-                    <div class="intg-category" data-category="<?php echo esc_attr(strtolower($category['category_title'])); ?>">
+                    <div 
+                        class="intg-category" 
+                        data-category="<?php echo
+                        esc_attr(strtolower($category['category_title']));
+                    ?>">
 
                         <?php if (!empty($category['category_title'])) : ?>
                             <h3 class="intg-category__title"><?php echo esc_html($category['category_title']); ?></h3>
                         <?php endif; ?>
 
                         <div class="intg-category__grid">
-                            <?php foreach ($category['integrations'] as $item) : 
+                            <?php foreach ($category['integrations'] as $item) :
                                 $has_link = !empty($item['link']) && !empty($item['link']['url']);
                                 $tag      = $has_link ? 'a' : 'div';
                             ?>

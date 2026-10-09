@@ -248,9 +248,16 @@ class External_Links_Counter {
             
             if ($count > 0) {
                 $detail_url = admin_url('admin.php?page=external-links-detail&post_id=' . $post_id);
-                echo '<a href="' . esc_url($detail_url) . '" class="elc-count" style="background-color: ' . $color . ';" title="Click to view external links">' . $count . '</a>';
+                echo '<a href="' . esc_url($detail_url) . '"
+                class="elc-count"
+                style="background-color: ' . $color . ';"
+                title="Click to view external links">' . $count . '</a>';
             } else {
-                echo '<span class="elc-count elc-zero" style="background-color: ' . $color . ';">0</span>';
+                echo
+                '<span class="elc-count elc-zero"
+                style="background-color: ' . $color . ';">
+                0
+                </span>';
             }
         }
     }
@@ -398,8 +405,13 @@ class External_Links_Counter {
     private function render_seo_status_tag($seo_status)
     {
         $colors = $this->get_seo_status_colors($seo_status);
-        
-        return '<span class="elc-seo-tag" style="display: inline-block; padding: 3px 8px; background-color: ' . esc_attr($colors['bg']) . '; color: ' . esc_attr($colors['text']) . '; border-radius: 3px; font-size: 12px; font-weight: 500;">' . esc_html($seo_status) . '</span>';
+        return '<span class="elc-seo-tag"
+        style="display: inline-block; padding: 3px 8px;
+        background-color: ' . esc_attr($colors['bg']) . ';
+        color: ' . esc_attr($colors['text']) . ';
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: 500;">' . esc_html($seo_status) . '</span>';
     }
     
     /**
@@ -583,7 +595,13 @@ class External_Links_Counter {
     {
         global $wpdb;
         
-        $posts = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type IN ('post', 'page') AND post_status IN ('publish', 'draft', 'pending')");
+        $posts = $wpdb->get_col(
+            "SELECT ID FROM {$wpdb->posts}
+            WHERE post_type
+            IN ('post', 'page')
+            AND post_status
+            IN ('publish', 'draft', 'pending')"
+        );
         
         foreach ($posts as $post_id) {
             $count = $this->count_external_links($post_id);
@@ -736,13 +754,19 @@ class External_Links_Counter {
         $external_links = $this->get_external_links($post_id);
         $is_page = $post->post_type === 'page';
         $back_url = $is_page ? admin_url('edit.php?post_type=page') : admin_url('edit.php');
-        $back_text = $is_page ? __('Back to Pages', 'external-links-counter') : __('Back to Posts', 'external-links-counter');
+        $back_text = $is_page ?
+        __('Back to Pages', 'external-links-counter') :
+        __('Back to Posts', 'external-links-counter');
         
         ?>
         <div class="wrap">
             <a href="<?php echo $back_url; ?>" class="elc-back-link">&larr; <?php echo $back_text; ?></a>
             
-            <h1><?php echo esc_html__('External Links in:', 'external-links-counter') . ' ' . esc_html($post->post_title); ?></h1>
+            <h1>
+                <?php 
+                echo esc_html__('External Links in:', 'external-links-counter') . ' ' . esc_html($post->post_title);
+                ?>
+            </h1>
             
             <div class="elc-summary-box">
                 <h3><?php esc_html_e('Summary', 'external-links-counter'); ?></h3>
@@ -794,7 +818,9 @@ class External_Links_Counter {
                                 <td><?php echo $index + 1; ?></td>
                                 <td><?php echo esc_html($link['anchor_text'] ?: '(no anchor text)'); ?></td>
                                 <td class="url-cell">
-                                    <a href="<?php echo esc_url($link['url']); ?>" target="_blank" rel="noopener noreferrer">
+                                    <a href="<?php echo esc_url($link['url']); ?>"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
                                         <?php echo esc_html($link['url']); ?>
                                     </a>
                                 </td>
@@ -967,13 +993,20 @@ class External_Links_Counter {
                             <td>
                                 <?php
                                 $color = $this->get_count_color($item['count']);
-                                echo '<span class="elc-count" style="background-color: ' . $color . ';">' . $item['count'] . '</span>';
+                                echo '<span class="elc-count"
+                                style="background-color: ' . $color . ';">'
+                                . $item['count'] .
+                                '</span>';
                                 ?>
                             </td>
                             <td>
                                 <?php if ($item['count'] > 0) : ?>
-                                    <a href="<?php echo admin_url('admin.php?page=external-links-detail&post_id=' . $item['id']); ?>">
-                                        <?php esc_html_e('View Links', 'external-links-counter'); ?>
+                                    <a 
+                                    href="
+                                    <?php 
+                                    echo admin_url('admin.php?page=external-links-detail&post_id=' . $item['id']); 
+                                    ?>">
+                                    <?php esc_html_e('View Links', 'external-links-counter'); ?>
                                     </a> |
                                 <?php endif; ?>
                                 <a href="<?php echo get_edit_post_link($item['id']); ?>">
@@ -1095,7 +1128,11 @@ class External_Links_Counter {
                         <th scope="row"><?php esc_html_e('Minimum Links to Notify', 'external-links-counter'); ?></th>
                         <td>
                             <input type="number" name="elc_min_links_to_notify" value="<?php echo esc_attr($min_links); ?>" min="1" max="100" class="small-text">
-                            <p class="description"><?php esc_html_e('Minimum number of external links required to trigger email notification.', 'external-links-counter'); ?></p>
+                            <p class="description">
+                                <?php
+                                esc_html_e('Minimum number of external links required to trigger email notification.', 'external-links-counter');
+                                ?>
+                            </p>
                         </td>
                     </tr>
                 </table>
@@ -1106,7 +1143,9 @@ class External_Links_Counter {
             <hr>
             
             <h2><?php esc_html_e('Test Email Notification', 'external-links-counter'); ?></h2>
-            <p><?php esc_html_e('Click the button below to send a test email notification.', 'external-links-counter'); ?></p>
+            <p>
+                <?php esc_html_e('Click the button below to send a test email notification.', 'external-links-counter'); ?>
+            </p>
             <form method="post" action="">
                 <?php wp_nonce_field('elc_test_email', 'elc_test_email_nonce'); ?>
                 <input type="submit" name="elc_send_test_email" class="button button-secondary" value="<?php esc_attr_e('Send Test Email', 'external-links-counter'); ?>">
@@ -1114,12 +1153,21 @@ class External_Links_Counter {
             
             <?php
             // Handle test email
-            if (isset($_POST['elc_send_test_email']) && wp_verify_nonce($_POST['elc_test_email_nonce'], 'elc_test_email')) {
+            if (isset($_POST['elc_send_test_email']) && 
+                wp_verify_nonce($_POST['elc_test_email_nonce'], 'elc_test_email')) {
                 $test_result = $this->send_test_email();
                 if ($test_result) {
-                    echo '<div class="notice notice-success"><p>' . esc_html__('Test email sent successfully!', 'external-links-counter') . '</p></div>';
+                    echo '<div class="notice notice-success">
+                    <p>' . esc_html__('Test email sent successfully!',
+                    'external-links-counter') . '
+                    </p>
+                    </div>';
                 } else {
-                    echo '<div class="notice notice-error"><p>' . esc_html__('Failed to send test email. Please check your WordPress email configuration.', 'external-links-counter') . '</p></div>';
+                    echo '<div class="notice notice-error">
+                    <p>' . esc_html__('Failed to send test email.
+                     Please check your WordPress email configuration.', 'external-links-counter') . '
+                    </p>
+                    </div>';
                 }
             }
             ?>
@@ -1146,9 +1194,21 @@ class External_Links_Counter {
             'edit_url' => admin_url(),
             'author_name' => 'Test Author',
             'external_links' => array(
-                array('url' => 'https://example.com/page1', 'anchor_text' => 'Example Link 1', 'domain' => 'example.com', 'rel' => 'nofollow', 'seo_status' => 'nofollow'),
-                array('url' => 'https://test.org/article', 'anchor_text' => 'Test Link', 'domain' => 'test.org', 'rel' => 'nofollow', 'seo_status' => 'nofollow'),
-                array('url' => 'https://another-site.com', 'anchor_text' => '', 'domain' => 'another-site.com', 'rel' => 'nofollow', 'seo_status' => 'nofollow'),
+                array('url' => 'https://example.com/page1',
+                'anchor_text' => 'Example Link 1',
+                'domain' => 'example.com',
+                'rel' => 'nofollow',
+                'seo_status' => 'nofollow'),
+                array('url' => 'https://test.org/article',
+                'anchor_text' => 'Test Link',
+                'domain' => 'test.org',
+                'rel' => 'nofollow',
+                'seo_status' => 'nofollow'),
+                array('url' => 'https://another-site.com',
+                'anchor_text' => '',
+                'domain' => 'another-site.com',
+                'rel' => 'nofollow',
+                'seo_status' => 'nofollow'),
             ),
             'is_test' => true
         ));
@@ -1328,7 +1388,9 @@ class External_Links_Counter {
         $author = get_userdata($post->post_author);
         
         $action_text = $is_update ? __('Updated', 'external-links-counter') : __('Created', 'external-links-counter');
-        $type_text = $post->post_type === 'page' ? __('Page', 'external-links-counter') : __('Post', 'external-links-counter');
+        $type_text = $post->post_type === 'page' ?
+        __('Page', 'external-links-counter') :
+        __('Post', 'external-links-counter');
         
         // Get SEO status from SEO plugin
         $post_seo_status = $this->get_post_seo_status($post->ID);
@@ -1393,16 +1455,18 @@ class External_Links_Counter {
         ob_start();
         ?>
         <!DOCTYPE html>
-        <html>
+        <html <?php language_attributes(); ?>>
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
         <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background-color: #f5f5f5;">
-            <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 20px 0;">
+            <table style="background-color: #f5f5f5; padding: 20px 0;">
                 <tr>
                     <td align="center">
-                        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <table style="background-color: #ffffff;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                             <!-- Header -->
                             <tr>
                                 <td style="background-color: #2271b1; color: #ffffff; padding: 30px; border-radius: 8px 8px 0 0;">
@@ -1421,7 +1485,9 @@ class External_Links_Counter {
                                     <p style="margin:0; color: #856404; font-size:14px">
                                         <strong>⚠️ <?php echo esc_html($action_text); ?> <?php echo esc_html($data['post_type']); ?>:</strong>
                                         <?php printf(
-                                            esc_html__('This content contains %d external link(s) - ALL MODIFIED TO INCLUDE NOFOLLOW', 'external-links-counter'),
+                                            esc_html__(
+                                                'This content contains %d external link(s) - ALL MODIFIED TO INCLUDE NOFOLLOW', 'external-links-counter'
+                                            ),
                                             $link_count
                                         ); ?>
                                     </p>
@@ -1559,7 +1625,10 @@ class External_Links_Counter {
                                         ); ?>
                                     </p>
                                     <p style="margin: 10px 0 0; color: #646970; font-size: 12px;">
-                                        <a href="<?php echo esc_url(admin_url('admin.php?page=external-links-settings')); ?>" style="color: #2271b1; text-decoration: none;">
+                                        <a
+                                        href="<?php echo esc_url(admin_url('admin.php?page=external-links-settings')); ?>" 
+                                        style="color: #2271b1;
+                                        text-decoration: none;">
                                             <?php esc_html_e('Manage notification settings', 'external-links-counter'); ?>
                                         </a>
                                     </p>
