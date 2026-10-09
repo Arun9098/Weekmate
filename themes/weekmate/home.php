@@ -206,7 +206,7 @@ if ($wm_latest_articles->have_posts()) :
                             <!-- Meta -->
                             <div class="wm-latest-articles__meta">
                                 <span>
-                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id));?>                    </span>
+                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id));?></span>
                                 <span>•</span>
                                 <span>
                                     <?php echo esc_html(get_the_date('M d, Y', $post_id));?>
@@ -223,10 +223,6 @@ if ($wm_latest_articles->have_posts()) :
 endif;
 wp_reset_postdata();
 ?>
-
-
-
-
 
 <!-- 📑 Blog Listing -->
 <section class="blog-listing sectionCvr" id="all-blogs">
