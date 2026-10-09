@@ -20,7 +20,8 @@ class External_Links_Counter {
     
     private $site_host;
     
-    public function __construct() {
+    public function __construct()
+    {
         $this->site_host = parse_url(home_url(), PHP_URL_HOST);
         
         // Add custom column to posts list
@@ -66,7 +67,8 @@ class External_Links_Counter {
      * **NEW FUNCTION: Add rel="nofollow" when saving post content (BACKEND)**
      * This modifies the actual content in the database
      */
-    public function add_nofollow_on_save($content) {
+    public function add_nofollow_on_save($content)
+    {
         // Only process if we're actually saving a post (not during other admin actions)
         if (!isset($_POST['post_ID']) && !isset($_POST['post_id'])) {
             return $content;
@@ -85,7 +87,8 @@ class External_Links_Counter {
     /**
      * **NEW FUNCTION: Callback to process each link when saving**
      */
-    private function process_link_for_save($matches) {
+    private function process_link_for_save($matches)
+    {
         $before_href = $matches[1];
         $url = $matches[2];
         $after_href = $matches[3];
@@ -147,7 +150,8 @@ class External_Links_Counter {
      * **SAFETY: Add rel="nofollow" to all external links in content on frontend display**
      * This is a safety measure in case content was created before plugin activation
      */
-    public function add_nofollow_to_external_links($content) {
+    public function add_nofollow_to_external_links($content)
+    {
         // Don't process in admin area
         if (is_admin()) {
             return $content;
@@ -166,7 +170,8 @@ class External_Links_Counter {
     /**
      * **SAFETY: Callback to process each link on frontend**
      */
-    private function process_link_callback($matches) {
+    private function process_link_callback($matches)
+    {
         $before_href = $matches[1];
         $url = $matches[2];
         $after_href = $matches[3];
@@ -217,7 +222,8 @@ class External_Links_Counter {
     /**
      * Add the External Links column to posts list
      */
-    public function add_external_links_column($columns) {
+    public function add_external_links_column($columns)
+    {
         $new_columns = array();
         foreach ($columns as $key => $value) {
             $new_columns[$key] = $value;
@@ -231,7 +237,8 @@ class External_Links_Counter {
     /**
      * Display the external links count in the column
      */
-    public function display_external_links_count($column, $post_id) {
+    public function display_external_links_count($column, $post_id)
+    {
         if ($column === 'external_links') {
             $count = $this->count_external_links($post_id);
             $color = $this->get_count_color($count);
@@ -248,7 +255,8 @@ class External_Links_Counter {
     /**
      * Get color based on count
      */
-    private function get_count_color($count) {
+    private function get_count_color($count)
+    {
         if ($count === 0) {
             return '#e0e0e0';
         } elseif ($count <= 3) {
@@ -263,14 +271,16 @@ class External_Links_Counter {
     /**
      * Count external links in a post
      */
-    public function count_external_links($post_id) {
+    public function count_external_links($post_id)
+    {
         $external_links = $this->get_external_links($post_id);
         return count($external_links);
     }
     /**
      * Multiple email adding
      */
-    public function sanitize_multiple_emails($emails) {
+    public function sanitize_multiple_emails($emails)
+    {
     $emails = explode(',', $emails);
     $clean  = array();
 
@@ -287,7 +297,8 @@ class External_Links_Counter {
     /**
      * Get all external links from a post
      */
-    public function get_external_links($post_id) {
+    public function get_external_links($post_id)
+    {
         $post = get_post($post_id);
         if (!$post) {
             return array();
@@ -339,7 +350,8 @@ class External_Links_Counter {
      * Get SEO status based on rel attribute
      * ALL EXTERNAL LINKS DEFAULT TO NOFOLLOW
      */
-    private function get_seo_status($rel) {
+    private function get_seo_status($rel)
+    {
         $rel = strtolower($rel);
         $statuses = array();
         
@@ -380,7 +392,8 @@ class External_Links_Counter {
      * Render SEO status tag with appropriate styling
      * RED for nofollow (default for all external links)
      */
-    private function render_seo_status_tag($seo_status) {
+    private function render_seo_status_tag($seo_status)
+    {
         $colors = $this->get_seo_status_colors($seo_status);
         
         return '<span class="elc-seo-tag" style="display: inline-block; padding: 3px 8px; background-color: ' . esc_attr($colors['bg']) . '; color: ' . esc_attr($colors['text']) . '; border-radius: 3px; font-size: 12px; font-weight: 500;">' . esc_html($seo_status) . '</span>';
@@ -390,7 +403,8 @@ class External_Links_Counter {
      * Get colors for SEO status
      * RED BACKGROUND FOR NOFOLLOW (default for all external links)
      */
-    private function get_seo_status_colors($seo_status) {
+    private function get_seo_status_colors($seo_status)
+    {
         $status_lower = strtolower($seo_status);
         
         // DOFOLLOW = Green (rare case)
@@ -425,7 +439,8 @@ class External_Links_Counter {
     /**
      * Get post/page SEO status from popular SEO plugins
      */
-    public function get_post_seo_status($post_id) {
+    public function get_post_seo_status($post_id)
+    {
         $index_status = 'index';
         $follow_status = 'follow';
         
@@ -500,10 +515,11 @@ class External_Links_Counter {
     /**
      * Check if a URL is external
      */
-    private function is_external_link($url) {
+    private function is_external_link($url)
+    {
         // Skip empty URLs, anchors, javascript, mailto, tel
-        if (empty($url) || 
-            strpos($url, '#') === 0 || 
+        if (empty($url) ||
+            strpos($url, '#') === 0 ||
             strpos($url, 'javascript:') === 0 ||
             strpos($url, 'mailto:') === 0 ||
             strpos($url, 'tel:') === 0) {
@@ -532,7 +548,8 @@ class External_Links_Counter {
     /**
      * Make the column sortable
      */
-    public function make_column_sortable($columns) {
+    public function make_column_sortable($columns)
+    {
         $columns['external_links'] = 'external_links';
         return $columns;
     }
@@ -540,7 +557,8 @@ class External_Links_Counter {
     /**
      * Handle sorting by external links
      */
-    public function sort_by_external_links($query) {
+    public function sort_by_external_links($query)
+    {
         if (!is_admin() || !$query->is_main_query()) {
             return;
         }
@@ -558,7 +576,8 @@ class External_Links_Counter {
     /**
      * Update external link counts for all posts and pages (used for sorting)
      */
-    private function update_all_external_link_counts() {
+    private function update_all_external_link_counts()
+    {
         global $wpdb;
         
         $posts = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type IN ('post', 'page') AND post_status IN ('publish', 'draft', 'pending')");
@@ -572,7 +591,8 @@ class External_Links_Counter {
     /**
      * Add admin styles
      */
-    public function admin_styles() {
+    public function admin_styles()
+    {
         ?>
         <style>
             .column-external_links {
@@ -669,7 +689,8 @@ class External_Links_Counter {
     /**
      * Add admin menu
      */
-    public function add_admin_menu() {
+    public function add_admin_menu()
+    {
         add_submenu_page(
             null, // Hidden from menu
             __('External Links Detail', 'external-links-counter'),
@@ -694,7 +715,8 @@ class External_Links_Counter {
     /**
      * Render the detail page
      */
-    public function render_detail_page() {
+    public function render_detail_page()
+    {
         $post_id = isset($_GET['post_id']) ? intval($_GET['post_id']) : 0;
         
         if (!$post_id) {
@@ -722,12 +744,12 @@ class External_Links_Counter {
             <div class="elc-summary-box">
                 <h3><?php esc_html_e('Summary', 'external-links-counter'); ?></h3>
                 <p>
-                    <strong><?php esc_html_e('Total External Links:', 'external-links-counter'); ?></strong> 
+                    <strong><?php esc_html_e('Total External Links:', 'external-links-counter'); ?></strong>
                     <?php echo count($external_links); ?>
                 </p>
                 <p>
-                    <strong><?php esc_html_e('SEO Status:', 'external-links-counter'); ?></strong> 
-                    <?php 
+                    <strong><?php esc_html_e('SEO Status:', 'external-links-counter'); ?></strong>
+                    <?php
                     $post_seo_status = $this->get_post_seo_status($post_id);
                     echo $this->render_seo_status_tag($post_seo_status);
                     ?>
@@ -793,7 +815,8 @@ class External_Links_Counter {
     /**
      * Render overview page
      */
-    public function render_overview_page() {
+    public function render_overview_page()
+    {
         global $wpdb;
         
         // Get current filter
@@ -846,7 +869,8 @@ class External_Links_Counter {
         }
         
         // Sort by count descending
-        usort($items_data, function($a, $b) {
+        usort($items_data, function($a, $b)
+        {
             return $b['count'] - $a['count'];
         });
         
@@ -860,19 +884,22 @@ class External_Links_Counter {
             <div class="elc-summary-box">
                 <h3><?php esc_html_e('Statistics', 'external-links-counter'); ?></h3>
                 <p>
-                    <strong><?php esc_html_e('Total Posts:', 'external-links-counter'); ?></strong> 
+                    <strong><?php esc_html_e('Total Posts:', 'external-links-counter'); ?></strong>
                     <?php echo $posts_count; ?>
                     &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <strong><?php esc_html_e('Total Pages:', 'external-links-counter'); ?></strong> 
+                    <strong><?php esc_html_e('Total Pages:', 'external-links-counter'); ?></strong>
                     <?php echo $pages_count; ?>
                 </p>
                 <p>
-                    <strong><?php esc_html_e('Total External Links:', 'external-links-counter'); ?></strong> 
+                    <strong><?php esc_html_e('Total External Links:', 'external-links-counter'); ?></strong>
                     <?php echo $total_links; ?>
                 </p>
                 <p>
-                    <strong><?php esc_html_e('Content with External Links:', 'external-links-counter'); ?></strong> 
-                    <?php echo count(array_filter($items_data, function($p) { return $p['count'] > 0; })); ?>
+                    <strong><?php esc_html_e('Content with External Links:', 'external-links-counter'); ?></strong>
+                    <?php echo count(array_filter($items_data, function($p)
+                    { 
+                        return $p['count'] > 0;
+                    })); ?>
                 </p>
             </div>
             
@@ -880,7 +907,7 @@ class External_Links_Counter {
             <div class="elc-summary-box">
                 <h3><?php esc_html_e('Top Linked Domains', 'external-links-counter'); ?></h3>
                 <p>
-                    <?php 
+                    <?php
                     $top_domains = array_slice($domain_counts, 0, 10, true);
                     foreach ($top_domains as $domain => $count) {
                         echo '<span class="elc-domain-tag">' . esc_html($domain) . ' (' . $count . ')</span> ';
@@ -895,7 +922,7 @@ class External_Links_Counter {
             <!-- Filter tabs -->
             <ul class="subsubsub" style="margin-bottom: 15px;">
                 <li>
-                    <a href="<?php echo admin_url('admin.php?page=external-links-overview&content_type=all'); ?>" 
+                    <a href="<?php echo admin_url('admin.php?page=external-links-overview&content_type=all'); ?>"
                        class="<?php echo $current_type === 'all' ? 'current' : ''; ?>">
                         <?php esc_html_e('All', 'external-links-counter'); ?>
                     </a> |
@@ -935,7 +962,7 @@ class External_Links_Counter {
                             </td>
                             <td><?php echo esc_html(ucfirst($item['status'])); ?></td>
                             <td>
-                                <?php 
+                                <?php
                                 $color = $this->get_count_color($item['count']);
                                 echo '<span class="elc-count" style="background-color: ' . $color . ';">' . $item['count'] . '</span>';
                                 ?>
@@ -961,11 +988,12 @@ class External_Links_Counter {
     /**
      * Add row action to view external links
      */
-    public function add_row_action($actions, $post) {
+    public function add_row_action($actions, $post)
+    {
         $count = $this->count_external_links($post->ID);
         if ($count > 0) {
             $detail_url = admin_url('admin.php?page=external-links-detail&post_id=' . $post->ID);
-            $actions['view_external_links'] = '<a href="' . esc_url($detail_url) . '">' . 
+            $actions['view_external_links'] = '<a href="' . esc_url($detail_url) . '">' .
                 sprintf(__('View %d External Links', 'external-links-counter'), $count) . '</a>';
         }
         return $actions;
@@ -974,7 +1002,8 @@ class External_Links_Counter {
     /**
      * Add settings submenu
      */
-    public function add_settings_submenu() {
+    public function add_settings_submenu()
+    {
         add_submenu_page(
             'external-links-overview',
             __('Email Settings', 'external-links-counter'),
@@ -988,7 +1017,8 @@ class External_Links_Counter {
     /**
      * Register plugin settings
      */
-    public function register_settings() {
+    public function register_settings()
+    {
         register_setting('elc_settings_group', 'elc_enable_email_notification', array(
             'type' => 'boolean',
             'default' => true,
@@ -1018,7 +1048,8 @@ class External_Links_Counter {
     /**
      * Render settings page
      */
-    public function render_settings_page() {
+    public function render_settings_page()
+    {
         $enable_notification = get_option('elc_enable_email_notification', true);
         $notification_email = get_option('elc_notification_email', get_option('admin_email'));
         $notify_on_update = get_option('elc_notify_on_update', false);
@@ -1096,7 +1127,8 @@ class External_Links_Counter {
     /**
      * Send test email
      */
-    private function send_test_email() {
+    private function send_test_email()
+    {
         $notification_email = get_option('elc_notification_email', get_option('admin_email'));
         $site_name = get_bloginfo('name');
         
@@ -1126,7 +1158,8 @@ class External_Links_Counter {
     /**
      * Check for external links and send notification when post is saved
      */
-    public function check_and_notify_external_links($post_id, $post, $update) {
+    public function check_and_notify_external_links($post_id, $post, $update)
+    {
         // Check if email notifications are enabled
         if (!get_option('elc_enable_email_notification', true)) {
             return;
@@ -1223,7 +1256,8 @@ class External_Links_Counter {
      * Check if a post was created by a duplicate plugin
      * Supports: Yoast Duplicate Post, Duplicate Page, Post Duplicator, and others
      */
-    private function is_duplicated_post($post_id) {
+    private function is_duplicated_post($post_id)
+    {
         // Yoast Duplicate Post / Duplicate Post plugin
         if (get_post_meta($post_id, '_dp_original', true)) {
             return true;
@@ -1282,7 +1316,8 @@ class External_Links_Counter {
     /**
      * Send external links notification email
      */
-    private function send_external_links_notification($post, $external_links, $is_update) {
+    private function send_external_links_notification($post, $external_links, $is_update)
+    {
         $notification_emails = get_option('elc_notification_email', get_option('admin_email'));
         $emails_array = array_map('trim', explode(',', $notification_emails));
         
@@ -1332,7 +1367,8 @@ class External_Links_Counter {
      * Get email template
      * ALL EXTERNAL LINKS SHOWN AS RED/NOFOLLOW
      */
-    private function get_email_template($data) {
+    private function get_email_template($data)
+    {
         $site_name = get_bloginfo('name');
         $link_count = count($data['external_links']);
         
@@ -1347,8 +1383,9 @@ class External_Links_Counter {
         }
         
         $status_text = isset($data['post_status']) ? ucfirst($data['post_status']) : 'Published';
-        $action_text = !empty($data['is_test']) ? __('Test Notification', 'external-links-counter') : 
-                       (!empty($data['is_update']) ? __('Updated', 'external-links-counter') : __('New', 'external-links-counter'));
+        $action_text = !empty($data['is_test']) ? __('Test Notification', 'external-links-counter') :
+                       (!empty($data['is_update']) ? __('Updated', 'external-links-counter') :
+                       __('New', 'external-links-counter'));
         
         ob_start();
         ?>
