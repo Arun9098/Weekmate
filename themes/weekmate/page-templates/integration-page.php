@@ -145,8 +145,8 @@ $listing = get_field('integration_listing');
         <div class="intg-listing__body" id="intg-listing-body">
             <?php if (!empty($listing['integration_categories'])) : ?>
                 <?php foreach ($listing['integration_categories'] as $category) : ?>
-                    <div 
-                        class="intg-category" 
+                    <div
+                        class="intg-category"
                         data-category="<?php echo
                         esc_attr(strtolower($category['category_title']));
                     ?>">

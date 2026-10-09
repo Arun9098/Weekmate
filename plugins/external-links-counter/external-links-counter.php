@@ -763,7 +763,7 @@ class External_Links_Counter {
             <a href="<?php echo $back_url; ?>" class="elc-back-link">&larr; <?php echo $back_text; ?></a>
             
             <h1>
-                <?php 
+                <?php
                 echo esc_html__('External Links in:', 'external-links-counter') . ' ' . esc_html($post->post_title);
                 ?>
             </h1>
@@ -1001,10 +1001,10 @@ class External_Links_Counter {
                             </td>
                             <td>
                                 <?php if ($item['count'] > 0) : ?>
-                                    <a 
+                                    <a
                                     href="
-                                    <?php 
-                                    echo admin_url('admin.php?page=external-links-detail&post_id=' . $item['id']); 
+                                    <?php
+                                    echo admin_url('admin.php?page=external-links-detail&post_id=' . $item['id']);
                                     ?>">
                                     <?php esc_html_e('View Links', 'external-links-counter'); ?>
                                     </a> |
@@ -1130,7 +1130,9 @@ class External_Links_Counter {
                             <input type="number" name="elc_min_links_to_notify" value="<?php echo esc_attr($min_links); ?>" min="1" max="100" class="small-text">
                             <p class="description">
                                 <?php
-                                esc_html_e('Minimum number of external links required to trigger email notification.', 'external-links-counter');
+                                esc_html_e(
+                                    'Minimum number of external links required to trigger email notification.', 'external-links-counter'
+                                );
                                 ?>
                             </p>
                         </td>
@@ -1144,7 +1146,12 @@ class External_Links_Counter {
             
             <h2><?php esc_html_e('Test Email Notification', 'external-links-counter'); ?></h2>
             <p>
-                <?php esc_html_e('Click the button below to send a test email notification.', 'external-links-counter'); ?>
+                <?php 
+                esc_html_e(
+                'Click the button below to send a test email notification.',
+                'external-links-counter'
+                ); 
+                ?>
             </p>
             <form method="post" action="">
                 <?php wp_nonce_field('elc_test_email', 'elc_test_email_nonce'); ?>
@@ -1153,19 +1160,21 @@ class External_Links_Counter {
             
             <?php
             // Handle test email
-            if (isset($_POST['elc_send_test_email']) && 
+            if (isset($_POST['elc_send_test_email']) &&
                 wp_verify_nonce($_POST['elc_test_email_nonce'], 'elc_test_email')) {
                 $test_result = $this->send_test_email();
                 if ($test_result) {
                     echo '<div class="notice notice-success">
                     <p>' . esc_html__('Test email sent successfully!',
-                    'external-links-counter') . '
+                    'external-links-counter'
+                    ) . '
                     </p>
                     </div>';
                 } else {
                     echo '<div class="notice notice-error">
                     <p>' . esc_html__('Failed to send test email.
-                     Please check your WordPress email configuration.', 'external-links-counter') . '
+                     Please check your WordPress email configuration.', 'external-links-counter'
+                     ) . '
                     </p>
                     </div>';
                 }
@@ -1486,7 +1495,9 @@ class External_Links_Counter {
                                         <strong>⚠️ <?php echo esc_html($action_text); ?> <?php echo esc_html($data['post_type']); ?>:</strong>
                                         <?php printf(
                                             esc_html__(
-                                                'This content contains %d external link(s) - ALL MODIFIED TO INCLUDE NOFOLLOW', 'external-links-counter'
+                                                'This content contains %d external link(s)
+                                                - ALL MODIFIED TO INCLUDE NOFOLLOW',
+                                                'external-links-counter'
                                             ),
                                             $link_count
                                         ); ?>
@@ -1626,7 +1637,12 @@ class External_Links_Counter {
                                     </p>
                                     <p style="margin: 10px 0 0; color: #646970; font-size: 12px;">
                                         <a
-                                        href="<?php echo esc_url(admin_url('admin.php?page=external-links-settings')); ?>" 
+                                        href="
+                                        <?php 
+                                        echo esc_url(
+                                            admin_url('admin.php?page=external-links-settings')
+                                        );
+                                        ?>" 
                                         style="color: #2271b1;
                                         text-decoration: none;">
                                             <?php esc_html_e('Manage notification settings', 'external-links-counter'); ?>
