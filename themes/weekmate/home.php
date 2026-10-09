@@ -122,7 +122,7 @@ if ($wm_latest_articles->have_posts()) :
                 <div class="wm-latest-articles__featured-footer">
                     <div class="wm-latest-articles__meta">
                         <?php
-                        echo get_avatar($featured_author_id,28, '', '', ['class' => 'wm-latest-articles__avatar']);
+                        echo get_avatar($featured_author_id, 28, '', '', ['class' => 'wm-latest-articles__avatar']);
                         ?>
                         <span>
                             <?php
@@ -206,11 +206,10 @@ if ($wm_latest_articles->have_posts()) :
                             <!-- Meta -->
                             <div class="wm-latest-articles__meta">
                                 <span>
-                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id));?>                                    
-                                </span>
+                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id));?>                    </span>
                                 <span>•</span>
                                 <span>
-                                    <?php echo esc_html(get_the_date('M d, Y', $post_id));?>   
+                                    <?php echo esc_html(get_the_date('M d, Y', $post_id));?>
                                 </span>
                             </div>
                         </div>
@@ -315,42 +314,7 @@ wp_reset_postdata();
                                 </div>
                             </div>
                     </div>
-                    <!-- <form id="blog-filter-form" class="row g-2 justify-content-center">
-                        <div class="col-md-6 position-relative">
-                            <input
-                                type="search"
-                                name="s"
-                                id="blog-search"
-                                class="form-control"
-                                placeholder="Search...">
-                            <input type="hidden" name="post_type" value="post">
 
-                            <button type="submit" class="blog-search-btn" aria-label="Search">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                    <path d="M21 21L15.8 15.8M18 11C18 14.866 14.866 18 11 18
-                                            C7.134 18 4 14.866 4 11
-                                            C4 7.134 7.134 4 11 4
-                                            C14.866 4 18 7.134 18 11Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div class="col-md-4">
-                            <?php
-                            // wp_dropdown_categories(array(
-                            //     'show_option_all' => 'All Categories',
-                            //     'taxonomy'        => 'category',
-                            //     'name'            => 'cat',
-                            //     'id'              => 'blog-category',
-                            //     'class'           => 'form-select',
-                            //     'exclude'         => 11,
-                            //     'value_field'     => 'slug',
-                            // ));
-                            ?>
-                        </div>
-                    </form>   
-                    -->
                     <form id="blog-filter-form" class="weekmate-blog-search-form" method="get">
                         <div class="weekmate-blog-search">
 
@@ -375,12 +339,6 @@ wp_reset_postdata();
 
                         <input type="hidden" name="post_type" value="post">
                         </div>
-                         <!-- <button
-                            type="submit"
-                            class="btn btn-primary">
-                            All Articles
-                        </button> -->
-
                     </form>
                 </div>
             </div>
@@ -430,12 +388,12 @@ wp_reset_postdata();
                                             $hero_title = get_field('post_featured_image_title');
                                             if ($hero_title) {
                                                 echo esc_html($hero_title);
-                                            }?>  
+                                            }?>
                                         </p>
                                         </div>
                                         <!-- Right featured image -->
                                         <div class="blog-featured-hero__image">
-                                            <?php the_post_thumbnail('large',array('class' => 'blog-featured-hero__img',));?>
+                                            <?php the_post_thumbnail('large', array('class' => 'blog-featured-hero__img'));?>
                                         </div>
                                     </div>
 
@@ -456,7 +414,7 @@ wp_reset_postdata();
                                         <span class="blog-readtime-clock-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                 <path d="M10.3725 10.1325C10.7218 10.2489 11.0993 10.0601 11.2158 9.71082C11.3322 9.36152 11.1434 8.98398 10.7941 8.86754L10.5833 9.5L10.3725 10.1325ZM8.33331 8.75H7.66665C7.66665 9.03695 7.85027 9.29171 8.12249 9.38246L8.33331 8.75ZM8.99998 5.61391C8.99998 5.24572 8.7015 4.94725 8.33331 4.94725C7.96512 4.94725 7.66665 5.24572 7.66665 5.61391H8.33331H8.99998ZM10.5833 9.5L10.7941 8.86754L8.54413 8.11754L8.33331 8.75L8.12249 9.38246L10.3725 10.1325L10.5833 9.5ZM8.33331 8.75H8.99998V5.61391H8.33331H7.66665V8.75H8.33331ZM14.3333 8H13.6666C13.6666 10.9455 11.2788 13.3333 8.33331 13.3333V14V14.6667C12.0152 14.6667 15 11.6819 15 8H14.3333ZM8.33331 14V13.3333C5.38779 13.3333 2.99998 10.9455 2.99998 8H2.33331H1.66665C1.66665 11.6819 4.65141 14.6667 8.33331 14.6667V14ZM2.33331 8H2.99998C2.99998 5.05448 5.38779 2.66667 8.33331 2.66667V2V1.33333C4.65141 1.33333 1.66665 4.3181 1.66665 8H2.33331ZM8.33331 2V2.66667C11.2788 2.66667 13.6666 5.05448 13.6666 8H14.3333H15C15 4.3181 12.0152 1.33333 8.33331 1.33333V2Z" fill="#5A6781"></path>
-                                            </svg>   
+                                            </svg>
                                         </span>
                                         <?php
                                             $post_id = get_the_ID();
@@ -469,14 +427,7 @@ wp_reset_postdata();
                                     </div>
                                     <div class="blog-content-title">
                                         <h2 class="blog-title text-18"><?php the_title(); ?></h2>
-                                        <!-- <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="18" viewBox="0 0 11 18"
-                                                fill="none">
-                                                <path
-                                                    d="M1.54941 17.33C1.92702 17.33 2.30464 17.1909 2.60276 16.8927L9.61851 9.877C10.1949 9.30063 10.1949 8.34665 9.61851 7.77029L2.60276 0.754539C2.0264 0.178175 1.07241 0.178175 0.49605 0.754539C-0.0803146 1.3309 -0.0803146 2.28489 0.49605 2.86125L6.45844 8.82364L0.49605 14.786C-0.0803146 15.3624 -0.0803146 16.3164 0.49605 16.8927C0.774295 17.1909 1.15191 17.33 1.54941 17.33Z"
-                                                    fill="black"></path>
-                                            </svg>
-                                        </div> -->
+
                                     </div>
                                    <p class="blog-excerpt">
                                         <?php
@@ -484,7 +435,7 @@ wp_reset_postdata();
                                             $words = wp_trim_words($excerpt, 15);
                                             echo $words;
                                         ?>
-                                    </p>     
+                                    </p>
                                 <p class="blog-meta">
                                     <!-- Author -->
                                     <span class="blog-meta__item">
@@ -713,15 +664,16 @@ if (
 <!-- Video Section -->
 <?php
 $wm_blog_page_id = get_option('page_for_posts');
-$wm_top_videos_heading = get_field('wm_top_videos_heading',$wm_blog_page_id);
+$wm_top_videos_heading = get_field('wm_top_videos_heading', $wm_blog_page_id);
 $wm_top_videos_featured_url = get_field('wm_top_videos_featured_url', $wm_blog_page_id);
-$wm_top_videos_right_videos = get_field('wm_top_videos_right_videos',$wm_blog_page_id);
+$wm_top_videos_right_videos = get_field('wm_top_videos_right_videos', $wm_blog_page_id);
 $wm_top_videos_watch_more_button = get_field('wm_top_videos_watch_more', $wm_blog_page_id);
 /**
  * Get YouTube Video ID
  */
 if (!function_exists('wm_get_youtube_video_id')) {
-    function wm_get_youtube_video_id($url) {
+    function wm_get_youtube_video_id($url)
+    {
         if (empty($url)) {
             return '';
         }
@@ -747,7 +699,7 @@ $wm_featured_video_id = wm_get_youtube_video_id($wm_top_videos_featured_url); ?>
             <?php if ($wm_top_videos_watch_more_button) : ?>
                 <?php
                 $wm_top_videos_watch_more_button_url = $wm_top_videos_watch_more_button['url'] ?? '';
-                $wm_top_videos_watch_more_button_title = $wm_top_videos_watch_more_button['title'] ?? ''; 
+                $wm_top_videos_watch_more_button_title = $wm_top_videos_watch_more_button['title'] ?? '';
                 ?>
                 <a
                     class="btn btn-primary"
