@@ -19,7 +19,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class External_Links_Counter {
+class External_Links_Counter
+{
     
     private $site_host;
     
@@ -1111,27 +1112,45 @@ class External_Links_Counter {
                     <tr>
                         <th scope="row"><?php esc_html_e('Notification Email', 'external-links-counter'); ?></th>
                         <td>
-                            <input type="text" name="elc_notification_email" value="<?php echo esc_attr($notification_email); ?>" class="regular-text">
-                            <p class="description"><?php esc_html_e('Email address to receive notifications. Separate multiple emails with commas. Default is admin email.', 'external-links-counter'); ?></p>
+                            <input type="text"
+                            name="elc_notification_email"
+                            value="<?php echo esc_attr($notification_email); ?>"
+                            class="regular-text">
+                            <p class="description">
+                                <?php esc_html_e('Email address to receive notifications. 
+                                Separate multiple emails with commas. Default is admin email.', 'external-links-counter'); ?>
+                            </p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><?php esc_html_e('Notify on Update', 'external-links-counter'); ?></th>
                         <td>
                             <label>
-                                <input type="checkbox" name="elc_notify_on_update" value="1" <?php checked($notify_on_update, true); ?>>
-                                <?php esc_html_e('Also send notification when existing posts/pages are updated with new external links', 'external-links-counter'); ?>
+                                <input type="checkbox" 
+                                name="elc_notify_on_update" 
+                                value="1" 
+                                <?php checked($notify_on_update, true); ?>>
+                                <?php esc_html_e(
+                                    'Also send notification when existing posts/pages are 
+                                    updated with new external links', 'external-links-counter'
+                                ); ?>
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><?php esc_html_e('Minimum Links to Notify', 'external-links-counter'); ?></th>
                         <td>
-                            <input type="number" name="elc_min_links_to_notify" value="<?php echo esc_attr($min_links); ?>" min="1" max="100" class="small-text">
+                            <input type="number" 
+                            name="elc_min_links_to_notify" 
+                            value="<?php echo esc_attr($min_links); ?>" 
+                            min="1" 
+                            max="100" 
+                            class="small-text">
                             <p class="description">
                                 <?php
                                 esc_html_e(
-                                    'Minimum number of external links required to trigger email notification.', 'external-links-counter'
+                                    'Minimum number of external links required
+                                    to trigger email notification.', 'external-links-counter'
                                 );
                                 ?>
                             </p>
@@ -1146,11 +1165,11 @@ class External_Links_Counter {
             
             <h2><?php esc_html_e('Test Email Notification', 'external-links-counter'); ?></h2>
             <p>
-                <?php 
+                <?php
                 esc_html_e(
                 'Click the button below to send a test email notification.',
                 'external-links-counter'
-                ); 
+                );
                 ?>
             </p>
             <form method="post" action="">
@@ -1638,11 +1657,11 @@ class External_Links_Counter {
                                     <p style="margin: 10px 0 0; color: #646970; font-size: 12px;">
                                         <a
                                         href="
-                                        <?php 
+                                        <?php
                                         echo esc_url(
                                             admin_url('admin.php?page=external-links-settings')
                                         );
-                                        ?>" 
+                                        ?>"
                                         style="color: #2271b1;
                                         text-decoration: none;">
                                             <?php esc_html_e('Manage notification settings', 'external-links-counter'); ?>

@@ -132,7 +132,12 @@ $listing = get_field('integration_listing');
                 <input type="text"
                        id="intg-search-input"
                        class="intg-search__input"
-                       placeholder="<?php echo esc_attr($listing['search_placeholder'] ?: 'Search Integrations...'); ?>">
+                       placeholder="<?php 
+                       echo esc_attr(
+                        $listing['search_placeholder'] ?: 'Search Integrations...'
+                        ); 
+                       ?>"
+                >
                 <button class="intg-search__btn" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
                         <path d="M12.9981 6.49905C12.9981 7.93321 12.5325 9.25802 11.7483 10.3329L15.7039 14.2917C16.0945 14.6822 16.0945 15.3165 15.7039 15.7071C15.3134 16.0976 14.6791 16.0976 14.2885 15.7071L10.3329 11.7483C9.25802 12.5325 7.93321 12.9981 6.49905 12.9981C2.90895 12.9981 0 10.0891 0 6.49905C0 2.90895 2.90895 0 6.49905 0C10.0891 0 12.9981 2.90895 12.9981 6.49905ZM6.49905 10.9984C8.98306 10.9984 10.9984 8.98306 10.9984 6.49905C10.9984 4.01504 8.98306 1.99971 6.49905 1.99971C4.01504 1.99971 1.99971 4.01504 1.99971 6.49905C1.99971 8.98306 4.01504 10.9984 6.49905 10.9984Z" fill="#888"/>
