@@ -19,7 +19,8 @@ if (!defined('ABSPATH')) {
  *
  * @return void
  */
-function acf_dm_add_admin_menu() {
+function acf_dm_add_admin_menu()
+{
     add_management_page(
         esc_html__('ACF Data Manager', 'acf-data-manager'),
         esc_html__('ACF Data Manager', 'acf-data-manager'),
@@ -35,7 +36,8 @@ add_action('admin_menu', 'acf_dm_add_admin_menu');
  *
  * @return void
  */
-function acf_dm_render_admin_page() {
+function acf_dm_render_admin_page()
+{
     // Check user capabilities
     if (!current_user_can('manage_options')) {
         wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'acf-data-manager'));
@@ -140,8 +142,8 @@ function acf_dm_render_admin_page() {
                     <input type="file" name="acf_dm_import_file" id="acf_dm_import_file" 
                            accept=".json,.xml,application/json,text/xml" required>
                     <small><?php 
-                        echo esc_html__('Allowed formats: JSON, XML. Maximum size: ', 'acf-data-manager') . 
-                             esc_html(size_format(wp_max_upload_size())); 
+                        echo esc_html__('Allowed formats: JSON, XML. Maximum size: ', 'acf-data-manager') .
+                             esc_html(size_format(wp_max_upload_size()));
                     ?></small>
                 </p>
                 <p>
@@ -186,7 +188,8 @@ function acf_dm_render_admin_page() {
  * @param string $hook_suffix Current admin page hook
  * @return void
  */
-function acf_dm_enqueue_admin_scripts($hook_suffix) {
+function acf_dm_enqueue_admin_scripts($hook_suffix)
+{
     if ('tools_page_acf-data-manager' !== $hook_suffix) {
         return;
     }
@@ -197,17 +200,17 @@ function acf_dm_enqueue_admin_scripts($hook_suffix) {
     }
 
     wp_enqueue_style(
-        'acf-dm-admin-css', 
-        ACF_DM_URL . 'assets/css/admin.css', 
-        array(), 
+        'acf-dm-admin-css',
+        ACF_DM_URL . 'assets/css/admin.css',
+        array(),
         ACF_DM_VERSION
     );
     
     wp_enqueue_script(
-        'acf-dm-admin-js', 
-        ACF_DM_URL . 'assets/js/admin.js', 
+        'acf-dm-admin-js',
+        ACF_DM_URL . 'assets/js/admin.js',
         array('jquery'),
-        ACF_DM_VERSION, 
+        ACF_DM_VERSION,
         array('in_footer' => true)
     );
     
