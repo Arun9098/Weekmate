@@ -10,7 +10,7 @@
  get_header(); ?>
 
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <!-- Glossary single section page hero banner -->
 <section class="glossary-single-hero">
@@ -19,7 +19,7 @@
         <!-- Breadcrumb -->
         <div class="glossary-breadcrumb">
             <a href="<?php echo esc_url(get_post_type_archive_link('glossary')); ?>">
-                <?php esc_html_e('Glossary', 'weekmate'); ?> 
+                <?php esc_html_e('Glossary', 'weekmate'); ?>
             </a>
             <span>/</span>
             <span class="glossary-breadcrumb-single"><?php the_title(); ?></span>
@@ -84,27 +84,27 @@
             <div class="col-lg-4">
                  <?php
                     $blog_side_section = get_field('blog_side_section', 'option');
-                    if( $blog_side_section ) : 
+                    if($blog_side_section) :
                     $heading      = $blog_side_section['heading'];
                     $detail_block = $blog_side_section['detail_block'];
                     $button       = $blog_side_section['button'];
                  ?>
                 <aside class="blog-side-section">
-                    <?php if( $heading ): ?>
+                    <?php if($heading): ?>
                     <h3 class="side-heading"><?php echo esc_html($heading); ?></h3>
                     <?php endif; ?>
 
-                    <?php if( $detail_block ): ?>
+                    <?php if($detail_block): ?>
                     <ul class="side-detail-block">
-                        <?php foreach( $detail_block as $item ): ?>
-                        <?php if( !empty($item['text']) ): ?>
+                        <?php foreach($detail_block as $item): ?>
+                        <?php if(!empty($item['text'])): ?>
                         <li><?php echo esc_html($item['text']); ?></li>
                         <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
                     <?php endif; ?>
 
-                    <?php if( $button ): ?>
+                    <?php if($button): ?>
                     <a href="<?php echo esc_url($button['url']); ?>" class="side-btn btn btn-primary mt-3"
                         target="<?php echo esc_attr($button['target']); ?>">
                         <?php echo esc_html($button['title']); ?>
@@ -142,7 +142,7 @@
 // Get Glossary CTA group from Site Settings
 $glossary_cta = get_field('glossary_post_type_section', 'options');
 
-// if ( ! empty($glossary_cta) && ! empty($glossary_cta['show_glossary_cta']) ) :
+// if (! empty($glossary_cta) && ! empty($glossary_cta['show_glossary_cta'])) :
 
 $heading        = $glossary_cta['glossary_cta_heading'] ?? '';
 $subheading     = $glossary_cta['glossary_cta_subheading'] ?? '';
@@ -156,30 +156,30 @@ $secondary_link = $glossary_cta['glossary_secondary_button_link'] ?? '';
     <div class="container">
         <div class="glossary-bottom-cta__inner">
 
-            <?php if ( $heading ) : ?>
+            <?php if ($heading) : ?>
                 <h2 class="glossary-bottom-cta__title">
-                    <?php echo esc_html( $heading ); ?>
+                    <?php echo esc_html($heading); ?>
                 </h2>
             <?php endif; ?>
 
-            <?php if ( $subheading ) : ?>
+            <?php if ($subheading) : ?>
                 <p class="glossary-bottom-cta__text">
-                    <?php echo esc_html( $subheading ); ?>
+                    <?php echo esc_html($subheading); ?>
                 </p>
             <?php endif; ?>
 
             <div class="glossary-bottom-cta__buttons">
-                <?php if ( $primary_text && $primary_link ) : ?>
-                    <a href="<?php echo esc_url( $primary_link ); ?>"
+                <?php if ($primary_text && $primary_link) : ?>
+                    <a href="<?php echo esc_url($primary_link); ?>"
                        class="glossary-btn glossary-btn--primary">
-                        <?php echo esc_html( $primary_text ); ?>
+                        <?php echo esc_html($primary_text); ?>
                     </a>
                 <?php endif; ?>
 
-                <?php if ( $secondary_text && $secondary_link ) : ?>
-                    <a href="<?php echo esc_url( $secondary_link ); ?>"
+                <?php if ($secondary_text && $secondary_link) : ?>
+                    <a href="<?php echo esc_url($secondary_link); ?>"
                        class="glossary-btn glossary-btn--outline">
-                        <?php echo esc_html( $secondary_text ); ?>
+                        <?php echo esc_html($secondary_text); ?>
                     </a>
                 <?php endif; ?>
             </div>
