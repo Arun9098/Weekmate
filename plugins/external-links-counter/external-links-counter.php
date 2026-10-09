@@ -1568,68 +1568,34 @@ class External_Links_Counter
                                     
                                     <?php
                                     // Get SEO status and colors
-                                    $post_seo_status = isset($data['post_seo_status'])
-                                        ? $data['post_seo_status']
-                                        : 'index, follow';
+                                    $post_seo_status = isset($data['post_seo_status']) ? $data['post_seo_status'] : 'index, follow';
                                     $seo_colors = $this->get_seo_status_colors($post_seo_status);
                                     ?>
                                     <table style="margin-bottom: 20px;">
                                         <tr>
-                                            <td width="120" style="color: #646970; font-weight: 600;"><?php
-                                                esc_html_e('Title:', 'external-links-counter');
-                                            ?></td>
-                                            <td style="color: #1d2327;"><?php
-                                                echo esc_html($data['post_title']);
-                                            ?></td>
+                                            <td width="120" style="color: #646970; font-weight: 600;"><?php esc_html_e('Title:', 'external-links-counter'); ?></td>
+                                            <td style="color: #1d2327;"><?php echo esc_html($data['post_title']); ?></td>
                                         </tr>
                                         <tr>
-                                            <td style="color: #646970; font-weight: 600;"><?php
-                                                esc_html_e('Type:', 'external-links-counter');
-                                            ?></td>
-                                            <td style="color: #1d2327;"><?php
-                                                echo esc_html($data['post_type']);
-                                            ?></td>
+                                            <td style="color: #646970; font-weight: 600;"><?php esc_html_e('Type:', 'external-links-counter'); ?></td>
+                                            <td style="color: #1d2327;"><?php echo esc_html($data['post_type']); ?></td>
                                         </tr>
                                         <tr>
-                                            <td style="color: #646970; font-weight: 600;"><?php
-                                                esc_html_e('Status:', 'external-links-counter');
-                                            ?></td>
+                                            <td style="color: #646970; font-weight: 600;"><?php esc_html_e('Status:', 'external-links-counter'); ?></td>
                                             <td>
-                                                <span
-                                                    style="display: inline-block; padding: 2px 8px;
-                                                    background-color: <?php echo $status_text === 'Publish'
-                                                        ? '#d4edda'
-                                                        : '#ffc107'; ?>;
-                                                    color: <?php echo $status_text === 'Publish'
-                                                        ? '#155724'
-                                                        : '#856404'; ?>;
-                                                    border-radius: 3px; font-size: 12px;"
-                                                >
+                                                <span style="display: inline-block; padding: 2px 8px; background-color: <?php echo $status_text === 'Publish' ? '#d4edda' : '#ffc107'; ?>; color: <?php echo $status_text === 'Publish' ? '#155724' : '#856404'; ?>; border-radius: 3px; font-size: 12px;">
                                                     <?php echo esc_html($status_text); ?>
                                                 </span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="color: #646970; font-weight: 600;"><?php
-                                                esc_html_e('Author:', 'external-links-counter');
-                                            ?></td>
-                                            <td style="color: #1d2327;"><?php
-                                                echo esc_html($data['author_name']);
-                                            ?></td>
+                                            <td style="color: #646970; font-weight: 600;"><?php esc_html_e('Author:', 'external-links-counter'); ?></td>
+                                            <td style="color: #1d2327;"><?php echo esc_html($data['author_name']); ?></td>
                                         </tr>
                                         <tr>
-                                            <td style="color: #646970; font-weight: 600;"><?php
-                                                esc_html_e('External Links:', 'external-links-counter');
-                                            ?></td>
+                                            <td style="color: #646970; font-weight: 600;"><?php esc_html_e('External Links:', 'external-links-counter'); ?></td>
                                             <td>
-                                                <span
-                                                    style="display: inline-block; padding: 4px 12px;
-                                                    background-color: <?php echo $link_count > 5
-                                                        ? '#f44336'
-                                                        : ($link_count > 2 ? '#ff9800' : '#4caf50'); ?>;
-                                                    color: #ffffff;
-                                                    border-radius: 4px; font-weight: bold;"
-                                                >
+                                                <span style="display: inline-block; padding: 4px 12px; background-color: <?php echo $link_count > 5 ? '#f44336' : ($link_count > 2 ? '#ff9800' : '#4caf50'); ?>; color: #ffffff; border-radius: 4px; font-weight: bold;">
                                                     <?php echo esc_html($link_count); ?>
                                                 </span>
                                             </td>
@@ -1639,29 +1605,13 @@ class External_Links_Counter
                                     <!-- Action Buttons -->
                                     <?php if (empty($data['is_test'])) : ?>
                                     <p style="margin: 20px 0;">
-                                        <a
-                                            href="<?php echo esc_url($data['edit_url']); ?>"
-                                            style="display: inline-block; padding: 10px 20px;
-                                            background-color: #2271b1; color: #ffffff;
-                                            text-decoration: none; border-radius: 4px; margin-right: 10px;"
-                                        >
+                                        <a href="<?php echo esc_url($data['edit_url']); ?>" style="display: inline-block; padding: 10px 20px; background-color: #2271b1; color: #ffffff; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                                             <?php esc_html_e('Edit Content', 'external-links-counter'); ?>
                                         </a>
-                                        <a
-                                            href="<?php echo esc_url($data['detail_url']); ?>"
-                                            style="display: inline-block; padding: 10px 20px;
-                                            background-color: #50575e; color: #ffffff;
-                                            text-decoration: none; border-radius: 4px; margin-right: 10px;"
-                                        >
+                                        <a href="<?php echo esc_url($data['detail_url']); ?>" style="display: inline-block; padding: 10px 20px; background-color: #50575e; color: #ffffff; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                                             <?php esc_html_e('View Links Detail', 'external-links-counter'); ?>
                                         </a>
-                                        <a
-                                            href="<?php echo esc_url($data['post_url']); ?>"
-                                            style="display: inline-block; padding: 10px 20px;
-                                            background-color: #ffffff; color: #2271b1;
-                                            text-decoration: none; border-radius: 4px;
-                                            border: 1px solid #2271b1;"
-                                        >
+                                        <a href="<?php echo esc_url($data['post_url']); ?>" style="display: inline-block; padding: 10px 20px; background-color: #ffffff; color: #2271b1; text-decoration: none; border-radius: 4px; border: 1px solid #2271b1;">
                                             <?php esc_html_e('View Content', 'external-links-counter'); ?>
                                         </a>
                                     </p>
@@ -1672,123 +1622,55 @@ class External_Links_Counter
                             <!-- External Links List -->
                             <tr>
                                 <td style="padding: 0 30px 30px;">
-                                    <h2
-                                        style="margin: 0 0 20px; font-size: 18px; color: #1d2327;
-                                        border-bottom: 2px solid #2271b1; padding-bottom: 10px;"
-                                    ><?php
-                                        esc_html_e('External Links Found', 'external-links-counter');
-                                    ?> (<?php echo esc_html($link_count); ?>)
+                                    <h2 style="margin: 0 0 20px; font-size: 18px; color: #1d2327; border-bottom: 2px solid #2271b1; padding-bottom: 10px;">
+                                        <?php esc_html_e('External Links Found', 'external-links-counter'); ?> (<?php echo esc_html($link_count); ?>)
                                     </h2>
                                     
                                     <!-- Summary by Domain -->
-                                    <div
-                                        style="background-color: #f0f6fc; border-radius: 4px;
-                                        padding: 15px; margin-bottom: 20px;"
-                                    >
+                                    <div style="background-color: #f0f6fc; border-radius: 4px; padding: 15px; margin-bottom: 20px;">
                                         <p style="margin: 0 0 10px; font-weight: 600; color: #1d2327;">
                                             <?php esc_html_e('Domains Summary:', 'external-links-counter'); ?>
                                         </p>
                                         <?php foreach ($domains as $domain => $links) : ?>
-                                            <span
-                                                style="display: inline-block; padding: 4px 10px;
-                                                background-color: #e3f2fd; color: #1565c0;
-                                                border-radius: 3px; margin: 2px 4px 2px 0;
-                                                font-size: 13px;"
-                                            >
+                                            <span style="display: inline-block; padding: 4px 10px; background-color: #e3f2fd; color: #1565c0; border-radius: 3px; margin: 2px 4px 2px 0; font-size: 13px;">
                                                 <?php echo esc_html($domain); ?> (<?php echo count($links); ?>)
                                             </span>
                                         <?php endforeach; ?>
                                     </div>
                                     
                                     <!-- Links Table -->
-                                    <table
-                                        width="100%" cellpadding="0" cellspacing="0"
-                                        style="border: 1px solid #e0e0e0;
-                                        border-radius: 4px; overflow: hidden;"
-                                    >
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #e0e0e0; border-radius: 4px; overflow: hidden;">
                                         <tr style="background-color: #f5f5f5;">
-                                            <th style="padding: 12px; text-align: left;
-                                            border-bottom: 1px solid #e0e0e0; color: #1d2327;
-                                            font-size: 13px;">#</th>
-                                            <th style="padding: 12px; text-align: left;
-                                            border-bottom: 1px solid #e0e0e0; color: #1d2327;
-                                            font-size: 13px;"><?php
-                                                esc_html_e('Anchor Text', 'external-links-counter');
-                                            ?></th>
-                                            <th style="padding: 12px; text-align: left;
-                                            border-bottom: 1px solid #e0e0e0; color: #1d2327;
-                                            font-size: 13px;"><?php
-                                                esc_html_e('URL', 'external-links-counter');
-                                            ?></th>
-                                            <th style="padding: 12px; text-align: left;
-                                            border-bottom: 1px solid #e0e0e0; color: #1d2327;
-                                            font-size: 13px;"><?php
-                                                esc_html_e('Domain', 'external-links-counter');
-                                            ?></th>
-                                            <th style="padding: 12px; text-align: left;
-                                            border-bottom: 1px solid #e0e0e0; color: #1d2327;
-                                            font-size: 13px;"><?php
-                                                esc_html_e('SEO Status', 'external-links-counter');
-                                            ?></th>
+                                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; color: #1d2327; font-size: 13px;">#</th>
+                                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; color: #1d2327; font-size: 13px;"><?php esc_html_e('Anchor Text', 'external-links-counter'); ?></th>
+                                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; color: #1d2327; font-size: 13px;"><?php esc_html_e('URL', 'external-links-counter'); ?></th>
+                                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; color: #1d2327; font-size: 13px;"><?php esc_html_e('Domain', 'external-links-counter'); ?></th>
+                                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; color: #1d2327; font-size: 13px;"><?php esc_html_e('SEO Status', 'external-links-counter'); ?></th>
                                         </tr>
                                         <?php foreach ($data['external_links'] as $index => $link) : 
                                             // Use the actual status detected by the plugin
                                             $seo_status = $link['seo_status'];
                                             $seo_colors = $this->get_seo_status_colors($seo_status);
                                         ?>
-                                            <tr style="<?php echo ($index % 2 === 0)
-                                                ? 'background-color: #ffffff;'
-                                                : 'background-color: #fafafa;'; ?>">
-                                                <td
-                                                    style="padding: 12px; border-bottom: 1px solid #e0e0e0;
-                                                    font-size: 13px; color: #646970;"
-                                                >
+                                            <tr style="<?php echo ($index % 2 === 0) ? 'background-color: #ffffff;' : 'background-color: #fafafa;'; ?>">
+                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px; color: #646970;">
                                                     <?php echo esc_html($index + 1); ?>
                                                 </td>
-                                                <td
-                                                    style="padding: 12px; border-bottom: 1px solid #e0e0e0;
-                                                    font-size: 13px; color: #1d2327;"
-                                                >
-                                                    <?php
-                                                    echo esc_html(
-                                                        $link['anchor_text'] ?: __(
-                                                            '(no anchor text)',
-                                                            'external-links-counter'
-                                                        )
-                                                    );
-                                                    ?>
+                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px; color: #1d2327;">
+                                                    <?php echo esc_html($link['anchor_text'] ?: __('(no anchor text)', 'external-links-counter')); ?>
                                                 </td>
-                                                <td
-                                                    style="padding: 12px; border-bottom: 1px solid #e0e0e0;
-                                                    font-size: 13px; word-break: break-all;"
-                                                >
-                                                    <a
-                                                        href="<?php echo esc_url($link['url']); ?>"
-                                                        style="color: #2271b1; text-decoration: none;"
-                                                        target="_blank"
-                                                    >
+                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px; word-break: break-all;">
+                                                    <a href="<?php echo esc_url($link['url']); ?>" style="color: #2271b1; text-decoration: none;" target="_blank">
                                                         <?php echo esc_html($link['url']); ?>
                                                     </a>
                                                 </td>
-                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0;
-                                                font-size: 13px;">
-                                                    <span
-                                                        style="display: inline-block; padding: 2px 8px;
-                                                        background-color: #e3f2fd; color: #1565c0;
-                                                        border-radius: 3px; font-size: 12px;"
-                                                    >
+                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px;">
+                                                    <span style="display: inline-block; padding: 2px 8px; background-color: #e3f2fd; color: #1565c0; border-radius: 3px; font-size: 12px;">
                                                         <?php echo esc_html($link['domain']); ?>
                                                     </span>
                                                 </td>
-                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0;
-                                                font-size: 13px;">
-                                                    <span
-                                                        style="display: inline-block; padding: 4px 10px;
-                                                        background-color: <?php echo esc_attr($seo_colors['bg']); ?>;
-                                                        color: <?php echo esc_attr($seo_colors['text']); ?>;
-                                                        border-radius: 3px; font-size: 12px;
-                                                        font-weight: 600;"
-                                                    >
+                                                <td style="padding: 12px; border-bottom: 1px solid #e0e0e0; font-size: 13px;">
+                                                    <span style="display: inline-block; padding: 4px 10px; background-color: <?php echo esc_attr($seo_colors['bg']); ?>; color: <?php echo esc_attr($seo_colors['text']); ?>; border-radius: 3px; font-size: 12px; font-weight: 600;">
                                                         <?php echo esc_html($seo_status); ?>
                                                     </span>
                                                 </td>
@@ -1800,16 +1682,10 @@ class External_Links_Counter
                             
                             <!-- Footer -->
                             <tr>
-                                <td
-                                    style="background-color: #f0f0f1; padding: 20px 30px;
-                                    border-radius: 0 0 8px 8px; text-align: center;"
-                                >
+                                <td style="background-color: #f0f0f1; padding: 20px 30px; border-radius: 0 0 8px 8px; text-align: center;">
                                     <p style="margin: 0; color: #646970; font-size: 12px;">
                                         <?php printf(
-                                            esc_html__(
-                                                'This email was sent by the External Links Counter plugin on %s.',
-                                                'external-links-counter'
-                                            ),
+                                            esc_html__('This email was sent by the External Links Counter plugin on %s.', 'external-links-counter'),
                                             esc_html($site_name)
                                         ); ?>
                                     </p>
@@ -1823,9 +1699,7 @@ class External_Links_Counter
                                         ?>"
                                         style="color: #2271b1;
                                         text-decoration: none;">
-                                            <?php
-                                            esc_html_e('Manage notification settings', 'external-links-counter');
-                                            ?>
+                                            <?php esc_html_e('Manage notification settings', 'external-links-counter'); ?>
                                         </a>
                                     </p>
                                 </td>

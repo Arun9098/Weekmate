@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const startupTitle = document.querySelector("[data-role='startup-title']");
   const startupPrice = document.querySelector("[data-role='startup-price']");
   const startupDescription = document.querySelector("[data-role='startup-description']");
-  const startupCta = document.querySelector("[data-role='startup-cta']");
 
   const enterpriseTitle = document.querySelector("[data-role='enterprise-title']");
   const enterprisePrice = document.querySelector("[data-role='enterprise-price']");
