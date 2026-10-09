@@ -10,11 +10,11 @@ get_header();
 $banner_section = get_field('banner_section');
 $pricing = get_field('pricing_section');
 //$trusted_by_our_clients_section = get_field('trusted_by_our_clients_section');
-$trusted_by_our_clients_section = get_field('trusted_by_our_clients_section','option');
+$trusted_by_our_clients_section = get_field('trusted_by_our_clients_section', 'option');
 
 $product_display = get_field('product_display_section');
 $featuresSec = get_field('features_section');
-$testimonials_section = get_field('testimonials_section_copy','option');
+$testimonials_section = get_field('testimonials_section_copy', 'option');
 $faq_section = get_field('faq_section');
 $colorClasses = [
     "light-mint-bg-clr",
@@ -37,8 +37,8 @@ $acf_tab_keys = ['HRMS & Payroll', 'e-CRM'];
 
 ?>
 
-<?php 
-if(1==2){
+<?php
+if(1==2) {
 ?>
 
 <section class="product-banner-section banner-section sectionCvr advtool-sec">
@@ -50,14 +50,14 @@ if(1==2){
                 <div class="banner-conetnt">
                 
                 <!-- Logo Repeater -->
-                <?php if( !empty($banner_section['logo_repeater']) ): ?>
+                <?php if(!empty($banner_section['logo_repeater'])): ?>
                 <div class="banner-rating">
                     <ul class="rating-block">
-                        <?php foreach( $banner_section['logo_repeater'] as $logo ): ?>
+                        <?php foreach($banner_section['logo_repeater'] as $logo): ?>
                             <li>
-                                <?php if( !empty($logo['rating_logo']['url']) ): ?>
-                                    <img src="<?php echo esc_url($logo['rating_logo']['url']); ?>" 
-                                         alt="<?php echo esc_attr($logo['rating_logo']['alt']); ?>" 
+                                <?php if(!empty($logo['rating_logo']['url'])): ?>
+                                    <img src="<?php echo esc_url($logo['rating_logo']['url']); ?>"
+                                         alt="<?php echo esc_attr($logo['rating_logo']['alt']); ?>"
                                          class="img-fluid" style="max-height: 30px;">
                                 <?php endif; ?>
                             </li>
@@ -67,14 +67,14 @@ if(1==2){
                 <?php endif; ?>
 
                 <!-- Heading -->
-                <?php if( !empty($banner_section['heading']) ): ?>
+                <?php if(!empty($banner_section['heading'])): ?>
                     <h1 class="h1">
                         <?php echo esc_html($banner_section['heading']); ?>
                     </h1>
                 <?php endif; ?>
 
                 <!-- Subheading -->
-                <?php if( !empty($banner_section['sub-heading']) ): ?>
+                <?php if(!empty($banner_section['sub-heading'])): ?>
                     <div class="rte">
                         <p>
                             <?php echo esc_html($banner_section['sub-heading']); ?>
@@ -83,9 +83,9 @@ if(1==2){
                 <?php endif; ?>
 
                 <!-- Button -->
-                <?php if( !empty($banner_section['banner_button']) ): ?>
+                <?php if(!empty($banner_section['banner_button'])): ?>
                     <div class="action-wrapper">
-                    <a href="<?php echo esc_url($banner_section['banner_button']['url']); ?>" 
+                    <a href="<?php echo esc_url($banner_section['banner_button']['url']); ?>"
                        class="btn theme-btn">
                         <?php echo esc_html($banner_section['banner_button']['title']); ?>
                     </a>
@@ -96,14 +96,14 @@ if(1==2){
 
             <!-- Right Content -->
             <div class="col-lg-7 pb-4 pb-lg-0">
-                <?php if( !empty($banner_section['banner_image']) ): ?>
-                    <img src="<?php echo esc_url($banner_section['banner_image']['url']); ?>" 
-                         alt="<?php echo esc_attr($banner_section['banner_image']['alt']); ?>" 
+                <?php if(!empty($banner_section['banner_image'])): ?>
+                    <img src="<?php echo esc_url($banner_section['banner_image']['url']); ?>"
+                         alt="<?php echo esc_attr($banner_section['banner_image']['alt']); ?>"
                          class="img-fluid">
                 <?php endif; ?>
-                  <?php if( !empty($banner_section['banner_mobile_image']) ): ?>
-                    <img src="<?php echo esc_url($banner_section['banner_image']['url']); ?>" 
-                         alt="<?php echo esc_attr($banner_section['banner_image']['alt']); ?>" 
+                  <?php if(!empty($banner_section['banner_mobile_image'])): ?>
+                    <img src="<?php echo esc_url($banner_section['banner_image']['url']); ?>"
+                         alt="<?php echo esc_attr($banner_section['banner_image']['alt']); ?>"
                          class="img-fluid">
                 <?php endif; ?>
             </div>
@@ -117,32 +117,19 @@ if(1==2){
 /**
  * Section: Stats
  * Layout: stats_section
- * 
+ *
  */
 
 $stats_repeater = get_field('stats_section', 'option');
 ?>
 
-<?php /* if ( ! empty($stats_repeater) ) : ?>
-<section class="stats-section one">
-    <div class="container">
-        <div class="stats-wrapper">
-            <?php foreach ( $stats_repeater as $stat ) : ?>
-            <div class="stat-item">
-                <p class="stat-number"><?php echo esc_html($stat['number']); ?></p>
-                <p class="stat-label"><?php echo esc_html($stat['description']); ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-<?php endif; */?>
+
 <section class="pricing-section sectionCvr">
     <div class="pricing-page">
         <div class="container">
             <h2 class="main-title">From Startup to Enterprise</h2>
 
-            <nav class="tabs">
+            <nav class="tabs" aria-label="Content tabs">
                 <select class="main-tabs-dropdown">
                     <option value="HRMS & Payroll">HRMS & Payroll</option>
                     <option value="TaskHub">TaskHub</option>
@@ -167,7 +154,7 @@ $stats_repeater = get_field('stats_section', 'option');
                 if ($tab_label === 'HRMS & Payroll') {
                     $tab_class  = 'hrms-tab-content active-tab';
                     $tab_style  = '';
-                } else if ($tab_label === 'e-CRM') {
+                } elseif ($tab_label === 'e-CRM') {
                     $tab_class  = 'ecrm-tab-content';
                     $tab_style  = 'display:none;';
                 } else {
@@ -195,10 +182,12 @@ $stats_repeater = get_field('stats_section', 'option');
                         $btn         = $plan['plan_button'] ?? [];
                         $feat_groups = $plan['feature_groups'] ?? [];
                     ?>
-                    <div class="pps-card pps-<?php echo esc_attr($slug); ?><?php echo $is_featured ? ' pps-featured' : ''; ?>">
+                    <div class="pps-card pps-<?php echo esc_attr($slug); ?>
+                    <?php echo $is_featured ? ' pps-featured' : ''; ?>">
 
-                        <?php if ($is_featured): ?><div class="pps-badge">Most Popular</div><?php endif; ?>
-
+                        <?php if ($is_featured): ?>
+                            <div class="pps-badge">Most Popular</div>
+                        <?php endif; ?>
                         <div class="pps-card-top">
                             <?php if (!empty($plan['plan_title'])): ?>
                                 <h3 class="pps-plan-title"><?php echo esc_html($plan['plan_title']); ?></h3>
@@ -223,7 +212,11 @@ $stats_repeater = get_field('stats_section', 'option');
                                     }
                                     ?>
                                 </span>
-                                <?php if ($price_period): ?><span class="pps-price-period"><?php echo esc_html($price_period); ?></span><?php endif; ?>
+                                <?php if ($price_period): ?>
+                                    <span class="pps-price-period">
+                                        <?php echo esc_html($price_period); ?>
+                                    </span>
+                                <?php endif; ?>
                             </div>
                             <?php endif; ?>
                             <?php if (!empty($plan['plan_price_note'])): ?>
@@ -288,7 +281,7 @@ $stats_repeater = get_field('stats_section', 'option');
                         <h2 class="hrms-services-title"><?php echo esc_html($hrms_title); ?></h2>
                     <?php endif; ?>
 
-                    <nav class="hrms-sub-tabs">
+                    <nav class="hrms-sub-tabs" aria-label="HRMS sub-navigation">
                         <select class="hrms-sub-tabs-dropdown">
                             <?php foreach ($hrms_repeater_rows as $si => $row):
                                 $sub_pps    = $row['pricing_plans_section_hrms'] ?? [];
@@ -341,7 +334,8 @@ $stats_repeater = get_field('stats_section', 'option');
                                 $btn         = $plan['plan_button'] ?? [];
                                 $feat_groups = $plan['feature_groups'] ?? [];
                             ?>
-                            <div class="pps-card pps-<?php echo esc_attr($slug); ?><?php echo $is_featured ? ' pps-featured' : ''; ?>">
+                            <div class="pps-card pps-<?php echo esc_attr($slug); ?>
+                            <?php echo $is_featured ? ' pps-featured' : ''; ?>">
                                 <?php if ($is_featured): ?><div class="pps-badge">Most Popular</div><?php endif; ?>
                                 <div class="pps-card-top">
                                     <?php if (!empty($plan['plan_title'])): ?>
@@ -360,7 +354,10 @@ $stats_repeater = get_field('stats_section', 'option');
                                             <?php
                                             if (preg_match('/^(.*?)(\(.*?\))(.*)$/', $price_num, $m)) {
                                                 echo esc_html(trim($m[1]));
-                                                echo '<span class="pps-price-period">' . esc_html(trim($m[2])) . '</span>';
+                                                echo '<span
+                                                class="pps-price-period">'
+                                                . esc_html(trim($m[2])) . 
+                                                '</span>';
                                                 echo esc_html(trim($m[3]));
                                             } else {
                                                 echo esc_html($price_num);
@@ -525,7 +522,7 @@ $stats_repeater = get_field('stats_section', 'option');
     $card_call  = $pricing_plan_card['call'] ?? '';
     ?>
 
-        <?php if(1==2){ ?>
+        <?php if(1==2) { ?>
     <div class="card-body give-us-call-pricing">
 
         <?php if (!empty($card_title)) : ?>
@@ -563,17 +560,17 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
             <div class="cta-banner-section-container-content ">
                 <div class="cta-content">
 
-                    <?php if ( $heading ) : ?>
+                    <?php if ($heading) : ?>
                     <h2 ><?php echo esc_html($heading); ?></h2>
                     <?php endif; ?>
 
-                     <?php if ( $subheading ) : ?>
+                     <?php if ($subheading) : ?>
                     <h5 ><?php echo esc_html($subheading); ?></h5>
                     <?php endif; ?>
 
-                    <?php if ( ! empty($cta_stats) ) : ?>
+                    <?php if (! empty($cta_stats)) : ?>
                     <ul class="cta-checklist">
-                        <?php foreach ( $cta_stats as $stat ) : ?>
+                        <?php foreach ($cta_stats as $stat) : ?>
                         <li>
                             <span class="check-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -586,7 +583,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
                     </ul>
                     <?php endif; ?>
 
-                    <?php if ( ! empty($button['url']) ) : ?>
+                    <?php if (! empty($button['url'])) : ?>
                     <div class="cta-btn-wrap">
                         <a href="<?php echo esc_url($button['url']); ?>"
                             class="btn"
@@ -594,7 +591,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
                             <?php echo esc_html($button['title']); ?>
                         </a>
                         
-                        <?php if ( ! empty($button1['url']) ) : ?>
+                        <?php if (! empty($button1['url'])) : ?>
                         <a href="<?php echo esc_url($button1['url']); ?>"
                             class="btn pricing-contact-sales"
                             target="<?php echo esc_attr($button1['target'] ?: '_self'); ?>">
@@ -634,7 +631,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
 				<div class="client-wrapper">
 					<div id="client-slider" class="client-slider">
 						<?php $clientLists = $trusted_by_our_clients_section['image_gallery']; 
-						foreach($clientLists as $clientList){?>
+						foreach($clientLists as $clientList) {?>
 						<div class="client-logo">
 							<img src="<?php echo $clientList['url']; ?>" alt="<?php echo $clientList['alt']; ?>">
 						</div>
@@ -646,7 +643,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
 	</div>
 </section>
 
-<?php if( $product_display ): ?>
+<?php if($product_display): ?>
 <section class="product-display-section">
     <div class="container">
         <div class="row">
@@ -656,7 +653,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
                 <div class="product-left">
                     
                     <!-- Logo -->
-                    <?php if( !empty($product_display['logo']) ): ?>
+                    <?php if(!empty($product_display['logo'])): ?>
                         <div class="product-logo">
                             <img src="<?php echo esc_url($product_display['logo']['url']); ?>" 
                                  alt="<?php echo esc_attr($product_display['logo']['alt']); ?>">
@@ -664,21 +661,21 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
                     <?php endif; ?>
                     
                     <!-- Heading -->
-                    <?php if( !empty($product_display['heading']) ): ?>
+                    <?php if(!empty($product_display['heading'])): ?>
                         <h2 class="product-heading h1">
                             <?php echo esc_html($product_display['heading']); ?>
                         </h2>
                     <?php endif; ?>
                     
                     <!-- Sub-heading -->
-                    <?php if( !empty($product_display['sub-heading']) ): ?>
+                    <?php if(!empty($product_display['sub-heading'])): ?>
                         <p class="product-subheading">
                             <?php echo esc_html($product_display['sub-heading']); ?>
                         </p>
                     <?php endif; ?>
                     
                     <!-- Illustration Image -->
-                    <?php if( !empty($product_display['image']) ): ?>
+                    <?php if(!empty($product_display['image'])): ?>
                         <div class="product-image">
                             <img src="<?php echo esc_url($product_display['image']['url']); ?>" 
                                  alt="<?php echo esc_attr($product_display['image']['alt']); ?>">
@@ -691,13 +688,13 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
             <div class="col-lg-7 col-md-12">
                 <div class="solution-right">
                     <div class="row">
-                    <?php if( !empty($product_display['product_display']) ): ?>
-                        <?php foreach( $product_display['product_display'] as $item ): ?>
+                    <?php if(!empty($product_display['product_display'])): ?>
+                        <?php foreach($product_display['product_display'] as $item): ?>
                             <div class="col-md-6">
                                 <div class="product-box">
                                     
                                     <!-- Product Logo -->
-                                    <?php if( !empty($item['logo']) ): ?>
+                                    <?php if(!empty($item['logo'])): ?>
                                         <div class="product-icon">
                                             <img src="<?php echo esc_url($item['logo']['url']); ?>" 
                                                  alt="<?php echo esc_attr($item['logo']['alt']); ?>">
@@ -705,21 +702,21 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
                                     <?php endif; ?>
                                     
                                     <!-- Name -->
-                                    <?php if( !empty($item['name']) ): ?>
+                                    <?php if(!empty($item['name'])): ?>
                                         <h4 class="product-name text-none">
                                             <?php echo esc_html($item['name']); ?>
                                         </h4>
                                     <?php endif; ?>
                                     
                                     <!-- Description -->
-                                    <?php if( !empty($item['description']) ): ?>
+                                    <?php if(!empty($item['description'])): ?>
                                         <p class="product-description">
                                             <?php echo esc_html($item['description']); ?>
                                         </p>
                                     <?php endif; ?>
                                     
                                     <!-- Button -->
-                                    <?php if( !empty($item['button']) ): ?>
+                                    <?php if(!empty($item['button'])): ?>
                                         <div class="action-wrapper">
                                         <a href="<?php echo esc_url($item['button']['url']); ?>" 
                                            class="btn btn-transperent"
@@ -758,7 +755,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
 					 <div class="feature-listsCvr" >
 			            <ul class="feature-lists featureLists1 slick">
 			            	<?php $feaLists1 =  $featuresSec['feature_sec_lists_1'];  
-			            	foreach($feaLists1 as $feaList1){?>
+			            	foreach($feaLists1 as $feaList1) {?>
 			            	<li><img src="<?php echo $feaList1['feature_icon']['url']; ?>" alt="<?php echo $feaList1['feature_icon']['alt']; ?>"><p><?php echo $feaList1['feature_title']; ?></p></li>
 			            	<?php } ?>
 			            </ul>
@@ -766,7 +763,7 @@ style="background-image: url('https://weekmate.in/wp-content/uploads/2026/09/ima
 					<div class="feature-listsCvr" dir="rtl" >
 			            <ul class="feature-lists featureLists2 slick">
 			            	<?php $feaLists2 =  $featuresSec['feature_sec_lists_2']; 
-			            	foreach($feaLists2 as $feaList2){?>
+			            	foreach($feaLists2 as $feaList2) {?>
 			            	<li><img src="<?php echo $feaList2['feature_icon']['url']; ?>" alt="<?php echo $feaList2['feature_icon']['alt']; ?>"><p><?php echo $feaList2['feature_title']; ?></p></li>
 			            	<?php } ?>
 			            </ul>
@@ -809,16 +806,16 @@ $cta_stats        = $cta_banner['cta_stats'] ?? [];
 $cta_side_image   = $cta_banner['side_image']       ?? [];
 ?>
 
-<?php if (  empty($cta_banner) ) : ?>
+<?php if (empty($cta_banner)) : ?>
 <section class="cta-banner-section sectionCvr container"
-    <?php if ( ! empty($cta_bg_image['url']) ) : ?>
+    <?php if (! empty($cta_bg_image['url'])) : ?>
         style="background-image: url('<?php echo esc_url($cta_bg_image['url']); ?>');"
     <?php endif; ?>>
     <div class="cta-banner-section-container">
 
         <!-- Left Image -->
         <div class="cta-banner-section-container-image">
-            <?php if ( ! empty($cta_side_image['url']) ) : ?>
+            <?php if (! empty($cta_side_image['url'])) : ?>
             <div class="cta-left-image">
                 <img src="<?php echo esc_url($cta_side_image['url']); ?>"
                      alt="<?php echo esc_attr($cta_side_image['alt']); ?>">
@@ -830,13 +827,13 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
         <div class="cta-banner-section-container-content">
             <div class="cta-content">
 
-                <?php if ( $cta_heading ) : ?>
+                <?php if ($cta_heading) : ?>
                 <h2 class="text-none"><?php echo esc_html($cta_heading); ?></h2>
                 <?php endif; ?>
 
-                <?php if ( ! empty($cta_stats) ) : ?>
+                <?php if (! empty($cta_stats)) : ?>
                 <ul class="cta-checklist">
-                    <?php foreach ( $cta_stats as $stat ) : ?>
+                    <?php foreach ($cta_stats as $stat) : ?>
                     <li>
                         <span class="check-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -849,7 +846,7 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
                 </ul>
                 <?php endif; ?>
 
-                <?php if ( ! empty($cta_button['url']) ) : ?>
+                <?php if (! empty($cta_button['url'])) : ?>
                 <div class="cta-btn-wrap">
                     <a href="<?php echo esc_url($cta_button['url']); ?>"
                        class="btn"
@@ -883,13 +880,13 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
 					<div id="testimonials-slider" class="testimonials-slider">
 						<?php $testiLists =  $testimonials_section['testimonials_repeater'];
                         $testi = 0;
-                        foreach($testiLists as $testiList){
+                        foreach($testiLists as $testiList) {
                             $testirandomClass = $colorClasses[$testi % count($colorClasses)];  ?>
                             <div class="testimonials-item">
                                 <div class="testimonials-block <?php echo esc_attr($testirandomClass); ?>">
                                     <div class="testi-img-play">
                                         <p class="testi-img">
-                                            <?php if(!empty($testiList['client_image'])){ ?>
+                                            <?php if(!empty($testiList['client_image'])) { ?>
                                             <img src="<?php echo $testiList['client_image']['url']; ?>" alt="<?php echo $testiList['client_image']['alt']; ?>">
                                             <?php } else { ?>
                                                 <img src="<?php echo get_template_directory_uri(); ?>/images/test-img-avatar.png" alt="testimonial">
@@ -948,9 +945,9 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
 								foreach($faq1Lists as $faq1List) { $faq1++;  ?>
                                     <div class="accordion-item">
                                         <h3 class="accordion-header">
-                                            <button class="accordion-button <?php if($faq1 != 1 ){ echo 'collapsed'; } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#faqcollapse-<?php echo $faq1; ?>" aria-expanded="true" aria-controls="faq1collapse-<?php echo $faq1; ?>"><?php echo $faq1List['title']; ?></button>
+                                            <button class="accordion-button <?php if($faq1 != 1) { echo 'collapsed'; } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#faqcollapse-<?php echo $faq1; ?>" aria-expanded="true" aria-controls="faq1collapse-<?php echo $faq1; ?>"><?php echo $faq1List['title']; ?></button>
                                         </h3>
-                                        <div id="faqcollapse-<?php echo $faq1; ?>" class="accordion-collapse collapse <?php if($faq1 == 1 ){ echo "show"; } ?>" data-bs-parent="#faqMain">
+                                        <div id="faqcollapse-<?php echo $faq1; ?>" class="accordion-collapse collapse <?php if($faq1 == 1) { echo "show"; } ?>" data-bs-parent="#faqMain">
                                             <div class="accordion-body">
                                                 <?php echo $faq1List['content']; ?>
                                             </div>
@@ -966,7 +963,7 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
 								foreach($faq2Lists as $faq2List) { $faq2++;  ?>
                                     <div class="accordion-item">
                                         <h3 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1collapse-<?php echo $faq2; ?>" aria-expanded="<?php if($faq2 == 1 ){ echo 'true'; } else { echo "false"; } ?>" aria-controls="faqcollapse-<?php echo $faq2; ?>"><?php echo $faq2List['title']; ?></button>
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1collapse-<?php echo $faq2; ?>" aria-expanded="<?php if($faq2 == 1) { echo 'true'; } else { echo "false"; } ?>" aria-controls="faqcollapse-<?php echo $faq2; ?>"><?php echo $faq2List['title']; ?></button>
                                         </h3>
                                         <div id="faq1collapse-<?php echo $faq2; ?>" class="accordion-collapse collapse" data-bs-parent="#faqMain">
                                             <div class="accordion-body">
@@ -986,3 +983,4 @@ $cta_side_image   = $cta_banner['side_image']       ?? [];
 </section>
 <?php
 get_footer();
+
