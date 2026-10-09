@@ -2,7 +2,10 @@
 /**
  * Plugin Name: External Links Counter
  * Plugin URI: https://linkpublishers.com/
- * Description: Displays the count of external links in each post and page within the WordPress admin. Sends email notification to admin when posts/pages with external links are created. All external links are treated as nofollow by default.
+ * Description: Displays the count of external links in each post and page
+ * within the WordPress admin. Sends email notification to admin when
+ * posts/pages with external links are created. All external links are
+ * treated as nofollow by default.
  * Version: 1.3.0
  * Author: Link Publishers
  * Author URI: https://linkpublishers.com/
@@ -869,7 +872,7 @@ class External_Links_Counter {
         }
         
         // Sort by count descending
-        usort($items_data, function($a, $b)
+        usort($items_data, function ($a, $b)
         {
             return $b['count'] - $a['count'];
         });
@@ -896,8 +899,8 @@ class External_Links_Counter {
                 </p>
                 <p>
                     <strong><?php esc_html_e('Content with External Links:', 'external-links-counter'); ?></strong>
-                    <?php echo count(array_filter($items_data, function($p)
-                    { 
+                    <?php echo count(array_filter($items_data, function ($p)
+                    {
                         return $p['count'] > 0;
                     })); ?>
                 </p>

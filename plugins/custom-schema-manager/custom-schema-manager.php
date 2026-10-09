@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Schema Manager
  * Plugin URI:  https://elsner.com
- * Description: Add, edit, and remove multiple JSON-LD schema 
+ * Description: Add, edit, and remove multiple JSON-LD schema
  * blocks per Post/Page from a single admin screen —
  * no theme editing required.
  * Version:     1.0.0
@@ -45,7 +45,7 @@ class Custom_Schema_Manager
     /**
      * Register the "Schema Manager" top-level admin page.
      */
-    public function register_admin_page() 
+    public function register_admin_page()
     {
         add_menu_page(
             'Schema Manager',
