@@ -132,10 +132,10 @@ $listing = get_field('integration_listing');
                 <input type="text"
                        id="intg-search-input"
                        class="intg-search__input"
-                       placeholder="<?php 
+                       placeholder="<?php
                        echo esc_attr(
                         $listing['search_placeholder'] ?: 'Search Integrations...'
-                        ); 
+                        );
                        ?>"
                 >
                 <button class="intg-search__btn" aria-label="Search">

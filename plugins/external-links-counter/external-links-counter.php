@@ -1117,8 +1117,12 @@ class External_Links_Counter
                             value="<?php echo esc_attr($notification_email); ?>"
                             class="regular-text">
                             <p class="description">
-                                <?php esc_html_e('Email address to receive notifications. 
-                                Separate multiple emails with commas. Default is admin email.', 'external-links-counter'); ?>
+                                <?php 
+                                esc_html_e(
+                                    'Email address to receive notifications.
+                                Separate multiple emails with commas. Default is admin email.',
+                                'external-links-counter'
+                                ); ?>
                             </p>
                         </td>
                     </tr>
@@ -1126,12 +1130,12 @@ class External_Links_Counter
                         <th scope="row"><?php esc_html_e('Notify on Update', 'external-links-counter'); ?></th>
                         <td>
                             <label>
-                                <input type="checkbox" 
-                                name="elc_notify_on_update" 
-                                value="1" 
+                                <input type="checkbox"
+                                name="elc_notify_on_update"
+                                value="1"
                                 <?php checked($notify_on_update, true); ?>>
                                 <?php esc_html_e(
-                                    'Also send notification when existing posts/pages are 
+                                    'Also send notification when existing posts/pages are
                                     updated with new external links', 'external-links-counter'
                                 ); ?>
                             </label>
@@ -1140,11 +1144,11 @@ class External_Links_Counter
                     <tr>
                         <th scope="row"><?php esc_html_e('Minimum Links to Notify', 'external-links-counter'); ?></th>
                         <td>
-                            <input type="number" 
-                            name="elc_min_links_to_notify" 
-                            value="<?php echo esc_attr($min_links); ?>" 
-                            min="1" 
-                            max="100" 
+                            <input type="number"
+                            name="elc_min_links_to_notify"
+                            value="<?php echo esc_attr($min_links); ?>"
+                            min="1"
+                            max="100"
                             class="small-text">
                             <p class="description">
                                 <?php

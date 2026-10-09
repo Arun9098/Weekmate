@@ -34,8 +34,8 @@ $max_pages = $wp_query->max_num_pages;
                             <li class="">
                                 <img
                                 src="<?php echo esc_url($logo['image']['url']); ?>"
-                                alt="<?php echo esc_attr($logo['image']['alt']); ?>" 
-                                class="me-3" 
+                                alt="<?php echo esc_attr($logo['image']['alt']); ?>"
+                                class="me-3"
                                 style="max-height:30px;">
                             </li>
                         <?php endif; ?> <?php endforeach; ?> </ul> </div> <?php endif; ?>
@@ -86,10 +86,10 @@ $max_pages = $wp_query->max_num_pages;
                         <div class="col-md-6">
                             <input type="text" name="s" class="form-control" placeholder="Search..."
                                 value="<?php echo get_search_query(); ?>">
-                            <input 
-                            type="hidden" 
-                            name="post_type" 
-                            value="post" 
+                            <input
+                            type="hidden"
+                            name="post_type"
+                            value="post"
                             value="<?php echo esc_html($_GET['s']);?>">
                         </div>
                     </form>
@@ -100,13 +100,6 @@ $max_pages = $wp_query->max_num_pages;
     <div class="container">
         <div id="blog-posts" class="blog-grid-wrapper">
             <?php
-                // $args = array(
-                //     'post_type'      => 'post',
-                //     'posts_per_page' => 6,
-                //     'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
-				// 	's'              => get_search_query()
-                //);
-                // $blog_query = new WP_Query($args);
 
             if (have_posts()) {
                 $i = 0; // counter
@@ -130,9 +123,9 @@ $max_pages = $wp_query->max_num_pages;
                                     <div class="blog-content <?php echo esc_attr($currentClass); ?>">
                                         <h2 class="blog-title h5"><?php the_title(); ?></h2>
                                         <div class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" 
-                                            width="11" 
-                                            height="18" 
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                            width="11"
+                                            height="18"
                                             viewBox="0 0 11 18"
                                             fill="none">
                                                 <path
@@ -170,3 +163,4 @@ $max_pages = $wp_query->max_num_pages;
 </section>
 
 <?php get_footer(); ?>
+
