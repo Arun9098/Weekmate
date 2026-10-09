@@ -351,7 +351,7 @@ $stats_repeater = get_field('stats_section', 'option');
                                     ?>
                                     <div class="pps-price-wrap">
                                         <span class="pps-price">
-                                            <?php
+                                        <?php
                                             if (preg_match('/^(.*?)(\(.*?\))(.*)$/', $price_num, $m)) {
                                                 echo esc_html(trim($m[1]));
                                                 echo '<span
@@ -362,7 +362,7 @@ $stats_repeater = get_field('stats_section', 'option');
                                             } else {
                                                 echo esc_html($price_num);
                                             }
-                                            ?>
+                                        ?>
                                         </span>
                                         <?php if ($price_period): ?><span class="pps-price-period"><?php echo esc_html($price_period); ?></span><?php endif; ?>
                                     </div>
