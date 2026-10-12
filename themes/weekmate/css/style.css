@@ -1658,10 +1658,6 @@ body:not(.page-template-home-page) nav.header-nav {
     position: relative;
 }
 
-.video-list-wrapper .slick-slider {
-
-}
-
 .video-list-wrapper .slick-list {
     padding-top: 2% !important;
     padding-bottom: 2% !important;
@@ -5227,20 +5223,6 @@ h6 {
     margin-bottom: 0;
     }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-    text-transform: capitalize;
-}
 
 .why-choose-section {
     background: #F6F6F6;
@@ -5989,8 +5971,6 @@ h6,
     animation: spinner-bulqg1 0.8s infinite linear alternate,
         spinner-oaa3wk 1.6s infinite linear;
 }
-
-.blog-tabs .nav-tabs-mobile .dropdown-item:hover,
 
 @keyframes spinner-bulqg1 {
     0% {
