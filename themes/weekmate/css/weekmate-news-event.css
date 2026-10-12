@@ -22,11 +22,11 @@
     line-height: 1.2;
     color: #383838;
     margin-bottom: 10px;
-    font-family: 'Manrope';
+    font-family: 'Manrope',sans-serif;
 }
 
 .news-hero__description {
-    font-family: 'Manrope';
+    font-family: 'Manrope',sans-serif;
     font-size: 18px;
     color: #4A4A4A;
     line-height: 1.7;
@@ -80,13 +80,7 @@
 /* ========================================
    NEWS LISTING SECTION
    ======================================== */
-
-.news-listing {
-    padding: 80px 0;
-    background-color: #EEF9FF;
-}
-
-
+   
 .news-listing {
     padding: 80px 0;
     background-color: #EEF9FF;

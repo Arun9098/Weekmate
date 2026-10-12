@@ -111,7 +111,6 @@ Left Profile Card
 }
 
 .partner-profile-wrapper .partner-profile__social-icon img {
-    /* width: 100%; */
     max-width: 100%;
 }
 
@@ -138,7 +137,6 @@ Sections
 .partner-profile-wrapper .partner-profile__section-title {
     font-size: 27px;
     font-weight: 600;
-    margin-bottom: 14px;
     color: #1A1A2E;
     margin-bottom: 20px;
 }
@@ -216,19 +214,11 @@ Certifications
     gap: 10px;
 }
 
-.partner-logo-wrapper .partner-logos-wrapper {
-    display: flex;
-}
-
 .partner-details-banner-section .partner-logo-wrapper {
     align-items: center;
     gap: 16px;
     z-index: 1;
     position: relative;
-}
-
-.single-partner .partner-details-banner-section .partner-logo-wrapper .comany-logo {
-    max-width: 100%;
 }
 
 .single-partner .partner-details-banner-section .partner-logo-wrapper .partner-logos-wrapper .comany-logo {
@@ -346,9 +336,6 @@ Responsive
 
     .partner-profile-wrapper .partner-profile__tag {
         font-size: 14px;
-    }
-
-    .partner-profile-wrapper .partner-profile__tag {
         width: 100%;
     }
 
@@ -358,6 +345,7 @@ Responsive
 
     .partner-details-banner-section .partner-details-experience {
         justify-content: center;
+        text-align: center;
     }
 
     .single-partner .banner-wrap {
@@ -366,9 +354,5 @@ Responsive
 
     .partner-profile-wrapper .partner-profile__section {
         padding-bottom: 26px;
-    }
-
-    .partner-details-banner-section .partner-details-experience {
-        text-align: center;
     }
 }

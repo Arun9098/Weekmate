@@ -46,7 +46,7 @@
   color: #1A1A1A;
   margin: 0 0 30px 0;
   line-height: 1.2;
-  font-family: 'Manrope';
+  font-family: 'Manrope',sans-serif;
 }
 
 .onboarding-hero__subtitle {
@@ -55,7 +55,7 @@
   color: #383838;
   margin: 0 0 12px 0;
   line-height: 1.3;
-  font-family: 'Manrope';
+  font-family: 'Manrope',sans-serif;
 }
 
 .onboarding-hero__description {
@@ -69,7 +69,7 @@
 }
 
 .onboarding-hero__description p:last-child {
-  font-family: 'Manrope';
+  font-family: 'Manrope',sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
@@ -104,7 +104,7 @@
 }
 
 .onboarding-journey__title {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 45px;
   line-height: 100%;
@@ -137,13 +137,8 @@
   flex: 1;
   min-width: 300px;
 }
-
-.onboarding-journey__step-number-wrapper {
-  margin-bottom: 2rem;
-}
-
 .onboarding-journey__step-number {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-style: Bold;
   font-size: 45px;
@@ -154,19 +149,28 @@
   background-repeat: no-repeat;      
   background-position: center;       
   background-size: contain; 
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .onboarding-journey__step-text {
   flex: 1;
   padding: 18px 0 18px 18px;
+  grid-column: 2;
+  grid-row: 2;
+  padding: 0; 
+  margin-top: 10px;
 }
 
 .onboarding-journey__step-title {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 36px;
-  margin-bottom: 20px;
   color: #383838;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center; 
+  margin-bottom: 0;
 }
 
 .onboarding-journey__step-description {
@@ -177,7 +181,7 @@
 
 .onboarding-journey__step-description p {
   margin: 0 0 1rem 0;
-  font-family: Manrope;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
@@ -329,34 +333,13 @@
     grid-template-columns: auto 1fr; 
     column-gap: 20px; 
     align-items: start;
+    margin-bottom: 2rem;
 }
 
 
 .onboarding-journey__step-number-wrapper-title-container {
     display: contents; 
 }
-
-.onboarding-journey__step-number {
-    grid-column: 1;
-    grid-row: 1;
-    
-}
-
-.onboarding-journey__step-title {
-    grid-column: 2;
-    grid-row: 1;
-    align-self: center; 
-    margin-bottom: 0;   
-}
-
-
-.onboarding-journey__step-text {
-    grid-column: 2;
-    grid-row: 2;
-    padding: 0; 
-    margin-top: 10px; 
-}
-
 
 
 /* ============================================================================
@@ -461,10 +444,6 @@
   
   .onboarding-cta__title {
     font-size: 1.75rem;
-  }
-  
-  .onboarding-cta__content {
-    gap: 3rem;
   }
 
   .onboarding-journey__step,
@@ -637,13 +616,10 @@
   
   .onboarding-journey__step-number {
     font-size: 17px;
+    top: -1.2%;
+    left: -6%;
+    padding: 12px;
    }
-
-   .onboarding-journey__step-number {
-        top: -1.2%;
-        left: -6%;
-        padding: 12px;
-    }
 
     .onboarding-journey__step-description p{
         font-size: 15px;

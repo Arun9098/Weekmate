@@ -201,8 +201,6 @@
     padding: 90px 0;
     background: linear-gradient(0deg, #FFFFFF 8.64%, #E7E7E7 19.24%, #AAAAAA 41.31%, #4A4A4A 73.09%, #000000 96.93%);
     background-blend-mode: screen;
-
-    background-size: 60px 60px;
     background-color: #ffff;
     position: relative;
     background-repeat: no-repeat;
@@ -685,10 +683,6 @@
         padding: 30px;
     }
 
-    .profile-page-container .hero-image-wrapper {
-        min-height: 0;
-    }
-
     .profile-page-container .hero-content {
         width: 100%;
         flex: auto;
@@ -697,6 +691,7 @@
     .profile-page-container .hero-image-wrapper {
         justify-content: center;
         margin-top: 40px;
+        min-height: 0;
     }
 
     
@@ -806,7 +801,7 @@
 
     .profile-page-container .contact-item {
         align-items: center;
-
+        gap: 20px;
     }
 
     .profile-page-container .contact-item svg {
@@ -823,11 +818,6 @@
         max-height: 300px;
     }
 
-    
-
-    .profile-page-container .contact-block {
-        gap: 20px;
-    }
 
     .profile-page-container .label {
         margin-bottom: 16px;
