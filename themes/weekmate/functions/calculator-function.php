@@ -1,7 +1,8 @@
 <?php
 
 //Shortcode for Weekmate Calculator
-function weekmate_calculator_shortcode($atts) {
+function weekmate_calculator_shortcode($atts)
+{
 
     $atts = shortcode_atts([
         'type' => 'salary' // default
@@ -173,31 +174,33 @@ function weekmate_calculator_shortcode($atts) {
     <form id="hraForm">
       <div class="hra-calculator__row">
         <div>
-          <label class="hra-calculator__label">Basic Salary (Yearly)</label>
+          <label for="basic" class="hra-calculator__label">Basic Salary (Yearly)</label>
           <input type="number" id="basic" class="hra-calculator__input" value="0">
         </div>
 
         <div>
-          <label class="hra-calculator__label">Dearness Allowance (Yearly)</label>
+          <label for="da" class="hra-calculator__label">Dearness Allowance (Yearly)</label>
           <input type="number" id="da" class="hra-calculator__input" value="0">
         </div>
       </div>
 
       <div class="hra-calculator__row">
         <div>
-          <label class="hra-calculator__label">HRA Received (Yearly)</label>
+          <label for="hra" class="hra-calculator__label">HRA Received (Yearly)</label>
           <input type="number" id="hra" class="hra-calculator__input" value="0">
         </div>
 
         <div>
-          <label class="hra-calculator__label">Rent Paid (Yearly)</label>
+          <label for="rent" class="hra-calculator__label">Rent Paid (Yearly)</label>
           <input type="number" id="rent" class="hra-calculator__input" value="0">
         </div>
       </div>
 
         <div class="hra-calculator__row">
         <div style="grid-column: 1 / -1;">
-          <label class="hra-calculator__label">Do you live in a metro city? (For example: Delhi, Mumbai, Kolkata, or Chennai.)</label>
+          <span class="hra-calculator__label">
+            Do you live in a metro city? (For example: Delhi, Mumbai, Kolkata, or Chennai.)
+          </span>
 
           <div class="hra-city-toggle">
             <label class="option">
@@ -228,11 +231,26 @@ function weekmate_calculator_shortcode($atts) {
 
   <div class="hra-calculator__card hra-calculator__card--results">
     <div class="hra-results">
-      <div class="hra-results__item"><span>Actual HRA Received</span><strong id="outActual" class="hra-results__value">₹0.00</strong></div>
-      <div class="hra-results__item"><span>Rent Over 10% Salary</span><strong id="outRent" class="hra-results__value">₹0.00</strong></div>
-      <div class="hra-results__item"><span id="percentLabel">40% Salary</span><strong id="outPercent" class="hra-results__value">₹0.00</strong></div>
-      <div class="hra-results__item"><span>Exempt HRA</span><strong id="outExempt" class="hra-results__value">₹0.00</strong></div>
-      <div class="hra-results__item"><span>Taxable HRA</span><strong id="outTax" class="hra-results__value">₹0.00</strong></div>
+      <div class="hra-results__item">
+        <span>Actual HRA Received</span>
+        <strong id="outActual" class="hra-results__value">₹0.00</strong>
+      </div>
+      <div class="hra-results__item">
+        <span>Rent Over 10% Salary</span>
+        <strong id="outRent" class="hra-results__value">₹0.00</strong>
+      </div>
+      <div class="hra-results__item">
+        <span id="percentLabel">40% Salary</span>
+        <strong id="outPercent" class="hra-results__value">₹0.00</strong>
+      </div>
+      <div class="hra-results__item">
+        <span>Exempt HRA</span>
+        <strong id="outExempt" class="hra-results__value">₹0.00</strong>
+      </div>
+      <div class="hra-results__item">
+        <span>Taxable HRA</span>
+        <strong id="outTax" class="hra-results__value">₹0.00</strong>
+      </div>
     </div>
   </div>
 </div>
@@ -275,25 +293,29 @@ function weekmate_calculator_shortcode($atts) {
                     
                     <div class="gra-calculator__row">
                         <div>
-                            <label class="gra-calculator__label">Last Drawn Basic Salary (Monthly)</label>
+                            <label for="basicGra" class="gra-calculator__label">
+                                Last Drawn Basic Salary (Monthly)
+                            </label>
                             <input type="number" id="basicGra" class="gra-calculator__input" value="0">
                         </div>
 
                         <div>
-                            <label class="gra-calculator__label">Dearness Allowance (Monthly)</label>
+                            <label for="daGra" class="gra-calculator__label">Dearness Allowance (Monthly)</label>
                             <input type="number" id="daGra" class="gra-calculator__input" value="0">
                         </div>
                     </div>
 
                     <div class="gra-calculator__row">
                         <div>
-                            <label class="gra-calculator__label">Total Completed Years of Service</label>
+                            <label for="yearsGra" class="gra-calculator__label">Total Completed Years of Service</label>
                             <input type="number" id="yearsGra" class="gra-calculator__input" value="5" min="5" max="50">
                             <p class="gra-calculator__note">Minimum 5 years of service is required for eligibility.</p>
                         </div>
                         
                         <div class="gra-checkbox-field">
-                            <label class="gra-calculator__label" style="margin-bottom: 12px;">Is the Employer Covered under the Act?</label>
+                            <span class="gra-calculator__label" style="margin-bottom: 12px; display: block;">
+                                Is the Employer Covered under the Act?
+                            </span>
                             <div class="gra-city-toggle">
                                 <label class="option">
                                     <input type="radio" name="coveredType" value="covered" checked>
@@ -323,7 +345,8 @@ function weekmate_calculator_shortcode($atts) {
                     </div>
                     <div class="gra-results__item gra-results__item--highlight">
                         <span>Total Gratuity Amount</span>
-                        <strong id="outGratuity" class="gra-results__value gra-results__value--highlight">₹0.00</strong>
+                        <strong id="outGratuity"
+                                class="gra-results__value gra-results__value--highlight">₹0.00</strong>
                     </div>
                 </div>
 
@@ -516,7 +539,7 @@ if ($atts['type'] === 'pfandesi') { ?>
       </div>
     </div>
   </form>
-</div>   
+</div>
 
     <?php }
 
@@ -549,7 +572,7 @@ if ($atts['type'] === 'payslip') { ?>
   <div class="payslip__row payslip__row--header">
     <div class="payslip__row--header-logo">
     <label for="payslip-logo" class="payslip__upload">
-      <img id="payslip-logo-preview" class="payslip__upload-preview" style="display:none">
+      <img id="payslip-logo-preview" class="payslip__upload-preview" alt="Payslip Logo Preview" style="display:none">
       <span class="payslip__upload-text">Upload</span>
     </label>
     <input type="file" id="payslip-logo" accept="image/*" hidden>
@@ -570,9 +593,10 @@ if ($atts['type'] === 'payslip') { ?>
   <div class="payslip__section">
     <h3 class="payslip__title">Company Details <span class="payslip-field-required">*</span></h3>
 
-    <input id="payslip-company-name" class="payslip__input" placeholder="Company Name">
-    <input id="payslip-company-address" class="payslip__input" placeholder="Company Address">
-    <input id="payslip-company-location" class="payslip__input" placeholder="Country">
+    <input id="payslip-company-name" class="payslip__input" placeholder="Company Name" aria-label="Company Name">
+    <input id="payslip-company-address" class="payslip__input"
+           placeholder="Company Address" aria-label="Company Address">
+    <input id="payslip-company-location" class="payslip__input" placeholder="Country" aria-label="Country">
   </div>
 
 
@@ -582,33 +606,33 @@ if ($atts['type'] === 'payslip') { ?>
 
     <div class="payslip__grid">
       <div class="payslip__item">
-        <label>Employee Name:</label>
+        <label for="payslip-emp-name">Employee Name:</label>
         <input id="payslip-emp-name" class="payslip__input" placeholder="Employee Name">
       </div>
       <div class="payslip__item">
-        <label>Employee ID:</label>
+        <label for="payslip-emp-id">Employee ID:</label>
         <input id="payslip-emp-id" class="payslip__input" placeholder="Employee Id">
       </div>
     </div>
 
     <div class="payslip__grid">
       <div class="payslip__item">
-        <label>Pay Period:</label>
+        <label for="payslip-period">Pay Period:</label>
         <input id="payslip-period" class="payslip__input" type="month">
       </div>
       <div class="payslip__item">
-        <label>Paid Days:</label>
+        <label for="payslip-paid-days">Paid Days:</label>
         <input id="payslip-paid-days" class="payslip__input" type="number" value="30">
       </div>
     </div>
 
     <div class="payslip__grid">
       <div class="payslip__item">
-        <label>Loss of Pay Days:</label>
+        <label for="payslip-loss-days">Loss of Pay Days:</label>
         <input id="payslip-loss-days" class="payslip__input" type="number" value="0">
       </div>
       <div class="payslip__item">
-        <label>Pay Date:</label>
+        <label for="payslip-date">Pay Date:</label>
         <input id="payslip-date" class="payslip__input" type="date">
       </div>
     </div>
@@ -629,11 +653,17 @@ if ($atts['type'] === 'payslip') { ?>
         <tbody>
           <tr>
             <td>Basic</td>
-            <td><input id="payslip-basic" class="payslip__table-input" type="number" value="0"></td>
+            <td>
+              <input id="payslip-basic" class="payslip__table-input" type="number"
+                     value="0" aria-label="Basic Earnings">
+            </td>
           </tr>
           <tr>
             <td>House Rent Allowance</td>
-            <td><input id="payslip-hra" class="payslip__table-input" type="number" value="0"></td>
+            <td>
+              <input id="payslip-hra" class="payslip__table-input" type="number"
+                     value="0" aria-label="House Rent Allowance">
+            </td>
           </tr>
           <tr class="payslip__row-total">
             <td><strong>Gross Earnings:</strong></td>
@@ -650,11 +680,17 @@ if ($atts['type'] === 'payslip') { ?>
         <tbody>
           <tr>
             <td>Income Tax</td>
-            <td><input id="payslip-tax" class="payslip__table-input" type="number" value="0"></td>
+            <td>
+              <input id="payslip-tax" class="payslip__table-input" type="number"
+                     value="0" aria-label="Income Tax Deduction">
+            </td>
           </tr>
           <tr>
             <td>Provident Fund</td>
-            <td><input id="payslip-pf" class="payslip__table-input" type="number" value="0"></td>
+            <td>
+              <input id="payslip-pf" class="payslip__table-input" type="number"
+                     value="0" aria-label="Provident Fund Deduction">
+            </td>
           </tr>
           <tr class="payslip__row-total">
             <td><strong>Total Deductions:</strong></td>
@@ -692,22 +728,27 @@ if ($atts['type'] === 'payslip') { ?>
 <div id="payslip-print" style="display:none; padding:20px; font-family:Arial; width:700px;">
     
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-    <img id="print-logo" style="height:60px;">
-    <h2 id="print-month"></h2>
+    <img id="print-logo" style="height:60px;" alt="Company Logo">
+    <h2 id="print-month">Payslip Month</h2>
   </div>
 
   <div style="margin-bottom:20px;">
-  <h3 id="print-company-name" style="margin:0;"></h3>
+  <h3 id="print-company-name" style="margin:0;">Company Name</h3>
   <p id="print-company-address" style="margin:2px 0;"></p>
   <p id="print-company-location" style="margin:2px 0;"></p>
   </div>
   <table style="width:100%; border-collapse: collapse; margin-bottom:20px;">
-    <tr><td><strong>Employee Name:</strong></td><td id="print-name"></td></tr>
-    <tr><td><strong>Employee ID:</strong></td><td id="print-id"></td></tr>
-    <tr><td><strong>Pay Period:</strong></td><td id="print-period"></td></tr>
-    <tr><td><strong>Paid Days:</strong></td><td id="print-paid"></td></tr>
-    <tr><td><strong>Loss of Pay Days:</strong></td><td id="print-loss"></td></tr>
-    <tr><td><strong>Pay Date:</strong></td><td id="print-date"></td></tr>
+    <thead>
+      <tr><th scope="col" style="text-align:left;">Field</th><th scope="col" style="text-align:left;">Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Employee Name:</strong></td><td id="print-name"></td></tr>
+      <tr><td><strong>Employee ID:</strong></td><td id="print-id"></td></tr>
+      <tr><td><strong>Pay Period:</strong></td><td id="print-period"></td></tr>
+      <tr><td><strong>Paid Days:</strong></td><td id="print-paid"></td></tr>
+      <tr><td><strong>Loss of Pay Days:</strong></td><td id="print-loss"></td></tr>
+      <tr><td><strong>Pay Date:</strong></td><td id="print-date"></td></tr>
+    </tbody>
   </table>
 
   <table style="width:100%; border-collapse: collapse; margin-bottom:20px; font-size:14px;">
@@ -765,25 +806,34 @@ if ($atts['type'] === 'invoice') { ?>
           <label for="inv-logo" class="inv-logo-label no-print" id="inv-logo-label-box">
             <span id="inv-logo-text">+ Add Your Logo</span>
           </label>
-          <img id="inv-logo-preview" style="display:none; max-height:80px; max-width:150px;"/>
+          <img id="inv-logo-preview" alt="Invoice Logo Preview"
+               style="display:none; max-height:80px; max-width:150px;"/>
           <input type="file" id="inv-logo" accept="image/*" hidden>
        </div>
        <div class="inv-title-box">
-          <input type="text" id="inv-title" value="TAX INVOICE" class="inv-input-h1">
+          <input type="text" id="inv-title" value="TAX INVOICE" class="inv-input-h1" aria-label="Tax Invoice Title">
        </div>
     </div>
 
     <div class="inv-body">
        <div class="inv-row" style="display: flex; justify-content: space-between;">
           <div class="inv-col-half">
-            <input type="text" id="inv-company-name" placeholder="Your Company" class="inv-input inv-input-bold">
-            <input type="text" id="inv-company-name-person" placeholder="Your Name" class="inv-input">
-            <input type="email" id="inv-company-email" placeholder="Your Email" class="inv-input">
-            <input type="text" id="inv-company-gst" placeholder="Company's GSTIN" class="inv-input">
-            <input type="text" id="inv-company-address" placeholder="Company's Address" class="inv-input">
-            <input type="text" id="inv-company-city" placeholder="City" class="inv-input">
-            <input type="text" id="inv-company-state" placeholder="State" class="inv-input">
-            <input type="text" id="inv-company-country" placeholder="Country" value="India" class="inv-input">
+            <input type="text" id="inv-company-name" placeholder="Your Company"
+                   class="inv-input inv-input-bold" aria-label="Your Company">
+            <input type="text" id="inv-company-name-person" placeholder="Your Name"
+                   class="inv-input" aria-label="Your Name">
+            <input type="email" id="inv-company-email" placeholder="Your Email"
+                   class="inv-input" aria-label="Your Email">
+            <input type="text" id="inv-company-gst" placeholder="Company's GSTIN"
+                   class="inv-input" aria-label="Company GSTIN">
+            <input type="text" id="inv-company-address" placeholder="Company's Address"
+                   class="inv-input" aria-label="Company Address">
+            <input type="text" id="inv-company-city" placeholder="City"
+                   class="inv-input" aria-label="City">
+            <input type="text" id="inv-company-state" placeholder="State"
+                   class="inv-input" aria-label="State">
+            <input type="text" id="inv-company-country" placeholder="Country"
+                   value="India" class="inv-input" aria-label="Country">
           </div>
           <div class="inv-col-half" style="text-align: right;">
           </div>
@@ -792,26 +842,35 @@ if ($atts['type'] === 'invoice') { ?>
        <div class="inv-row" style="margin-top: 40px; display: flex; justify-content: space-between;">
           <div class="inv-col-half">
             <div class="inv-label">Bill To:</div>
-            <input type="text" id="inv-client-company" placeholder="Client's Company" class="inv-input inv-input-bold">
-            <input type="email" id="inv-client-email" placeholder="Client's Email" class="inv-input">
-            <input type="text" id="inv-client-gst" placeholder="Client's GSTIN" class="inv-input">
-            <input type="text" id="inv-client-address" placeholder="Client's Address" class="inv-input">
-            <input type="text" id="inv-client-city" placeholder="City" class="inv-input">
-            <input type="text" id="inv-client-state" placeholder="State" class="inv-input">
-            <input type="text" id="inv-client-country" placeholder="Country" value="India" class="inv-input">
-            <input type="text" id="inv-place-supply" placeholder="Place of Supply" class="inv-input">
+            <input type="text" id="inv-client-company" placeholder="Client's Company"
+                   class="inv-input inv-input-bold" aria-label="Client Company">
+            <input type="email" id="inv-client-email" placeholder="Client's Email"
+                   class="inv-input" aria-label="Client Email">
+            <input type="text" id="inv-client-gst" placeholder="Client's GSTIN"
+                   class="inv-input" aria-label="Client GSTIN">
+            <input type="text" id="inv-client-address" placeholder="Client's Address"
+                   class="inv-input" aria-label="Client Address">
+            <input type="text" id="inv-client-city" placeholder="City"
+                   class="inv-input" aria-label="Client City">
+            <input type="text" id="inv-client-state" placeholder="State"
+                   class="inv-input" aria-label="Client State">
+            <input type="text" id="inv-client-country" placeholder="Country"
+                   value="India" class="inv-input" aria-label="Client Country">
+            <input type="text" id="inv-place-supply" placeholder="Place of Supply"
+                   class="inv-input" aria-label="Place of Supply">
           </div>
           <div class="inv-col-half" style="max-width: 250px;">
              <div class="inv-meta-row">
-                <span class="inv-label">Invoice#</span>
-                <input type="text" id="inv-number" placeholder="INV-1" class="inv-input meta-input" style="text-align: right;">
+                <label for="inv-number" class="inv-label">Invoice#</label>
+                <input type="text" id="inv-number" placeholder="INV-1"
+                       class="inv-input meta-input" style="text-align: right;">
              </div>
              <div class="inv-meta-row">
-                <span class="inv-label">Invoice Date</span>
+                <label for="inv-date" class="inv-label">Invoice Date</label>
                 <input type="date" id="inv-date" class="inv-input meta-input" style="text-align: right;">
              </div>
              <div class="inv-meta-row">
-                <span class="inv-label">Due Date</span>
+                <label for="inv-due-date" class="inv-label">Due Date</label>
                 <input type="date" id="inv-due-date" class="inv-input meta-input" style="text-align: right;">
              </div>
           </div>
@@ -821,14 +880,14 @@ if ($atts['type'] === 'invoice') { ?>
           <table class="inv-table">
             <thead>
               <tr class="inv-table-header">
-                <th width="26%" style="text-align:center;">Item Description</th>
-                <th width="8%" style="text-align:center">Qty</th>
-                <th width="14%" style="text-align:center">Rate</th>
-                <th width="11%" style="text-align:center">SGST(%)</th>
-                <th width="11%" style="text-align:center">CGST(%)</th>
-                <th width="11%" style="text-align:center">Cess</th>
-                <th width="15%" style="text-align:center;">Amount</th>
-                <th width="4%" class="no-print"></th>
+                <th style="width: 26%; text-align:center;">Item Description</th>
+                <th style="width: 8%; text-align:center;">Qty</th>
+                <th style="width: 14%; text-align:center;">Rate</th>
+                <th style="width: 11%; text-align:center;">SGST(%)</th>
+                <th style="width: 11%; text-align:center;">CGST(%)</th>
+                <th style="width: 11%; text-align:center;">Cess</th>
+                <th style="width: 15%; text-align:center;">Amount</th>
+                <th style="width: 4%;" class="no-print"></th>
               </tr>
             </thead>
             <tbody id="inv-items-body">
@@ -840,12 +899,14 @@ if ($atts['type'] === 'invoice') { ?>
        <div class="inv-row" style="margin-top: 40px; display: flex; justify-content: space-between;">
           <div class="inv-col-half" style="width: 50%;">
              <div class="inv-notes-box">
-                <div class="inv-label">Notes</div>
-                <textarea id="inv-notes" class="inv-textarea" placeholder="It was great doing business with you."></textarea>
+                <label for="inv-notes" class="inv-label">Notes</label>
+                <textarea id="inv-notes" class="inv-textarea"
+                          placeholder="It was great doing business with you."></textarea>
              </div>
              <div class="inv-notes-box" style="margin-top: 20px;">
-                <div class="inv-label">Terms & Conditions</div>
-                <textarea id="inv-terms" class="inv-textarea" placeholder="Please make the payment by the due date."></textarea>
+                <label for="inv-terms" class="inv-label">Terms & Conditions</label>
+                <textarea id="inv-terms" class="inv-textarea"
+                          placeholder="Please make the payment by the due date."></textarea>
              </div>
           </div>
           <div class="inv-col-half" style="width: 40%;">
@@ -865,7 +926,11 @@ if ($atts['type'] === 'invoice') { ?>
                 <div class="inv-total-row inv-total-grand">
                    <span>Total</span>
                    <div style="display: flex; align-items: center;">
-                      <select id="inv-currency" class="inv-input no-print" style="width: auto; padding: 0px 5px; margin-right: 5px; font-weight: 700; background: transparent; border: 1px solid transparent; font-size: 16px; cursor: pointer;">
+                      <select id="inv-currency" class="inv-input no-print"
+                              aria-label="Currency"
+                              style="width: auto; padding: 0px 5px; margin-right: 5px; font-weight: 700;
+                                     background: transparent; border: 1px solid transparent;
+                                     font-size: 16px; cursor: pointer;">
                         <option value="₹">₹</option>
                         <option value="$">$</option>
                         <option value="€">€</option>
@@ -887,7 +952,10 @@ if ($atts['type'] === 'invoice') { ?>
   </div>
   
   <div class="inv-actions no-print">
-     <button id="inv-print-btn" class="button button--ghost" style="padding: 15px 30px; font-size: 18px;">Download Invoice PDF</button>
+     <button id="inv-print-btn" class="button button--ghost"
+             style="padding: 15px 30px; font-size: 18px;">
+       Download Invoice PDF
+     </button>
   </div>
 </div>
 
@@ -904,12 +972,6 @@ if ($atts['type'] === 'invoice') { ?>
 if ($atts['type'] === 'in-hand-salary') { ?>
 
     <div class="salary-calculator-wrapper">
-        <!-- Title & Subtitle Header -->
-        <!-- <div class="salary-calculator-header">
-            <h1 class="salary-title">Salary Calculator</h1>
-            <p class="salary-subtitle">Calculate new joinee salary, revised salary after performance cycle and more with
-                <b>Weekmate’s</b> free salary calculator</p>
-        </div> -->
 
         <!-- Dashed Outer Container -->
         <div class="salary-calculator-box">
@@ -1088,7 +1150,8 @@ if ($atts['type'] === 'sales-commision-calculator') { ?>
           </label>
           <input type="number" id="sales-input" class="form-input" value="10000" min="0" max="100000" step="1">
           <div class="range-container">
-            <input type="range" id="sales-slider" class="range-input" value="10000" min="0" max="100000" step="500">
+            <input type="range" id="sales-slider" class="range-input" value="10000" min="0" max="100000" step="500"
+                   aria-label="Total Sales Amount Slider">
             <div class="range-labels">
               <span>₹0</span>
               <span>₹100K</span>
@@ -1122,7 +1185,8 @@ if ($atts['type'] === 'sales-commision-calculator') { ?>
           </label>
           <input type="number" id="rate-input" class="form-input" value="5" min="0" max="100" step="0.1">
           <div class="range-container">
-            <input type="range" id="rate-slider" class="range-input" value="5" min="0" max="100" step="0.1">
+            <input type="range" id="rate-slider" class="range-input" value="5" min="0" max="100" step="0.1"
+                   aria-label="Commission Rate Slider">
             <div class="range-labels">
               <span id="rate-slider-min">0%</span>
               <span id="rate-slider-max">100%</span>
@@ -1199,7 +1263,9 @@ if ($atts['type'] === 'sales-commision-calculator') { ?>
           <h3 class="insight-title">Commission Insights</h3>
           <p class="insight-line">Consider if this rate aligns with industry standards</p>
           <p class="insight-line" id="res-insight-sales">Commission represents 5.0% of total sales</p>
-          <p class="insight-line" id="res-insight-tiered" style="display: none;">Tiered structure incentivizes higher sales volumes</p>
+          <p class="insight-line" id="res-insight-tiered" style="display: none;">
+            Tiered structure incentivizes higher sales volumes
+          </p>
         </div>
       </section>
     </div>
@@ -1239,7 +1305,8 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
               <option value="enterprise">Enterprise Solution</option>
             </select>
             <span class="projectCost-select-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
@@ -1250,17 +1317,18 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
         <div class="projectCost-form-group">
           <div class="projectCost-slider-header">
             <label for="projectCost-pages-slider" class="projectCost-form-label projectCost-slider-label">
-              Number of Pages / Screens: <span id="projectCost-pages-count-display" class="projectCost-highlight-count">21</span>
+              Number of Pages / Screens:
+              <span id="projectCost-pages-count-display" class="projectCost-highlight-count">21</span>
             </label>
           </div>
           <div class="projectCost-slider-wrapper">
-            <input 
-              type="range" 
-              id="projectCost-pages-slider" 
-              name="projectCost-pagesCount" 
-              min="1" 
-              max="50" 
-              value="21" 
+            <input
+              type="range"
+              id="projectCost-pages-slider"
+              name="projectCost-pagesCount"
+              min="1"
+              max="50"
+              value="21"
               class="projectCost-range-slider"
               aria-valuemin="1"
               aria-valuemax="50"
@@ -1275,7 +1343,8 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
           <span class="projectCost-form-label projectCost-group-label">Design Complexity</span>
           <div class="projectCost-radio-group" role="radiogroup" aria-label="Design Complexity">
             <label class="projectCost-radio-label">
-              <input type="radio" name="projectCost-designComplexity" value="simple" class="projectCost-custom-radio" checked>
+              <input type="radio" name="projectCost-designComplexity" value="simple"
+                     class="projectCost-custom-radio" checked>
               <span class="projectCost-radio-indicator"></span>
               <span class="projectCost-radio-text">Simple</span>
             </label>
@@ -1297,9 +1366,12 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
           <span class="projectCost-form-label projectCost-group-label">Additional Features</span>
           <div class="projectCost-checkbox-group" aria-label="Additional Features">
             <label class="projectCost-checkbox-label">
-              <input type="checkbox" id="projectCost-feature-cms" name="projectCost-features" value="cms" class="projectCost-custom-checkbox" checked>
+              <input type="checkbox" id="projectCost-feature-cms" name="projectCost-features"
+                     value="cms" class="projectCost-custom-checkbox" checked>
               <span class="projectCost-checkbox-indicator">
-                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14"
+                     fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="2.5 7 5.5 10 11.5 3.5"></polyline>
                 </svg>
               </span>
@@ -1307,9 +1379,12 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
             </label>
 
             <label class="projectCost-checkbox-label">
-              <input type="checkbox" id="projectCost-feature-seo" name="projectCost-features" value="seo" class="projectCost-custom-checkbox" checked>
+              <input type="checkbox" id="projectCost-feature-seo" name="projectCost-features"
+                     value="seo" class="projectCost-custom-checkbox" checked>
               <span class="projectCost-checkbox-indicator">
-                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14"
+                     fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="2.5 7 5.5 10 11.5 3.5"></polyline>
                 </svg>
               </span>
@@ -1317,9 +1392,12 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
             </label>
 
             <label class="projectCost-checkbox-label">
-              <input type="checkbox" id="projectCost-feature-auth" name="projectCost-features" value="auth" class="projectCost-custom-checkbox">
+              <input type="checkbox" id="projectCost-feature-auth" name="projectCost-features"
+                     value="auth" class="projectCost-custom-checkbox">
               <span class="projectCost-checkbox-indicator">
-                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="projectCost-check-icon" width="12" height="12" viewBox="0 0 14 14"
+                     fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="2.5 7 5.5 10 11.5 3.5"></polyline>
                 </svg>
               </span>
@@ -1334,14 +1412,12 @@ if ($atts['type'] === 'project-cost-calculator') { ?>
         <!-- Cost Estimation Output Section -->
         <div class="projectCost-cost-output-section" aria-live="polite">
           <p class="projectCost-cost-label">Estimated Project Cost</p>
-          <div id="projectCost-cost-display" class="projectCost-cost-amount" aria-label="Estimated Cost: ₹5,950">₹5,950</div>
+          <div id="projectCost-cost-display" class="projectCost-cost-amount"
+               aria-label="Estimated Cost: ₹5,950">₹5,950</div>
         </div>
 
         <!-- Actions -->
         <div class="projectCost-card-actions">
-          <!-- <button type="button" id="projectCost-calculate-btn" class="projectCost-btn-calculate" aria-label="Calculate Cost">
-            Calculate Cost
-          </button> -->
           <button type="button" id="projectCost-reset-btn" class="projectCost-btn-reset" aria-label="Reset Calculator">
             Reset Calculator
           </button>
